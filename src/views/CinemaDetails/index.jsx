@@ -2,11 +2,11 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import PropTypes from 'prop-types';
 
-class Main extends React.Component {
+class CinemaDetails extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      hello: 'Welcome to this nice app.',
+      hello: false,
     };
   }
 
@@ -22,11 +22,11 @@ class Main extends React.Component {
   }
 }
 
-Main.propTypes = {
+CinemaDetails.propTypes = {
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
     addListener: PropTypes.func.isRequired,
   }).isRequired,
 };
 
-export default Main;
+export default CinemaDetails;

@@ -6,7 +6,7 @@ class Main extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      hello: 'Welcome to this nice app.',
+      hello: false,
     };
   }
 
