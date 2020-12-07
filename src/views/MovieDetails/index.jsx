@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import { View, Text } from 'react-native';
+import ShowtimeList from '../../components/ShowtimeList';
 
 
 class MovieDetail extends React.Component {
@@ -10,6 +11,7 @@ class MovieDetail extends React.Component {
 
   render() {
     const { movie } = this.props;
+    //I want the title to be in the toolbar / header thingy
     return (
       <View style={{ flex: 1, backgroundColor: '#e5e5e5' }}>
 
@@ -17,12 +19,15 @@ class MovieDetail extends React.Component {
           <Image source={{ uri: movie.image }} style={styles.thumbnailImage} resizeMode="cover" />
         </View>
         <View style={styles.infoContainer}>
-          <TouchableOpacity onPress={() => { Linking.openURL(`tel:${phoneNumber}`); }}>
-            <View style={styles.phone}>
-            <Text style={styles.phoneNumber}>{phoneNumber}</Text>
-            </View>
-          </TouchableOpacity>
+          <Text> Söguþráðurinn: {movie.plot} </ Text>
+          <Text> Lengd í mínútúm: {movie.duration} </ Text>
+          <Text> Útgáfuár: {movie.release} </ Text>
+          <Text> Myndaflokkar: {movie.genres} </ Text>
         </View>
+        <ShowtimeList
+          onPress={(url) => Linking.openURL(url)}
+          showtimes={movie.showtimes}
+        />
       </View>
   }
 }
