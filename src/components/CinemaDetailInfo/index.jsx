@@ -1,16 +1,15 @@
 import React from 'react';
 import {
-  View, Text, FlatList,
+  ScrollView, View, Text, FlatList,
 } from 'react-native';
-import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import styles from './styles';
 
-const CinemaDetails = ({
-  cinemaDetails,
-}) => (
-  <View style={{ flex: 1, backgroundColor: '#e5e5e5' }}>
+const CinemaDetailInfo = ({ cinemaDetails }) => (
+  <ScrollView>
     <FlatList
       data={cinemaDetails}
+      extraData={cinemaDetails}
       style={styles.container}
       renderItem={({
         item: {
@@ -29,14 +28,13 @@ const CinemaDetails = ({
           <Text style={styles.text}>{website}</Text>
         </View>
       )}
-      keyExtractor={(cinemaDetail) => cinemaDetail.id.toString()}
+      keyExtractor={(cinemaDetail) => cinemaDetail.id}
     />
-  </View>
+  </ScrollView>
 );
 
-const mapStateToProps = (state, ownProps) => ({
-  cinemaDetails:
-    state.cinemas.filter((cinema) => cinema.id === ownProps.navigation.state.params.id),
-});
+CinemaDetailInfo.propTypes = {
+  cinemaDetails: PropTypes.func.isRequired,
+};
 
-export default connect(mapStateToProps)(CinemaDetails);
+export default CinemaDetailInfo;
