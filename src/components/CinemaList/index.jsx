@@ -35,7 +35,7 @@ class CinemaList extends React.Component {
 
   render() {
     const {
-      cinemas,
+      cinemas, onPress,
     } = this.props;
     return (
       <View style={styles.listContainer}>
@@ -56,6 +56,7 @@ class CinemaList extends React.Component {
                 phone={phone}
                 website={website}
                 description={description}
+                onPress={onPress}
               />
             </View>
           )}

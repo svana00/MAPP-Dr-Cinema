@@ -13,14 +13,16 @@ class Cinemas extends React.Component {
   }
 
   render() {
-    const { navigation, cinemas } = this.props;
+    const { navigation: { navigate }, cinemas } = this.props;
     return (
       <View>
         <Header
           title="Cinemas"
         />
         <CinemaList
-          navigation={navigation}
+          onPress={(id, name, description, address, phone, website) => navigate('CinemaDetails', {
+            id, name, description, address, phone, website,
+          })}
           cinemas={cinemas}
         />
       </View>

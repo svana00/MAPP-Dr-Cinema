@@ -12,21 +12,28 @@ class Main extends React.Component {
   }
 
   render() {
-    const {
-      hello,
-    } = this.state;
+    const { navigation: { navigate } } = this.props;
     return (
       <View style={{ flex: 1, backgroundColor: '#e5e5e5' }}>
-        <Text>{hello}</Text>
         <Text>Hello there!</Text>
         <View style={{ flexDirection: 'row' }}>
           <View style={{ flex: 1 }}>
-            <Button mode="contained" color="black" compact="True" onPress={() => console.log('Cinemas')}>
+            <Button
+              mode="contained"
+              color="black"
+              compact="True"
+              onPress={() => navigate('Cinemas', null)}
+            >
               <Text>Cinemas</Text>
             </Button>
           </View>
           <View style={{ flex: 1, width: 20 }}>
-            <Button mode="contained" color="black" compact="True" onPress={() => console.log('UpcomingMovies')}>
+            <Button
+              mode="contained"
+              color="black"
+              compact="True"
+              onPress={() => navigate('Cinemas', null)}
+            >
               <Text>Upcoming Movies</Text>
             </Button>
           </View>
