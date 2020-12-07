@@ -4,9 +4,9 @@ import { View, Text } from 'react-native';
 import ShowtimeList from '../../components/ShowtimeList';
 
 
-class MovieDetail extends React.Component {
+class MovieDetails extends React.Component {
   static navigationOptions = {
-    title: 'MovieDetail'
+    title: 'MovieDetails'
   },
 
   render() {
@@ -70,3 +70,4 @@ const mapStateToProps = (state, props) => {
     movie,
   };
 }
+export default connect(mapStateToProps)(MovieDetails)
