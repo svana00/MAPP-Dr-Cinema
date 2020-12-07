@@ -1,32 +1,41 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {
   View, Text, TouchableOpacity,
 } from 'react-native';
-import { withNavigation } from 'react-navigation';
+import { List } from 'react-native-paper';
 import styles from './styles';
 
-const ContactListItem = ({
-  navigation: { navigate },
+const CinemaListItem = ({
+  id, name, address, city, description, phone, website, navigation,
 }) => (
   <TouchableOpacity
-    onPress={() => {
-      navigate('DetailedView', {
-      });
-    }}
+    onPress={() => navigation.navigate('CinemaDetails', {
+      name: {
+        id,
+        cinemaName: name,
+        address,
+        city,
+        description,
+        phone,
+        website,
+      },
+      navigate: navigation.navigate,
+    })}
   >
     {
   }
     <View style={[styles.listItem, { opacity: 1 }]}>
-      <Text style={styles.title}>ListItem</Text>
+      <View style={styles.textBox}>
+        <Text style={styles.title}>{name}</Text>
+        <Text style={styles.website}>{website}</Text>
+      </View>
+      <View>
+        <TouchableOpacity>
+          <List.Icon icon="arrow-right" />
+        </TouchableOpacity>
+      </View>
     </View>
   </TouchableOpacity>
 );
 
-ContactListItem.propTypes = {
-  navigation: PropTypes.shape({
-    navigate: PropTypes.func.isRequired,
-  }).isRequired,
-};
-
-export default withNavigation(ContactListItem);
+export default CinemaListItem;

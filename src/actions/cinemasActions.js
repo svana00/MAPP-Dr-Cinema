@@ -1,16 +1,16 @@
 import * as constants from '../constants';
 import getAllCinemas from '../services/cinemasService';
 
-export const getCinemasSuccess = (currentCinemas) => ({
+export const getCinemasSuccess = (cinemas) => ({
   type: constants.GET_ALL_CINEMAS,
-  payload: currentCinemas.sort((a, b) => a.name.localeCompare(b.name)),
+  payload: cinemas.sort((cin1, cin2) => cin1.name.localeCompare(cin2.name)),
 });
 
 export const getCinemas = (token) => async (dispatch) => {
   try {
-    const currentCinemas = await getAllCinemas(token);
-    dispatch(getCinemasSuccess(currentCinemas));
+    const cinemas = await getAllCinemas(token);
+    dispatch(getCinemasSuccess(cinemas));
   } catch (error) {
-    console.log('an error occurred getting cinemas', error);
+    console.log('An error occurred in getAllCinemas action.', error);
   }
 };

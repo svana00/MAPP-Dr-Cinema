@@ -1,32 +1,38 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { getCinemas } from '../../actions/cinemasActions';
+import CinemaList from '../../components/CinemaList';
 
-class Main extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      hello: false,
-    };
+class Cinemas extends React.Component {
+  async componentDidMount() {
+    const { getCinemas } = this.props;
+    await getCinemas();
   }
 
   render() {
-    const {
-      hello,
-    } = this.state;
+    const { navigation, cinemas } = this.props;
     return (
-      <View style={{ flex: 1, backgroundColor: '#e5e5e5' }}>
-        <Text>{hello}</Text>
+      <View>
+        <CinemaList
+          navigation={navigation}
+          cinemas={cinemas}
+        />
       </View>
     );
   }
 }
 
-Main.propTypes = {
+const mapStateToProps = ({ cinemas }) => ({
+  cinemas,
+});
+
+Cinemas.propTypes = {
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
     addListener: PropTypes.func.isRequired,
   }).isRequired,
 };
 
-export default Main;
+export default connect(mapStateToProps, { getCinemas })(Cinemas);
