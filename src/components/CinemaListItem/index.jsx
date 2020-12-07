@@ -2,6 +2,7 @@ import React from 'react';
 import {
   View, Text, TouchableOpacity,
 } from 'react-native';
+import PropTypes from 'prop-types';
 import { List } from 'react-native-paper';
 import styles from './styles';
 
@@ -37,5 +38,25 @@ const CinemaListItem = ({
     </View>
   </TouchableOpacity>
 );
+
+CinemaListItem.propTypes = {
+  id: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  address: PropTypes.string,
+  city: PropTypes.string.isRequired,
+  description: PropTypes.string,
+  phone: PropTypes.string,
+  website: PropTypes.string.isRequired,
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }),
+};
+
+CinemaListItem.defaultProps = {
+  address: null,
+  description: null,
+  phone: null,
+  navigation: null,
+};
 
 export default CinemaListItem;

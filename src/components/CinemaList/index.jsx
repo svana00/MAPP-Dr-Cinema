@@ -35,7 +35,7 @@ class CinemaList extends React.Component {
 
   render() {
     const {
-      cinemas, navigation,
+      cinemas,
     } = this.props;
     return (
       <View style={styles.listContainer}>

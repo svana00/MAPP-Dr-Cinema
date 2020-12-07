@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getCinemas } from '../../actions/cinemasActions';
 import CinemaList from '../../components/CinemaList';
+import Header from '../../components/Header';
 
 class Cinemas extends React.Component {
   async componentDidMount() {
@@ -15,6 +16,9 @@ class Cinemas extends React.Component {
     const { navigation, cinemas } = this.props;
     return (
       <View>
+        <Header
+          title="Cinemas"
+        />
         <CinemaList
           navigation={navigation}
           cinemas={cinemas}
