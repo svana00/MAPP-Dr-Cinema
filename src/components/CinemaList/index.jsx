@@ -2,17 +2,11 @@ import React from 'react';
 import {
   View, FlatList, TextInput,
 } from 'react-native';
+import { connect } from 'react-redux';
 import styles from './styles';
 import CinemaListItem from '../CinemaListItem';
 
 class CinemaList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      query: '',
-    };
-  }
-
   renderHeader() {
     const {
       query,
@@ -41,33 +35,38 @@ class CinemaList extends React.Component {
 
   render() {
     const {
-      modifiedData,
-    } = this.state;
+      cinemas, onPress,
+    } = this.props;
     return (
       <View style={styles.listContainer}>
         <FlatList
-          numColumns={1}
-          data={modifiedData}
+          numColons={cinemas.length}
+          data={cinemas}
           renderItem={({
             item: {
-              id, name, phoneNumber, image, fileName,
+              id, name, address, city, phone, website, description,
             },
           }) => (
             <View>
               <CinemaListItem
                 id={id}
                 name={name}
-                phoneNumber={phoneNumber}
-                thumbnailPhoto={image}
-                fileName={fileName}
+                address={address}
+                city={city}
+                phone={phone}
+                website={website}
+                description={description}
+                onPress={onPress}
               />
             </View>
           )}
-          keyExtractor={(contact) => contact.id.toString()}
+          keyExtractor={(cinema) => cinema.id.toString()}
         />
       </View>
     );
   }
 }
 
-export default CinemaList;
+const mapStateToProps = ({ cinemas }) => ({ cinemas });
+
+export default connect(mapStateToProps)(CinemaList); // Returns a connected component

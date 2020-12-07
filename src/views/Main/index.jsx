@@ -1,40 +1,38 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Image } from 'react-native';
 import PropTypes from 'prop-types';
 import { Button } from 'react-native-paper';
+import logo from '../../resources/logo.png';
+import styles from './styles';
 
-class Main extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      hello: 'Welcome to this nice app.',
-    };
-  }
-
-  render() {
-    const {
-      hello,
-    } = this.state;
-    return (
-      <View style={{ flex: 1, backgroundColor: '#e5e5e5' }}>
-        <Text>{hello}</Text>
-        <Text>Hello there!</Text>
-        <View style={{ flexDirection: 'row' }}>
-          <View style={{ flex: 1 }}>
-            <Button mode="contained" color="black" compact="True" onPress={() => console.log('Cinemas')}>
-              <Text>Cinemas</Text>
-            </Button>
-          </View>
-          <View style={{ flex: 1, width: 20 }}>
-            <Button mode="contained" color="black" compact="True" onPress={() => console.log('UpcomingMovies')}>
-              <Text>Upcoming Movies</Text>
-            </Button>
-          </View>
-        </View>
+const Main = ({ navigation: { navigate } }) => (
+  <View style={styles.container}>
+    <Image source={logo} style={styles.logo} />
+    <Text>Hello there!</Text>
+    <View style={{ flexDirection: 'row' }}>
+      <View style={styles.button}>
+        <Button
+          mode="contained"
+          color="black"
+          compact="True"
+          onPress={() => navigate('Cinemas', null)}
+        >
+          <Text>Cinemas</Text>
+        </Button>
       </View>
-    );
-  }
-}
+      <View style={styles.button}>
+        <Button
+          mode="contained"
+          color="black"
+          compact="True"
+          onPress={() => navigate('Cinemas', null)}
+        >
+          <Text>Upcoming Movies</Text>
+        </Button>
+      </View>
+    </View>
+  </View>
+);
 
 Main.propTypes = {
   navigation: PropTypes.shape({

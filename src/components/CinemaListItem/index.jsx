@@ -1,32 +1,52 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {
   View, Text, TouchableOpacity,
 } from 'react-native';
-import { withNavigation } from 'react-navigation';
+import PropTypes from 'prop-types';
+import { List } from 'react-native-paper';
 import styles from './styles';
 
-const ContactListItem = ({
-  navigation: { navigate },
+const CinemaListItem = ({
+  id, name, address, city, description, phone, website, onPress,
 }) => (
   <TouchableOpacity
-    onPress={() => {
-      navigate('DetailedView', {
-      });
-    }}
+    onPress={() => onPress(id, name, description, address, phone, website)}
   >
     {
   }
     <View style={[styles.listItem, { opacity: 1 }]}>
-      <Text style={styles.title}>ListItem</Text>
+      <View style={styles.textBox}>
+        <Text style={styles.title}>{name}</Text>
+        <Text style={styles.website}>{website}</Text>
+      </View>
+      <View>
+        <TouchableOpacity>
+          <List.Icon icon="arrow-right" />
+        </TouchableOpacity>
+      </View>
     </View>
   </TouchableOpacity>
 );
 
-ContactListItem.propTypes = {
+CinemaListItem.propTypes = {
+  id: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  address: PropTypes.string,
+  city: PropTypes.string.isRequired,
+  description: PropTypes.string,
+  phone: PropTypes.string,
+  website: PropTypes.string.isRequired,
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
-  }).isRequired,
+  }),
+  onPress: PropTypes.func.isRequired,
 };
 
-export default withNavigation(ContactListItem);
+CinemaListItem.defaultProps = {
+  address: null,
+  description: null,
+  phone: null,
+  navigation: null,
+};
+
+export default CinemaListItem;
