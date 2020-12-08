@@ -43,7 +43,7 @@ const MovieDetails = ({
     </View>
     <ShowtimeList
       onPress={(url) => Linking.openURL(url)}
-      showtimes={movieDetails[0].showtimes}
+      movieDetails={movieDetails}
     />
   </View>
 );

@@ -3,7 +3,6 @@ import {
   View, Text, TouchableOpacity,
 } from 'react-native';
 import PropTypes from 'prop-types';
-import { List } from 'react-native-paper';
 import styles from './styles';
 
 const ShowtimeListItem = ({
@@ -12,9 +11,11 @@ const ShowtimeListItem = ({
   <TouchableOpacity
     onPress={() => onPress(url)}
   >
-    Kaupa miða kl
-    {' '}
-    {time}
+    <Text>
+      Kaupa miða kl
+      {' '}
+      {time}
+    </Text>
   </TouchableOpacity>
 );
 
