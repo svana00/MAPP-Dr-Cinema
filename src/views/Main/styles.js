@@ -23,26 +23,13 @@ export default StyleSheet.create({
     paddingLeft: 40,
   },
   logo: {
-    width: 260,
-    height: 260,
+    width: 350,
+    height: 500,
   },
   button: {
     flex: 1,
     width: 20,
     borderColor: 'white',
     borderWidth: 2,
-  },
-  whiteBackgroundThing: {
-    position: 'absolute',
-    width: 360.34,
-    height: 400,
-    left: 250,
-    top: 85,
-    backgroundColor: '#FFFFFF',
-    transform: [
-      {
-        rotate: '-43deg',
-      },
-    ],
   },
 });

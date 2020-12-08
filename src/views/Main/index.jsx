@@ -1,35 +1,39 @@
 import React from 'react';
-import { View, Text, Image } from 'react-native';
+import {
+  View, Text, Image, ImageBackground,
+} from 'react-native';
 import PropTypes from 'prop-types';
 import { Button } from 'react-native-paper';
 import logo from '../../resources/logo.png';
 import styles from './styles';
+const image = { uri: 'https://reactjs.org/logo-og.png' };
 
 const Main = ({ navigation: { navigate } }) => (
   <View style={styles.container}>
-    <View style={styles.whiteBackgroundThing} />
-    <Image source={logo} style={styles.logo} />
-    <Text>Hello there!</Text>
-    <View style={{ flexDirection: 'row' }}>
-      <View style={styles.button}>
-        <Button
-          mode="contained"
-          color="black"
-          compact="True"
-          onPress={() => navigate('Cinemas', null)}
-        >
-          <Text>Kvikmyndahús</Text>
-        </Button>
-      </View>
-      <View style={styles.button}>
-        <Button
-          mode="contained"
-          color="black"
-          compact="True"
-          onPress={() => navigate('Cinemas', null)}
-        >
-          <Text>Væntanlegt í bíó</Text>
-        </Button>
+    <View>
+      <Image source={logo} style={styles.logo} />
+      <Text>Hello there!</Text>
+      <View style={{ flexDirection: 'row' }}>
+        <View style={styles.button}>
+          <Button
+            mode="contained"
+            color="black"
+            compact="True"
+            onPress={() => navigate('Cinemas', null)}
+          >
+            <Text>Kvikmyndahús</Text>
+          </Button>
+        </View>
+        <View style={styles.button}>
+          <Button
+            mode="contained"
+            color="black"
+            compact="True"
+            onPress={() => navigate('Cinemas', null)}
+          >
+            <Text>Væntanlegt í bíó</Text>
+          </Button>
+        </View>
       </View>
     </View>
   </View>
