@@ -32,9 +32,8 @@ const ShowtimeList = ({
 
 ShowtimeList.propTypes = {
   onPress: PropTypes.func.isRequired,
-  movieDetails: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = ({ showtimes }) => ({ showtimes });
 
-export default connect(mapStateToProps)(ShowtimeList); // Returns a connected component
+export default connect(mapStateToProps)(ShowtimeList);
