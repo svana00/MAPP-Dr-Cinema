@@ -15,11 +15,10 @@ class ShowtimeList extends React.Component {
     return (
       <View style={styles.listContainer}>
         <FlatList
-          numColons= 1
+          numColons={1}
           data={showtimes}
           renderItem={({
-            item: { purchase_url, time
-            },
+            item: { purchase_url, time },
           }) => (
             <View>
               <ShowtimeListItem
@@ -29,14 +28,14 @@ class ShowtimeList extends React.Component {
               />
             </View>
           )}
-          keyExtractor={(time) => `${item.time}` }
+          keyExtractor={(time) => `${item.time}`}
         />
       </View>
     );
   }
 }
 
-CinemaList.propTypes = {
+ShowtimeList.propTypes = {
   onPress: PropTypes.func.isRequired,
 };
 

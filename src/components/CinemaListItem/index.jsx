@@ -7,7 +7,7 @@ import { List } from 'react-native-paper';
 import styles from './styles';
 
 const CinemaListItem = ({
-  id, name, address, city, description, phone, website, onPress, navigate,
+  id, name, address, city, description, phone, website, onPress,
 }) => (
   <TouchableOpacity
     onPress={() => onPress(id, name, description, address, phone, website)}
@@ -36,7 +36,6 @@ CinemaListItem.propTypes = {
   description: PropTypes.string,
   phone: PropTypes.string,
   website: PropTypes.string.isRequired,
-  navigate: PropTypes.func.isRequired,
   onPress: PropTypes.func.isRequired,
 };
 

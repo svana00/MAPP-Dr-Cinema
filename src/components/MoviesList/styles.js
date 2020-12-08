@@ -2,12 +2,12 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   listContainer: {
-    paddingBottom: 135,
+    marginLeft: 10,
+    marginRight: 10,
+    marginBottom: 10,
   },
-  text: {
-    fontSize: 20,
-    color: '#101010',
-    marginTop: 30,
-    fontWeight: '700',
+  info: {
+    fontSize: 16,
+    color: 'black',
   },
 });

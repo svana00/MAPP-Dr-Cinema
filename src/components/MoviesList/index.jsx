@@ -1,18 +1,19 @@
 import React from 'react';
 import {
-  View, FlatList,
+  View, FlatList, Text
 } from 'react-native';
+import PropTypes from 'prop-types';
 import styles from './styles';
 import MoviesListItem from '../MoviesListItem';
 
-const MoviesList = ({ cinemaId, cinemaMovies, navigate }) => (
+const MoviesList = ({ cinemaId, cinemaMovies, onPress }) => (
   <View style={styles.listContainer}>
     <FlatList
-      numColons={cinemaMovies.length}
+      numColumns={1}
       data={cinemaMovies}
       renderItem={({
         item: {
-          id, name, image, plot, durationMinutes, releaseYear, genres, showtimes,
+          id, name, image, plot, duration, releaseYear, genres, showtimes,
         },
       }) => (
         <View>
@@ -22,12 +23,11 @@ const MoviesList = ({ cinemaId, cinemaMovies, navigate }) => (
             name={name}
             image={image}
             plot={plot}
-            durationMinutes={durationMinutes}
+            duration={duration}
             releaseYear={releaseYear}
             genres={genres}
             showtimes={showtimes}
-            onPress={() => console.log('pressed')}
-            navigate={navigate}
+            onPress={onPress}
           />
         </View>
       )}
@@ -35,5 +35,10 @@ const MoviesList = ({ cinemaId, cinemaMovies, navigate }) => (
     />
   </View>
 );
+
+MoviesList.propTypes = {
+  cinemaId: PropTypes.number.isRequired,
+  onPress: PropTypes.func.isRequired,
+};
 
 export default MoviesList;

@@ -1,73 +1,67 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import { View, Text } from 'react-native';
+import {
+  View, Text, Linking, Image,
+} from 'react-native';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import styles from './styles';
 import ShowtimeList from '../../components/ShowtimeList';
 
+const MovieDetails = ({
+  movieDetails,
+}) => (
+  <View style={{ flex: 1, backgroundColor: '#e5e5e5' }}>
 
-class MovieDetails extends React.Component {
-  static navigationOptions = {
-    title: 'MovieDetails'
-  },
+    <View style={{ alignItems: 'center' }}>
+      <Image source={{ uri: movieDetails[0].image }} style={styles.thumbnailImage} resizeMode="cover" />
+    </View>
+    <View style={styles.infoContainer}>
+      <Text>
+        {' '}
+        Söguþráðurinn:
+        {movieDetails[0].plot}
+      </Text>
+      <Text>
+        {' '}
+        Lengd í mínútúm:
+        {movieDetails[0].duration}
+        {' '}
+      </Text>
+      <Text>
+        {' '}
+        Útgáfuár:
+        {' '}
+        {movieDetails[0].releaseYear}
+        {' '}
+      </Text>
+      <Text>
+        {' '}
+        Myndaflokkar:
+        {movieDetails[0].genres}
+        {' '}
+      </Text>
+    </View>
+    <ShowtimeList
+      onPress={(url) => Linking.openURL(url)}
+      showtimes={movieDetails[0].showtimes}
+    />
+  </View>
+);
 
-  render() {
-    const { movie } = this.props;
-    //I want the title to be in the toolbar / header thingy
-    return (
-      <View style={{ flex: 1, backgroundColor: '#e5e5e5' }}>
+MovieDetails.propTypes = {
+  movieDetails: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    plot: PropTypes.string.isRequired,
+    duration: PropTypes.number.isRequired,
+    releaseYear: PropTypes.string.isRequired,
+  })).isRequired,
+};
 
-        <View style={{ alignItems: 'center' }}>
-          <Image source={{ uri: movie.image }} style={styles.thumbnailImage} resizeMode="cover" />
-        </View>
-        <View style={styles.infoContainer}>
-          <Text> Söguþráðurinn: {movie.plot} </ Text>
-          <Text> Lengd í mínútúm: {movie.duration} </ Text>
-          <Text> Útgáfuár: {movie.release} </ Text>
-          <Text> Myndaflokkar: {movie.genres} </ Text>
-        </View>
-        <ShowtimeList
-          onPress={(url) => Linking.openURL(url)}
-          showtimes={movie.showtimes}
-        />
-      </View>
-  }
-}
+const mapStateToProps = (state, ownProps) => ({
+  movieDetails:
+  state.cinemaMovies.filter((movie) => movie.id === ownProps.navigation.state.params.id),
+});
 
-const mapStateToProps = (state, props) => {
-  const { navigation } = props;
-  const cinema = navigation.getParam('cinema', '');
-  const movieId = navigation.getParam('movieId','');
-  var movieObject = {};
-  var times = {};
-  var genres = "";
-  for (var i in state.movies){
-    if (state.movies[i].id === movieId){
-      movieObject = state.movies[i]
-    }
-  }
-
-  for (var x in movieObject.showtimes) {
-    if (movieObject.showtimes[x].cinema.id === cinema){
-      times = movieObject.showtimes[x].schedule
-    }
-  }
-
-  for (var z in movieObject.genres) {
-    genres += movie.genres[i].name + ', '
-  }
-  genres = genres.slice(0,-1)
-
-  const movie = {
-    name: movie.title,
-    image: movie.poster,
-    plot: movie.plot,
-    duration: movie.durationMinutes,
-    release: movie.year,
-    genres: genres,
-    showtimes: times,
-  }
-
-  return {
-    movie,
-  };
-}
-export default connect(mapStateToProps)(MovieDetails)
+export default connect(mapStateToProps)(MovieDetails);

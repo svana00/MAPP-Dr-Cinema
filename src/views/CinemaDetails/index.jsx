@@ -3,6 +3,7 @@ import {
   View, Text, FlatList,
 } from 'react-native';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import styles from './styles';
 import { getMoviesForCinema } from '../../actions/cinemaMoviesActions';
 import Header from '../../components/Header';
@@ -16,7 +17,7 @@ class CinemaDetails extends React.Component {
 
   render() {
     const {
-      newMovies, cinemaMovies, navigate, cinemaDetails,
+      newMovies, cinemaMovies, cinemaDetails, navigation: { navigate },
     } = this.props;
     return (
       <View>
@@ -42,7 +43,7 @@ class CinemaDetails extends React.Component {
                   : null}
                 {(description) ? (
                   <Text style={styles.heading}>
-                    More info
+                    Frekari upplýsingar
                   </Text>
                 )
                   : null}
@@ -65,12 +66,26 @@ class CinemaDetails extends React.Component {
                 )
                   : null}
                 <Text
-                  style={styles.info}
+                  style={styles.website}
                 >
                   {website}
                 </Text>
+                <Text style={styles.heading}>
+                  Kvikmyndir í sýningu
+                </Text>
+                {cinemaMovies[0] ? (
+                  null
+                )
+                  : (
+                    <Text style={styles.info}>
+                      Því miður eru engar kvikmyndir í sýningu eins og stendur.
+                    </Text>
+                  )}
               </View>
               <MoviesList
+                onPress={(id, name, image, plot, duration, releaseYear, genres, showtimes) => navigate('MovieDetails', {
+                  id, name, image, plot, duration, releaseYear, genres, showtimes,
+                })}
                 cinemaId={id}
                 cinemaMovies={cinemaMovies}
                 navigate={navigate}
@@ -83,6 +98,14 @@ class CinemaDetails extends React.Component {
     );
   }
 }
+
+CinemaDetails.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+    getParam: PropTypes.func.isRequired,
+  }).isRequired,
+  getMoviesForCinema: PropTypes.func.isRequired,
+};
 
 const mapStateToProps = (state, ownProps) => ({
   cinemaDetails: state.cinemas.filter(
