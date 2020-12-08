@@ -4,39 +4,91 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 import styles from './styles';
+import { getMoviesForCinema } from '../../actions/cinemasActions';
+import Header from '../../components/Header';
+import MoviesList from '../../components/MoviesList';
 
-const CinemaDetails = ({
-  cinemaDetails,
-}) => (
-  <View style={{ flex: 1, backgroundColor: '#e5e5e5' }}>
-    <FlatList
-      data={cinemaDetails}
-      style={styles.container}
-      renderItem={({
-        item: {
-          name, description, address, phone, website, city,
-        },
-      }) => (
-        <View>
-          <Text style={styles.text}>{name}</Text>
-          <Text style={styles.description}>{description}</Text>
-          <Text style={styles.text}>
-            {address}
-            ,
-            {city}
-          </Text>
-          <Text style={styles.text}>{phone}</Text>
-          <Text style={styles.text}>{website}</Text>
-        </View>
-      )}
-      keyExtractor={(cinemaDetail) => cinemaDetail.id.toString()}
-    />
-  </View>
-);
+class CinemaDetails extends React.Component {
+  componentDidMount() {
+    const { getMoviesForCinema, cinemaDetails } = this.props;
+    getMoviesForCinema(cinemaDetails[0].id);
+  }
+
+  render() {
+    const {
+      newMovies, cinemaMovies, navigate, cinemaDetails,
+    } = this.props;
+    return (
+      <View>
+        <FlatList
+          data={cinemaDetails}
+          style={styles.container}
+          renderItem={({
+            item: {
+              id, name, description, address, phone, website, city,
+            },
+          }) => (
+            <View>
+              <Header
+                title={name}
+              />
+              <View style={styles.listContainer}>
+                <Text style={styles.heading}>{name}</Text>
+                {description ? (
+                  <Text style={styles.description}>
+                    {description}
+                  </Text>
+                )
+                  : null}
+                {(description) ? (
+                  <Text style={styles.heading}>
+                    More info
+                  </Text>
+                )
+                  : null}
+                {address ? (
+                  <Text style={styles.info}>
+                    {address}
+                    ,
+                    {city}
+                  </Text>
+                )
+                  : (
+                    <Text style={styles.info}>
+                      {city}
+                    </Text>
+                  )}
+                {phone ? (
+                  <Text style={styles.info}>
+                    {phone}
+                  </Text>
+                )
+                  : null}
+                <Text
+                  style={styles.info}
+                >
+                  {website}
+                </Text>
+              </View>
+              <MoviesList
+                cinemaId={id}
+                cinemaMovies={cinemaMovies}
+                navigate={navigate}
+              />
+            </View>
+          )}
+          keyExtractor={(cinema) => cinema.id.toString()}
+        />
+      </View>
+    );
+  }
+}
 
 const mapStateToProps = (state, ownProps) => ({
-  cinemaDetails:
-    state.cinemas.filter((cinema) => cinema.id === ownProps.navigation.state.params.id),
+  cinemaDetails: state.cinemas.filter(
+    (cinema) => cinema.id === ownProps.navigation.state.params.id,
+  ),
+  cinemaMovies: state.cinemaMovies,
 });
 
-export default connect(mapStateToProps)(CinemaDetails);
+export default connect(mapStateToProps, { getMoviesForCinema })(CinemaDetails);

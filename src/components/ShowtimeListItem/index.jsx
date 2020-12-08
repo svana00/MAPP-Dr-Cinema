@@ -10,8 +10,11 @@ const ShowtimeListItem = ({
   url, time, onPress,
 }) => (
   <TouchableOpacity
-    onPress={() => onPress(url)}>
-    Kaupa miða kl {time}
+    onPress={() => onPress(url)}
+  >
+    Kaupa miða kl
+    {' '}
+    {time}
   </TouchableOpacity>
 );
 

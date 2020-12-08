@@ -17,7 +17,7 @@ const Main = ({ navigation: { navigate } }) => (
           compact="True"
           onPress={() => navigate('Cinemas', null)}
         >
-          <Text>Cinemas</Text>
+          <Text>Kvikmyndahús</Text>
         </Button>
       </View>
       <View style={styles.button}>
@@ -27,7 +27,7 @@ const Main = ({ navigation: { navigate } }) => (
           compact="True"
           onPress={() => navigate('Cinemas', null)}
         >
-          <Text>Upcoming Movies</Text>
+          <Text>Væntanlegt í bíó</Text>
         </Button>
       </View>
     </View>
