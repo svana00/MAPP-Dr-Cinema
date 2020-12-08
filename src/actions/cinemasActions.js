@@ -1,5 +1,5 @@
 import * as constants from '../constants';
-import { getAllCinemas, getAllMoviesForCinema } from '../services/cinemasService';
+import { getAllCinemas } from '../services/cinemasService';
 
 export const getCinemasSuccess = (cinemas) => ({
   type: constants.GET_ALL_CINEMAS,
@@ -24,20 +24,5 @@ export const getCinemas = (token) => async (dispatch) => {
     dispatch(getCinemasSuccess(cinemasTrimmed));
   } catch (error) {
     console.log('An error occurred in getAllCinemas action.', error);
-  }
-};
-
-export const getMoviesForCinemaSuccess = (movies) => ({
-  type: constants.GET_CINEMA_MOVIES,
-  payload: movies,
-});
-
-export const getMoviesForCinema = (cinemaId) => async (dispatch) => {
-  try {
-    const movies = await getAllMoviesForCinema(cinemaId).getMovies();
-    console.log(movies);
-    dispatch(getMoviesForCinemaSuccess(movies));
-  } catch (err) {
-    console.log('We had an ERROR in movieAction --> getCinemaDetails');
   }
 };

@@ -4,7 +4,7 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 import styles from './styles';
-import { getMoviesForCinema } from '../../actions/cinemasActions';
+import { getMoviesForCinema } from '../../actions/cinemaMoviesActions';
 import Header from '../../components/Header';
 import MoviesList from '../../components/MoviesList';
 
