@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import { Button } from 'react-native-paper';
 import logo from '../../resources/logo.png';
 import styles from './styles';
+
 const image = { uri: 'https://reactjs.org/logo-og.png' };
 
 const Main = ({ navigation: { navigate } }) => (

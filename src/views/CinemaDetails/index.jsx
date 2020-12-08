@@ -3,6 +3,7 @@ import {
   View, Text, FlatList,
 } from 'react-native';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import styles from './styles';
 import { getMoviesForCinema } from '../../actions/cinemaMoviesActions';
 import Header from '../../components/Header';
@@ -16,7 +17,7 @@ class CinemaDetails extends React.Component {
 
   render() {
     const {
-      newMovies, cinemaMovies, navigate, cinemaDetails,
+      newMovies, cinemaMovies, cinemaDetails, navigation: { navigate },
     } = this.props;
     return (
       <View>
@@ -71,6 +72,9 @@ class CinemaDetails extends React.Component {
                 </Text>
               </View>
               <MoviesList
+                onPress={(id, name, image, plot, durationMinutes, releaseYear, genres, showtimes) => navigate('MovieDetails', {
+                  id, name, image, plot, durationMinutes, releaseYear, genres, showtimes,
+                })}
                 cinemaId={id}
                 cinemaMovies={cinemaMovies}
                 navigate={navigate}
@@ -83,6 +87,13 @@ class CinemaDetails extends React.Component {
     );
   }
 }
+
+CinemaDetails.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+    getParam: PropTypes.func.isRequired,
+  }).isRequired,
+};
 
 const mapStateToProps = (state, ownProps) => ({
   cinemaDetails: state.cinemas.filter(

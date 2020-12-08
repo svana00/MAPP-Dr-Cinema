@@ -3,14 +3,13 @@ import {
   View, Text, TouchableOpacity,
 } from 'react-native';
 import PropTypes from 'prop-types';
-import { List } from 'react-native-paper';
 import styles from './styles';
 
 const MovieListItem = ({
-  id, name, image, plot, durationMinutes, releaseYear, genres, showtimes, navigate,
+  id, name, image, plot, duration, releaseYear, genres, showtimes, onPress,
 }) => (
   <TouchableOpacity
-    onPress={() => onPress(id, name, description, address, phone, website)}
+    onPress={() => onPress(id, name, image, plot, duration, releaseYear, genres, showtimes)}
   >
     {
   }
@@ -24,5 +23,15 @@ const MovieListItem = ({
     </View>
   </TouchableOpacity>
 );
+
+MovieListItem.propTypes = {
+  id: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  plot: PropTypes.string.isRequired,
+  duration: PropTypes.number.isRequired,
+  releaseYear: PropTypes.string.isRequired,
+  onPress: PropTypes.func.isRequired,
+};
 
 export default MovieListItem;
