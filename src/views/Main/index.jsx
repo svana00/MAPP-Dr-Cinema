@@ -7,6 +7,7 @@ import styles from './styles';
 
 const Main = ({ navigation: { navigate } }) => (
   <View style={styles.container}>
+    <View style={styles.whiteBackgroundThing} />
     <Image source={logo} style={styles.logo} />
     <Text>Hello there!</Text>
     <View style={{ flexDirection: 'row' }}>

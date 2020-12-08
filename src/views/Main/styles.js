@@ -32,4 +32,17 @@ export default StyleSheet.create({
     borderColor: 'white',
     borderWidth: 2,
   },
+  whiteBackgroundThing: {
+    position: 'absolute',
+    width: 360.34,
+    height: 400,
+    left: 250,
+    top: 85,
+    backgroundColor: '#FFFFFF',
+    transform: [
+      {
+        rotate: '-43deg',
+      },
+    ],
+  },
 });
