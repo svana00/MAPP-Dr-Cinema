@@ -2,28 +2,20 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   thumbnailImage: {
-    width: 80,
-    height: 80,
-    borderRadius: 150 / 2,
+    width: 120,
+    height: 180,
     overflow: 'hidden',
-    borderWidth: 3,
-  },
-  icon: {
-    fontSize: 25,
-    marginTop: 25,
-    marginBottom: 10,
-    color: 'red',
+    borderWidth: 2,
   },
   listItem: {
-    marginTop: 4,
+    marginBottom: 4,
     paddingVertical: 20,
     paddingHorizontal: 20,
     backgroundColor: '#fff',
     flexDirection: 'row',
   },
   textBox: {
-    width: 270,
-    marginLeft: 8,
+    marginLeft: 15,
   },
   title: {
     padding: 5,

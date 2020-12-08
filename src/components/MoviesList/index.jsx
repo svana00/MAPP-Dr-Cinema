@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  View, FlatList,
+  View, FlatList, Text
 } from 'react-native';
 import PropTypes from 'prop-types';
 import styles from './styles';
@@ -9,7 +9,7 @@ import MoviesListItem from '../MoviesListItem';
 const MoviesList = ({ cinemaId, cinemaMovies, onPress }) => (
   <View style={styles.listContainer}>
     <FlatList
-      numColons={cinemaMovies.length}
+      numColumns={1}
       data={cinemaMovies}
       renderItem={({
         item: {

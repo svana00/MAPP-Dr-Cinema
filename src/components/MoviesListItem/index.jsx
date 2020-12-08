@@ -16,9 +16,9 @@ const MovieListItem = ({
         <Image source={{ uri: image }} style={styles.thumbnailImage} resizeMode="cover" />
       </View>
       <View style={styles.textBox}>
-        <Text>{name}</Text>
-        <Text>{releaseYear}</Text>
-        <Text>{genres}</Text>
+        <Text style={styles.title}>{name}</Text>
+        <Text style={styles.website}>{releaseYear}</Text>
+        <Text style={styles.website}>{genres}</Text>
       </View>
     </View>
   </TouchableOpacity>

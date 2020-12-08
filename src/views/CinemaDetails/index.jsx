@@ -70,7 +70,17 @@ class CinemaDetails extends React.Component {
                 >
                   {website}
                 </Text>
-                <Text style={styles.heading}>Kvikmyndir í sýningu</Text>
+                <Text style={styles.heading}>
+                  Kvikmyndir í sýningu
+                </Text>
+                {cinemaMovies[0] ? (
+                  null
+                )
+                  : (
+                    <Text style={styles.info}>
+                      Því miður eru engar kvikmyndir í sýningu eins og stendur.
+                    </Text>
+                  )}
               </View>
               <MoviesList
                 onPress={(id, name, image, plot, duration, releaseYear, genres, showtimes) => navigate('MovieDetails', {
@@ -94,6 +104,7 @@ CinemaDetails.propTypes = {
     navigate: PropTypes.func.isRequired,
     getParam: PropTypes.func.isRequired,
   }).isRequired,
+  getMoviesForCinema: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state, ownProps) => ({
