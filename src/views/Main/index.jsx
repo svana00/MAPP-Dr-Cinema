@@ -30,7 +30,7 @@ const Main = ({ navigation: { navigate } }) => (
             mode="contained"
             color="black"
             compact="True"
-            onPress={() => navigate('Cinemas', null)}
+            onPress={() => navigate('UpcomingMovies', null)}
           >
             <Text>Væntanlegt í bíó</Text>
           </Button>
