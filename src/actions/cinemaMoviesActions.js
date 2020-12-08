@@ -1,5 +1,5 @@
 import * as constants from '../constants';
-import { getAllMoviesForCinema } from '../services/cinemasService';
+import { getAllMoviesForCinema, token } from '../services/cinemasService';
 
 export const getMoviesForCinemaSuccess = (movies) => ({
   type: constants.GET_CINEMA_MOVIES,
@@ -8,10 +8,11 @@ export const getMoviesForCinemaSuccess = (movies) => ({
 
 export const getMoviesForCinema = (cinemaId) => async (dispatch) => {
   try {
-    const movies = await getAllMoviesForCinema(cinemaId).getMovies();
-    console.log(movies);
+    var finalToken = await token();
+    finalToken = finalToken.token;
+    const movies = await getAllMoviesForCinema(cinemaId, finalToken).getMovies();
     dispatch(getMoviesForCinemaSuccess(movies));
   } catch (err) {
-    console.log('We had an ERROR in movieAction --> getCinemaDetails');
+    console.log('We had an ERROR in movieAction --> getCinemaDetails', err);
   }
 };
