@@ -19,4 +19,9 @@ export default StyleSheet.create({
     fontSize: 16,
     color: 'black',
   },
+  website: {
+    fontSize: 16,
+    marginBottom: 35,
+    color: 'black',
+  },
 });

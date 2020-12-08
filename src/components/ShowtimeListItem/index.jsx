@@ -18,7 +18,7 @@ const ShowtimeListItem = ({
   </TouchableOpacity>
 );
 
-CinemaListItem.propTypes = {
+ShowtimeListItem.propTypes = {
   url: PropTypes.string.isRequired,
   time: PropTypes.string.isRequired,
   onPress: PropTypes.func.isRequired,

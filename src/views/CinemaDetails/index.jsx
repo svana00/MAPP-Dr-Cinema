@@ -43,7 +43,7 @@ class CinemaDetails extends React.Component {
                   : null}
                 {(description) ? (
                   <Text style={styles.heading}>
-                    More info
+                    Frekari upplýsingar
                   </Text>
                 )
                   : null}
@@ -66,14 +66,15 @@ class CinemaDetails extends React.Component {
                 )
                   : null}
                 <Text
-                  style={styles.info}
+                  style={styles.website}
                 >
                   {website}
                 </Text>
+                <Text style={styles.heading}>Kvikmyndir í sýningu</Text>
               </View>
               <MoviesList
-                onPress={(id, name, image, plot, durationMinutes, releaseYear, genres, showtimes) => navigate('MovieDetails', {
-                  id, name, image, plot, durationMinutes, releaseYear, genres, showtimes,
+                onPress={(id, name, image, plot, duration, releaseYear, genres, showtimes) => navigate('MovieDetails', {
+                  id, name, image, plot, duration, releaseYear, genres, showtimes,
                 })}
                 cinemaId={id}
                 cinemaMovies={cinemaMovies}
