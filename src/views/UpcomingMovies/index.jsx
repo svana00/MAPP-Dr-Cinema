@@ -14,7 +14,7 @@ class UpcomingMovies extends React.Component {
 
   render() {
     const { navigation: { navigate }, upcomingMovies } = this.props;
-    console.log('in UpcomingMovies');
+    console.log("PABBI",upcomingMovies);
     return (
       <View>
         <Header
