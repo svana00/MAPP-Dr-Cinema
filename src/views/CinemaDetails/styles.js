@@ -24,6 +24,11 @@ export default StyleSheet.create({
     fontSize: 16,
     color: 'black',
   },
+  info2: {
+    fontSize: 16,
+    color: 'black',
+    marginTop: 10,
+  },
   website: {
     fontSize: 16,
     marginBottom: 35,

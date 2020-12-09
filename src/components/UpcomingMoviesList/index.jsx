@@ -1,34 +1,33 @@
 import React from 'react';
 import {
-  View, FlatList, Text,
+  View, FlatList,
 } from 'react-native';
 import PropTypes from 'prop-types';
 import styles from './styles';
 import UpcomingMovieItem from '../UpcomingMovieItem';
 
 const UpcomingMoviesList = ({ movies, onPress }) => (
-  console.log('mamma', movies),
-    <View style={styles.listContainer}>
-      <FlatList
-        numColumns={1}
-        data={movies}
-        renderItem={({
-          item: {
-            id, title, poster, year,
-          },
-        }) => (
-          <View>
-            <UpcomingMovieItem
-              id={id}
-              name={title}
-              image={poster}
-              releaseYear={year}
-              onPress={onPress}
-            />
-          </View>
-        )}
-      />
-    </View>
+  <View style={styles.listContainer}>
+    <FlatList
+      numColumns={1}
+      data={movies}
+      renderItem={({
+        item: {
+          id, title, poster, year,
+        },
+      }) => (
+        <View>
+          <UpcomingMovieItem
+            id={id}
+            name={title}
+            image={poster}
+            releaseYear={year}
+            onPress={onPress}
+          />
+        </View>
+      )}
+    />
+  </View>
 );
 
 UpcomingMoviesList.propTypes = {

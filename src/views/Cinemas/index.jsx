@@ -59,6 +59,15 @@ Cinemas.propTypes = {
     navigate: PropTypes.func.isRequired,
     addListener: PropTypes.func.isRequired,
   }).isRequired,
+  cinemas: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    address: PropTypes.string,
+    city: PropTypes.string,
+    phone: PropTypes.string,
+    website: PropTypes.string.isRequired,
+    description: PropTypes.string,
+  })).isRequired,
 };
 
 export default connect(mapStateToProps, { getCinemas })(Cinemas);

@@ -91,7 +91,7 @@ class CinemaDetails extends React.Component {
                   null
                 )
                   : (
-                    <Text style={styles.info}>
+                    <Text style={styles.info2}>
                       Því miður eru engar kvikmyndir í sýningu eins og stendur.
                     </Text>
                   )}
