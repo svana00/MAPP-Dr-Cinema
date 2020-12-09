@@ -1,3 +1,4 @@
+import React from 'react';
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
@@ -31,8 +32,30 @@ const BottomNavigator = createBottomTabNavigator(
   },
   {
     initialRouteName: 'Cinemas',
+    defaultNavigationOptions: ({ navigation }) => ({
+      tabBarIcon: () => {
+        const { routeName } = navigation.state;
+        let iconName;
+        if (routeName === 'Main') {
+          iconName = 'home';
+        } else if (routeName === 'Cinemas') {
+          iconName = 'film';
+        } else if (routeName === 'UpcomingMovies') {
+          iconName = 'ticket';
+        }
+        return (
+          <Icon
+            color="black"
+            type="font-awesome"
+            name={`${iconName}`}
+            size={25}
+          />
+        );
+      },
+    }),
     tabBarOptions: {
-      activeTintColor: 'white',
+      showIcon: true,
+      activeTintColor: 'gray',
       inactiveTintColor: 'gray',
     },
   },
