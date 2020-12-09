@@ -6,18 +6,16 @@ import PropTypes from 'prop-types';
 import styles from './styles';
 
 const UpcomingMovieItem = ({
-  id, name, image, releaseYear, onPress,
+  id, title, poster, year, onPress,
 }) => (
   <TouchableOpacity
     onPress={() => onPress(() => { console.log('movie pressed', id); })}
   >
     <View style={[styles.listItem, { opacity: 1 }]}>
-      <View style={{ alignItems: 'center' }}>
-        <Image source={{ uri: image }} style={styles.thumbnailImage} resizeMode="cover" />
-      </View>
       <View style={styles.textBox}>
-        <Text style={styles.title}>{name}</Text>
-        <Text style={styles.website}>{releaseYear}</Text>
+        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.title}>{poster}</Text>
+        <Text style={styles.website}>{year}</Text>
       </View>
     </View>
   </TouchableOpacity>
@@ -25,9 +23,9 @@ const UpcomingMovieItem = ({
 
 UpcomingMovieItem.propTypes = {
   id: PropTypes.number.isRequired,
-  name: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
-  releaseYear: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  poster: PropTypes.string.isRequired,
+  year: PropTypes.string.isRequired,
   onPress: PropTypes.func.isRequired,
 };
 
