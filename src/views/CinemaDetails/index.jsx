@@ -87,20 +87,26 @@ class CinemaDetails extends React.Component {
                 <Text style={styles.heading2}>
                   Kvikmyndir í sýningu
                 </Text>
-                {cinemaMovies[0] ? (
-                  null
-                )
-                  : (
-                    <Text style={styles.info2}>
-                      Því miður eru engar kvikmyndir í sýningu eins og stendur.
-                    </Text>
-                  )}
               </View>
               {
                 isLoading
-                  ? <Spinner />
+                  ? (
+                    <View style={styles.bottom}>
+                      <Spinner />
+                    </View>
+                  )
                   : (
                     <>
+                      {cinemaMovies[0] ? (
+                        null
+                      )
+                        : (
+                          <View style={styles.bottom}>
+                            <Text style={styles.info2}>
+                              Því miður eru engar kvikmyndir í sýningu eins og stendur.
+                            </Text>
+                          </View>
+                        )}
                       <MoviesList
                         onPress={(id, name, image, plot, duration, releaseYear, genres, showtimes) => navigate('MovieDetails', {
                           id, name, image, plot, duration, releaseYear, genres, showtimes,

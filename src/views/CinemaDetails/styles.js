@@ -27,11 +27,15 @@ export default StyleSheet.create({
   info2: {
     fontSize: 16,
     color: 'black',
-    marginTop: 10,
+    paddingRight: 25,
+    paddingLeft: 25,
   },
   website: {
     fontSize: 16,
     marginBottom: 35,
     color: 'black',
+  },
+  bottom: {
+    marginBottom: 55,
   },
 });
