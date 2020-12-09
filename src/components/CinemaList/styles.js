@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   listContainer: {
-    paddingBottom: 135,
+    paddingBottom: 122,
   },
   text: {
     fontSize: 20,
