@@ -2,7 +2,7 @@ import fetch from 'node-fetch';
 
 const AUTHENTICATIONENDPOINT = 'https://api.kvikmyndir.is/authenticate';
 const CINEMASENDPOINT = 'http://api.kvikmyndir.is/theaters';
-const MOVIEENDPOINT = 'http://api.kvikmyndir.is/movies';
+const MOVIESENDPOINT = 'http://api.kvikmyndir.is/movies';
 
 export const token = () => {
   const payload = {
@@ -40,8 +40,16 @@ export async function getAllCinemas() {
   }).catch((error) => { console.log('THIS ERROR', error); });
 }
 
+const GenresToString = (genres) => {
+  let genresStr = '';
+  for (let i = 0; i < genres.length; i += 1) {
+    genresStr += `${genres[i].Name}\n`;
+  }
+  return genresStr;
+};
+
 export const getAllMoviesForCinema = (cinemaId, finalToken) => ({
-  getMovies: () => fetch(MOVIEENDPOINT, {
+  getMovies: () => fetch(MOVIESENDPOINT, {
     method: 'GET',
     headers: {
       'x-access-token': finalToken,
@@ -49,32 +57,24 @@ export const getAllMoviesForCinema = (cinemaId, finalToken) => ({
   })
     .then((d) => d.json())
     .then(async (movies) => {
-      const temp = [];
-      for (let x = 0; x < movies.length; x += 1) {
-        for (let y = 0; y < movies[x].showtimes.length; y += 1) {
-          if (movies[x].showtimes[y].cinema.id === cinemaId) {
-            const genreStr = await GetGenres(movies[x].genres);
-            temp.push({
-              id: movies[x].id,
-              name: movies[x].title,
-              image: movies[x].poster,
-              releaseYear: movies[x].year,
-              genres: genreStr,
-              duration: movies[x].durationMinutes,
-              plot: movies[x].plot,
-              showtimes: movies[x].showtimes[y],
+      const cinemaMovies = [];
+      for (let i = 0; i < movies.length; i += 1) {
+        for (let j = 0; j < movies[i].showtimes.length; j += 1) {
+          if (movies[i].showtimes[j].cinema.id === cinemaId) {
+            const genresStr = GenresToString(movies[i].genres);
+            cinemaMovies.push({
+              id: movies[i].id,
+              name: movies[i].title,
+              image: movies[i].poster,
+              releaseYear: movies[i].year,
+              genres: genresStr,
+              duration: movies[i].durationMinutes,
+              plot: movies[i].plot,
+              showtimes: movies[i].showtimes[j],
             });
           }
         }
       }
-      return temp;
+      return cinemaMovies;
     }),
 });
-
-const GetGenres = (genreArray) => {
-  let genreStr = '';
-  for (let x = 0; x < genreArray.length; x += 1) {
-    genreStr += `${genreArray[x].Name}\n`;
-  }
-  return genreStr;
-};
