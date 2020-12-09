@@ -26,37 +26,66 @@ const UpcomingMoviesStackNavigator = createStackNavigator({
 
 const BottomNavigator = createBottomTabNavigator(
   {
-    Main: MainNavigator,
-    Cinemas: CinemasStackNavigator,
-    UpcomingMovies: UpcomingMoviesStackNavigator,
-  },
-  {
-    initialRouteName: 'Cinemas',
-    defaultNavigationOptions: ({ navigation }) => ({
-      tabBarIcon: () => {
-        const { routeName } = navigation.state;
-        let iconName;
-        if (routeName === 'Main') {
-          iconName = 'home';
-        } else if (routeName === 'Cinemas') {
-          iconName = 'film';
-        } else if (routeName === 'UpcomingMovies') {
-          iconName = 'ticket';
-        }
-        return (
+    Main: {
+      screen: MainNavigator,
+
+      navigationOptions: {
+        tabBarLabel: 'Home',
+        title: 'Home',
+        tabBarOptions: {
+          showIcon: true,
+          activeTintColor: 'black',
+          inactiveTintColor: 'lightgrey',
+        },
+        tabBarIcon: () => (
           <Icon
             color="black"
             type="font-awesome"
-            name={`${iconName}`}
+            name="home"
             size={25}
           />
-        );
+        ),
       },
-    }),
+    },
+    Cinemas: {
+      screen: CinemasStackNavigator,
+
+      navigationOptions: {
+        tabBarLabel: 'Cinemas',
+        title: 'Cinemas',
+        tabBarIcon: () => (
+          <Icon
+            color="black"
+            type="font-awesome"
+            name="film"
+            size={25}
+          />
+        ),
+      },
+    },
+    UpcomingMovies: {
+      screen: UpcomingMoviesStackNavigator,
+
+      navigationOptions: {
+        tabBarLabel: 'Cinemas',
+        title: 'Cinemas',
+        tabBarIcon: () => (
+          <Icon
+            color="black"
+            type="font-awesome"
+            name="ticket"
+            size={25}
+          />
+        ),
+      },
+    },
+  },
+  {
+    initialRouteName: 'Main',
     tabBarOptions: {
       showIcon: true,
-      activeTintColor: 'gray',
-      inactiveTintColor: 'gray',
+      activeTintColor: 'black',
+      inactiveTintColor: 'lightgrey',
     },
   },
 );
