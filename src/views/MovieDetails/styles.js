@@ -12,7 +12,4 @@ export default StyleSheet.create({
     backgroundColor: '#e5e5e5',
     paddingBottom: 50,
   },
-  listContainer: {
-    padding: 25,
-  },
 });

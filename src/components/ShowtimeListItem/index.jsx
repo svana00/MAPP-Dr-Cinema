@@ -10,7 +10,7 @@ const ShowtimeListItem = ({
 }) => (
   <TouchableOpacity
     onPress={() => onPress(url)}
-    style={styles.container}
+    style={styles.button}
   >
     <Text style={styles.buy}>
       Kl.

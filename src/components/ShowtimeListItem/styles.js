@@ -2,16 +2,20 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   buy: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 2,
+    fontWeight: 'bold',
+    color: 'white',
   },
-  container: {
+  button: {
+    paddingTop: 10,
+    paddingBottom: 10,
+    paddingLeft: 4,
+    paddingRight: 4,
+    marginTop: 10,
+    marginBottom: 8,
+    marginRight: 12,
+    borderColor: 'white',
     borderWidth: 2,
-    borderColor: 'black',
-    padding: 5,
-    width: 100,
-    marginBottom: 5,
-    marginRight: 5,
+    backgroundColor: 'green',
+    borderRadius: 10,
   },
 });
