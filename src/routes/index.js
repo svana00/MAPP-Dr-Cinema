@@ -30,7 +30,7 @@ const BottomNavigator = createBottomTabNavigator(
     UpcomingMovies: UpcomingMoviesStackNavigator,
   },
   {
-    initialRouteName: 'Cinemas',
+    initialRouteName: 'Main',
     tabBarOptions: {
       activeTintColor: 'white',
       inactiveTintColor: 'gray',
@@ -43,6 +43,6 @@ export default createAppContainer(createSwitchNavigator(
     Cinemas: BottomNavigator,
   },
   {
-    initialRouteName: 'Cinemas',
+    initialRouteName: 'Main',
   },
 ));
