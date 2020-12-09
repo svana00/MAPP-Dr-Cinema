@@ -6,12 +6,15 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import styles from './styles';
 import ShowtimeList from '../../components/ShowtimeList';
+import Header from '../../components/Header';
 
 const MovieDetails = ({
   movieDetails,
 }) => (
   <View style={{ flex: 1, backgroundColor: '#e5e5e5' }}>
-
+    <Header
+      title={movieDetails[0].name}
+    />
     <View style={{ alignItems: 'center' }}>
       <Image source={{ uri: movieDetails[0].image }} style={styles.thumbnailImage} resizeMode="cover" />
     </View>
