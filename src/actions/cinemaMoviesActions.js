@@ -8,7 +8,7 @@ export const getMoviesForCinemaSuccess = (movies) => ({
 
 export const getMoviesForCinema = (cinemaId) => async (dispatch) => {
   try {
-    var finalToken = await token();
+    let finalToken = await token();
     finalToken = finalToken.token;
     const movies = await getAllMoviesForCinema(cinemaId, finalToken).getMovies();
     dispatch(getMoviesForCinemaSuccess(movies));

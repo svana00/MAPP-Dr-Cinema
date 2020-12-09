@@ -20,8 +20,8 @@ class Cinemas extends React.Component {
           title="Kvikmyndahús"
         />
         <CinemaList
-          onPress={(id, name, description, address, phone, website) => navigate('CinemaDetails', {
-            id, name, description, address, phone, website,
+          onPress={(id, name, description, address, city, phone, website) => navigate('CinemaDetails', {
+            id, name, description, address, city, phone, website,
           })}
           cinemas={cinemas}
           navigate={navigate}

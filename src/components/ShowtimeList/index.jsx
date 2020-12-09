@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  View, FlatList, Text
+  View, FlatList, Text,
 } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';

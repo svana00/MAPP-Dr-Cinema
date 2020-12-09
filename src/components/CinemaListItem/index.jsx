@@ -20,7 +20,9 @@ const CinemaListItem = ({
         <Text style={styles.website}>{website}</Text>
       </View>
       <View>
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => onPress(id, name, description, address, city, phone, website)}
+        >
           <List.Icon icon="arrow-right" />
         </TouchableOpacity>
       </View>

@@ -70,6 +70,15 @@ class CinemaList extends React.Component {
 
 CinemaList.propTypes = {
   onPress: PropTypes.func.isRequired,
+  cinemas: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    address: PropTypes.string,
+    city: PropTypes.string,
+    phone: PropTypes.string,
+    website: PropTypes.string.isRequired,
+    description: PropTypes.string,
+  })).isRequired,
 };
 
 const mapStateToProps = ({ cinemas }) => ({ cinemas });
