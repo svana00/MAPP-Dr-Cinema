@@ -11,32 +11,7 @@ const image = { uri: 'https://reactjs.org/logo-og.png' };
 
 const Main = ({ navigation: { navigate } }) => (
   <View style={styles.container}>
-    <View>
-      <Image source={logo} style={styles.logo} />
-      <Text>Hello there!</Text>
-      <View style={{ flexDirection: 'row' }}>
-        <View style={styles.button}>
-          <Button
-            mode="contained"
-            color="black"
-            compact="True"
-            onPress={() => navigate('Cinemas', null)}
-          >
-            <Text>Kvikmyndahús</Text>
-          </Button>
-        </View>
-        <View style={styles.button}>
-          <Button
-            mode="contained"
-            color="black"
-            compact="True"
-            onPress={() => navigate('UpcomingMovies', null)}
-          >
-            <Text>Væntanlegt í bíó</Text>
-          </Button>
-        </View>
-      </View>
-    </View>
+    <Image source={logo} style={styles.logo} />
   </View>
 );
 

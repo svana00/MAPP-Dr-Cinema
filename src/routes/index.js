@@ -1,28 +1,48 @@
-import { createAppContainer } from 'react-navigation';
+import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
-import { createDrawerNavigator } from 'react-navigation-drawer';
-
+import { createBottomTabNavigator } from 'react-navigation-tabs';
+import { Icon } from 'react-native-elements';
 import Main from '../views/Main';
 import Cinemas from '../views/Cinemas';
 import CinemaDetails from '../views/CinemaDetails';
 import MovieDetails from '../views/MovieDetails';
 import UpcomingMovies from '../views/UpcomingMovies';
 
-const CinemasStackNavigator = createStackNavigator({
+const MainNavigator = createStackNavigator({
   Main,
+});
+
+const CinemasStackNavigator = createStackNavigator({
   Cinemas,
+  UpcomingMovies,
   CinemaDetails,
   MovieDetails,
 });
 
 const UpcomingMoviesStackNavigator = createStackNavigator({
-  Main,
   UpcomingMovies,
 });
 
-const DrawerNavigator = createDrawerNavigator({
-  Cinemas: CinemasStackNavigator,
-  UpcomingMovies: UpcomingMoviesStackNavigator,
-});
+const BottomNavigator = createBottomTabNavigator(
+  {
+    Main: MainNavigator,
+    Cinemas: CinemasStackNavigator,
+    UpcomingMovies: UpcomingMoviesStackNavigator,
+  },
+  {
+    initialRouteName: 'Cinemas',
+    tabBarOptions: {
+      activeTintColor: 'white',
+      inactiveTintColor: 'gray',
+    },
+  },
+);
 
-export default createAppContainer(DrawerNavigator);
+export default createAppContainer(createSwitchNavigator(
+  {
+    Cinemas: BottomNavigator,
+  },
+  {
+    initialRouteName: 'Cinemas',
+  },
+));
