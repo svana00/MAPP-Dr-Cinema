@@ -5,6 +5,6 @@ export default StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingTop: 150,
+    paddingTop: 25,
   },
 });

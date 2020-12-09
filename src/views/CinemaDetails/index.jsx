@@ -8,17 +8,30 @@ import styles from './styles';
 import { getMoviesForCinema } from '../../actions/cinemaMoviesActions';
 import Header from '../../components/Header';
 import MoviesList from '../../components/MoviesList';
+import Spinner from '../../components/Spinner';
 
 class CinemaDetails extends React.Component {
-  componentDidMount() {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoading: true
+    }
+  }
+  async componentDidMount() {
     const { getMoviesForCinema, cinemaDetails } = this.props;
-    getMoviesForCinema(cinemaDetails[0].id);
+    await getMoviesForCinema(cinemaDetails[0].id);
+    this.setState({isLoading: false})
+  }
+
+  componentWillUnmount(){
+    this.setState({isLoading: true})
   }
 
   render() {
     const {
       newMovies, cinemaMovies, cinemaDetails, navigation: { navigate },
     } = this.props;
+    const {isLoading} = this.state
     return (
       <View>
         <FlatList
@@ -82,14 +95,24 @@ class CinemaDetails extends React.Component {
                     </Text>
                   )}
               </View>
-              <MoviesList
-                onPress={(id, name, image, plot, duration, releaseYear, genres, showtimes) => navigate('MovieDetails', {
-                  id, name, image, plot, duration, releaseYear, genres, showtimes,
-                })}
-                cinemaId={id}
-                cinemaMovies={cinemaMovies}
-                navigate={navigate}
-              />
+              {
+                isLoading
+                ?
+                <Spinner />
+                : (
+                  <>
+                  <MoviesList
+                    onPress={(id, name, image, plot, duration, releaseYear, genres, showtimes) => navigate('MovieDetails', {
+                      id, name, image, plot, duration, releaseYear, genres, showtimes,
+                    })}
+                    cinemaId={id}
+                    cinemaMovies={cinemaMovies}
+                    navigate={navigate}
+                  />
+                  </>
+                )
+              }
+
             </View>
           )}
           keyExtractor={(cinema) => cinema.id.toString()}
