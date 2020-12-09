@@ -8,7 +8,7 @@ export default StyleSheet.create({
     borderWidth: 2,
   },
   listItem: {
-    marginBottom: 4,
+    marginBottom: 8,
     paddingLeft: 20,
     paddingRight: 5,
     paddingTop: 20,

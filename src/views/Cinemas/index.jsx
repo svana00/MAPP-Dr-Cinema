@@ -11,18 +11,19 @@ class Cinemas extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoading: true
-    }
+      isLoading: true,
+    };
   }
+
   async componentDidMount() {
     const { getCinemas } = this.props;
     await getCinemas();
-    this.setState({isLoading: false})
+    this.setState({ isLoading: false });
   }
 
   render() {
     const { navigation: { navigate }, cinemas } = this.props;
-    const {isLoading} = this.state;
+    const { isLoading } = this.state;
     return (
       <View>
         <Header
@@ -30,19 +31,18 @@ class Cinemas extends React.Component {
         />
         {
           isLoading
-          ?
-          <Spinner />
-          : (
-            <>
-            <CinemaList
-              onPress={(id, name, description, address, city, phone, website) => navigate('CinemaDetails', {
-                id, name, description, address, city, phone, website,
-              })}
-              cinemas={cinemas}
-              navigate={navigate}
-            />
-            </>
-          )
+            ? <Spinner />
+            : (
+              <>
+                <CinemaList
+                  onPress={(id, name, description, address, city, phone, website) => navigate('CinemaDetails', {
+                    id, name, description, address, city, phone, website,
+                  })}
+                  cinemas={cinemas}
+                  navigate={navigate}
+                />
+              </>
+            )
         }
 
       </View>

@@ -10,6 +10,11 @@ export default StyleSheet.create({
     marginBottom: 15,
     fontWeight: '700',
   },
+  heading2: {
+    fontSize: 20,
+    color: 'black',
+    fontWeight: '700',
+  },
   description: {
     fontSize: 16,
     color: 'black',

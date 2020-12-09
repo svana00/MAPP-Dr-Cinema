@@ -14,24 +14,25 @@ class CinemaDetails extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoading: true
-    }
+      isLoading: true,
+    };
   }
+
   async componentDidMount() {
     const { getMoviesForCinema, cinemaDetails } = this.props;
     await getMoviesForCinema(cinemaDetails[0].id);
-    this.setState({isLoading: false})
+    this.setState({ isLoading: false });
   }
 
-  componentWillUnmount(){
-    this.setState({isLoading: true})
+  componentWillUnmount() {
+    this.setState({ isLoading: true });
   }
 
   render() {
     const {
       newMovies, cinemaMovies, cinemaDetails, navigation: { navigate },
     } = this.props;
-    const {isLoading} = this.state
+    const { isLoading } = this.state;
     return (
       <View>
         <FlatList
@@ -83,7 +84,7 @@ class CinemaDetails extends React.Component {
                 >
                   {website}
                 </Text>
-                <Text style={styles.heading}>
+                <Text style={styles.heading2}>
                   Kvikmyndir í sýningu
                 </Text>
                 {cinemaMovies[0] ? (
@@ -97,20 +98,19 @@ class CinemaDetails extends React.Component {
               </View>
               {
                 isLoading
-                ?
-                <Spinner />
-                : (
-                  <>
-                  <MoviesList
-                    onPress={(id, name, image, plot, duration, releaseYear, genres, showtimes) => navigate('MovieDetails', {
-                      id, name, image, plot, duration, releaseYear, genres, showtimes,
-                    })}
-                    cinemaId={id}
-                    cinemaMovies={cinemaMovies}
-                    navigate={navigate}
-                  />
-                  </>
-                )
+                  ? <Spinner />
+                  : (
+                    <>
+                      <MoviesList
+                        onPress={(id, name, image, plot, duration, releaseYear, genres, showtimes) => navigate('MovieDetails', {
+                          id, name, image, plot, duration, releaseYear, genres, showtimes,
+                        })}
+                        cinemaId={id}
+                        cinemaMovies={cinemaMovies}
+                        navigate={navigate}
+                      />
+                    </>
+                  )
               }
 
             </View>
