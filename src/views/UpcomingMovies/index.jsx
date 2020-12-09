@@ -1,9 +1,9 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getUpcomingMovies } from '../../actions/upcomingMoviesActions';
-import CinemaList from '../../components/CinemaList';
+import UpcomingMoviesList from '../../components/CinemaList';
 import Header from '../../components/Header';
 
 class UpcomingMovies extends React.Component {
@@ -13,19 +13,25 @@ class UpcomingMovies extends React.Component {
   }
 
   render() {
-    const { navigation: { navigate }, movies } = this.props;
+    const { navigation: { navigate }, upcomingMovies } = this.props;
+    console.log('in UpcomingMovies');
     return (
       <View>
         <Header
           title="Væntanlegt"
+        />
+        <UpcomingMoviesList
+          onPress={() => { console.log('you pressed it!'); }}
+          movies={upcomingMovies}
+          navigate={navigate}
         />
       </View>
     );
   }
 }
 
-const mapStateToProps = ({ movies }) => ({
-  movies,
+const mapStateToProps = ({ upcomingMovies }) => ({
+  upcomingMovies,
 });
 
 UpcomingMovies.propTypes = {
