@@ -26,11 +26,12 @@ const ShowtimeList = ({
         <Text style={styles.heading}>Lengd</Text>
         <Text>
           {movieDetails[0].duration} mínútur
+          {'\n'}
         </Text>
         <Text style={styles.heading}>Útgáfuár</Text>
         <Text>
           {movieDetails[0].releaseYear}
-          {' '}
+          {'\n'}
         </Text>
         <Text style={styles.heading}>Tegund</Text>
         <Text>
