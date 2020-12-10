@@ -14,15 +14,15 @@ const UpcomingMoviesList = ({ movies, onPress }) => (
       data={movies}
       renderItem={({
         item: {
-          id, title, poster, year,
+          id, name, image, releaseDate,
         },
       }) => (
         <View>
           <UpcomingMovieItem
             id={id}
-            name={title}
-            image={poster}
-            releaseYear={year}
+            name={name}
+            image={image}
+            releaseDate={releaseDate}
             onPress={onPress}
           />
         </View>
@@ -35,9 +35,9 @@ UpcomingMoviesList.propTypes = {
   onPress: PropTypes.func.isRequired,
   movies: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
-    title: PropTypes.string.isRequired,
-    poster: PropTypes.string.isRequired,
-    year: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    releaseDate: PropTypes.string.isRequired,
   })).isRequired,
 };
 

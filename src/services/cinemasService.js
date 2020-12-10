@@ -71,7 +71,7 @@ export const getAllMoviesForCinema = (cinemaId, finalToken) => ({
     }),
 });
 
-const GetGenres = (genreArray) => {
+export const GetGenres = (genreArray) => {
   let genreStr = '';
   for (let x = 0; x < genreArray.length; x += 1) {
     genreStr += `${genreArray[x].Name}\n`;
