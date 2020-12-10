@@ -8,6 +8,7 @@ import Cinemas from '../views/Cinemas';
 import CinemaDetails from '../views/CinemaDetails';
 import MovieDetails from '../views/MovieDetails';
 import UpcomingMovies from '../views/UpcomingMovies';
+import AllMovies from '../views/AllMovies';
 import UpcomingMoviesTrailers from '../views/UpcomingMoviesTrailers';
 
 const MainNavigator = createStackNavigator({
@@ -24,6 +25,10 @@ const CinemasStackNavigator = createStackNavigator({
 const UpcomingMoviesStackNavigator = createStackNavigator({
   UpcomingMovies,
   UpcomingMoviesTrailers,
+});
+
+const AllMoviesStackNavigator = createStackNavigator({
+  AllMovies,
 });
 
 const BottomNavigator = createBottomTabNavigator(
@@ -76,6 +81,27 @@ const BottomNavigator = createBottomTabNavigator(
             color="black"
             type="font-awesome"
             name="ticket"
+            size={25}
+          />
+        ),
+      },
+    },
+    AllMovies: {
+      screen: AllMoviesStackNavigator,
+
+      navigationOptions: {
+        tabBarLabel: 'Allar kvikmyndir',
+        title: 'Allar kvikmyndir',
+        tabBarOptions: {
+          showIcon: true,
+          activeTintColor: 'black',
+          inactiveTintColor: 'lightgrey',
+        },
+        tabBarIcon: () => (
+          <Icon
+            color="black"
+            type="font-awesome"
+            name="home"
             size={25}
           />
         ),
