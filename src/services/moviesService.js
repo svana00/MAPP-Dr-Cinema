@@ -1,7 +1,15 @@
 import fetch from 'node-fetch';
-import { GetGenres, token } from './cinemasService';
+import { token } from './cinemasService';
 
 const UPCOMINGENDPOINT = 'http://api.kvikmyndir.is/upcoming';
+
+const GenresToString = (genres) => {
+  let genresStr = '';
+  for (let i = 0; i < genres.length; i += 1) {
+    genresStr += `${genres[i].Name}\n`;
+  }
+  return genresStr;
+};
 
 async function getAllUpcomingMovies() {
   let finalToken = await token();
@@ -18,7 +26,7 @@ async function getAllUpcomingMovies() {
     .then(async (upcomingMovies) => {
       const temp = [];
       for (let x = 0; x < upcomingMovies.length; x += 1) {
-        const genreStr = await GetGenres(upcomingMovies[x].genres);
+        const genreStr = await GenresToString(upcomingMovies[x].genres);
         temp.push({
           id: upcomingMovies[x].id,
           name: upcomingMovies[x].title,
