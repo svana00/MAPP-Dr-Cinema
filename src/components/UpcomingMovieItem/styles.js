@@ -9,24 +9,28 @@ export default StyleSheet.create({
   },
   listItem: {
     marginBottom: 4,
+    marginRight: 2,
+    marginLeft: 2,
     paddingLeft: 20,
     paddingRight: 5,
     paddingTop: 20,
     paddingBottom: 20,
     backgroundColor: '#fff',
     flex: 1,
-    flexDirection: 'row',
+    width: 183,
+    height: 300,
   },
   textBox: {
-    marginLeft: 15,
     flex: 1,
+    marginLeft: 10,
   },
   title: {
-    padding: 5,
-    fontSize: 18,
+    paddingTop: 13,
+    padding: 6,
+    fontSize: 15,
   },
   website: {
-    fontSize: 14,
+    fontSize: 13,
     padding: 5,
   },
 });

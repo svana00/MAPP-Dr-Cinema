@@ -9,7 +9,7 @@ import UpcomingMovieItem from '../UpcomingMovieItem';
 const UpcomingMoviesList = ({ movies, onPress }) => (
   <View style={styles.listContainer}>
     <FlatList
-      numColumns={1}
+      numColumns={2}
       data={movies}
       renderItem={({
         item: {
