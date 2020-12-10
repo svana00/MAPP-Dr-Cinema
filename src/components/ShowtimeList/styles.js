@@ -7,7 +7,6 @@ export default StyleSheet.create({
     overflow: 'hidden',
     borderWidth: 1,
   },
-
   listContainer: {
     padding: 25,
   },
@@ -16,14 +15,17 @@ export default StyleSheet.create({
     color: 'black',
     fontWeight: 'bold',
     marginBottom: 5,
+    marginHorizontal: 15,
   },
   description: {
     fontSize: 16,
     color: 'black',
     marginBottom: 23,
+    textAlign: 'justify',
+    marginHorizontal: 15,
   },
   info: {
+    marginHorizontal: 15,
     fontSize: 16,
-    color: 'black',
   },
 });

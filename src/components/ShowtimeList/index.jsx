@@ -23,19 +23,19 @@ const ShowtimeList = ({
               {movieDetails[0].plot}
             </Text>
             <Text style={styles.heading}>Lengd</Text>
-            <Text>
+            <Text style={styles.info}>
               {movieDetails[0].duration}
               {' '}
               mínútur
               {'\n'}
             </Text>
             <Text style={styles.heading}>Útgáfuár</Text>
-            <Text>
+            <Text style={styles.info}>
               {movieDetails[0].releaseYear}
               {'\n'}
             </Text>
             <Text style={styles.heading}>Tegund</Text>
-            <Text>
+            <Text style={styles.description}>
               {movieDetails[0].genres}
               {' '}
             </Text>
