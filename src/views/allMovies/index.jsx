@@ -2,12 +2,12 @@ import React from 'react';
 import { View } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { getUpcomingMovies } from '../../actions/upcomingMoviesActions';
+import { getMovies } from '../../actions/allMoviesActions';
 import UpcomingMoviesList from '../../components/UpcomingMoviesList';
 import Header from '../../components/Header';
 import Spinner from '../../components/Spinner';
 
-class UpcomingMovies extends React.Component {
+class allMovies extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -16,29 +16,27 @@ class UpcomingMovies extends React.Component {
   }
 
   async componentDidMount() {
-    const { getUpcomingMovies } = this.props;
-    await getUpcomingMovies();
+    const { getMovies } = this.props;
+    await getMovies();
     this.setState({ isLoading: false });
   }
 
   render() {
-    const { navigation: { navigate }, upcomingMovies } = this.props;
+    const { navigation: { navigate }, allMovies } = this.props;
     const { isLoading } = this.state;
     return (
       <View>
         <Header
-          title="Væntanlegt í bíó"
+          title="Allar myndir"
         />
         {
           isLoading
             ? <Spinner />
             : (
               <>
-                <UpcomingMoviesList
-                  onPress={(id, name, image, releaseDate, trailers) => navigate('UpcomingMoviesTrailers', {
-                    id, name, image, releaseDate, trailers,
-                  })}
-                  movies={upcomingMovies}
+                <MoviesList
+                  onPress={() => { console.log('you pressed it!'); }}
+                  cinemaMovies={allMovies}
                   navigate={navigate}
                 />
               </>
@@ -49,8 +47,8 @@ class UpcomingMovies extends React.Component {
   }
 }
 
-const mapStateToProps = ({ upcomingMovies }) => ({
-  upcomingMovies,
+const mapStateToProps = ({ allMovies }) => ({
+  allMovies,
 });
 
 UpcomingMovies.propTypes = {
@@ -60,4 +58,4 @@ UpcomingMovies.propTypes = {
   }).isRequired,
 };
 
-export default connect(mapStateToProps, { getUpcomingMovies })(UpcomingMovies);
+export default connect(mapStateToProps, { getMovies })(AllMovies);

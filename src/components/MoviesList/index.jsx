@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import styles from './styles';
 import MoviesListItem from '../MoviesListItem';
 
-const MoviesList = ({ cinemaId, cinemaMovies, onPress }) => (
+const MoviesList = ({ cinemaMovies, onPress }) => (
   <View style={styles.listContainer}>
     <FlatList
       numColumns={1}
@@ -18,7 +18,6 @@ const MoviesList = ({ cinemaId, cinemaMovies, onPress }) => (
       }) => (
         <View>
           <MoviesListItem
-            cinemaId={cinemaId}
             id={id}
             name={name}
             image={image}

@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  View, Image,
+  View, ImageBackground, Text,
 } from 'react-native';
 import PropTypes from 'prop-types';
 import logo from '../../resources/logo.png';
@@ -8,7 +8,9 @@ import styles from './styles';
 
 const Main = () => (
   <View style={styles.container}>
-    <Image source={logo} style={styles.logo} />
+    <ImageBackground source={logo} style={styles.logo}>
+      <Text>Hello</Text>
+    </ImageBackground>
   </View>
 );
 
