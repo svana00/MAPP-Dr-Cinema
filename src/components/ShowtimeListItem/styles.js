@@ -13,8 +13,6 @@ export default StyleSheet.create({
     marginTop: 10,
     marginBottom: 8,
     marginRight: 12,
-    borderColor: 'white',
-    borderWidth: 2,
     backgroundColor: 'green',
     borderRadius: 10,
   },
