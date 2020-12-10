@@ -31,7 +31,7 @@ const MoviesList = ({ cinemaId, cinemaMovies, onPress }) => (
           />
         </View>
       )}
-      keyExtractor={(cinema) => cinema.id.toString()}
+      keyExtractor={(movie) => movie.id.toString()}
     />
   </View>
 );
