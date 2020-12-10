@@ -44,7 +44,7 @@ const ShowtimeList = ({
         </>
     )}
       numColumns={3}
-      data={movieDetails[0].showtimes.schedule}
+      data={movieDetails[0].showtimes[0].schedule}
       renderItem={({
         item: { purchase_url, time },
       }) => (
