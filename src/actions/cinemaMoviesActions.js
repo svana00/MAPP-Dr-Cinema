@@ -3,7 +3,7 @@ import { getAllMoviesForCinema, token } from '../services/cinemasService';
 
 export const getMoviesForCinemaSuccess = (movies) => ({
   type: constants.GET_CINEMA_MOVIES,
-  payload: movies,
+  payload: movies.sort((mov1, mov2) => mov1.name.localeCompare(mov2.name)),
 });
 
 export const getMoviesForCinema = (cinemaId) => async (dispatch) => {
