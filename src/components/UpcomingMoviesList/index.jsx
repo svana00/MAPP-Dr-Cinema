@@ -26,6 +26,7 @@ const UpcomingMoviesList = ({ movies, onPress }) => (
           />
         </View>
       )}
+      keyExtractor={(cinema) => cinema.id.toString()}
     />
   </View>
 );
