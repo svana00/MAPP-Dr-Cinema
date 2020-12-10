@@ -9,7 +9,7 @@ const UpcomingMovieItem = ({
   id, name, image, releaseDate, onPress,
 }) => (
   <TouchableOpacity
-    onPress={() => onPress(() => { console.log('movie pressed', id); })}
+    onPress={() => onPress(id, name, image, releaseDate)}
   >
     <View style={[styles.listItem, { opacity: 1 }]}>
       <View style={{ alignItems: 'center' }}>
