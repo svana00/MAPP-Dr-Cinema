@@ -28,7 +28,7 @@ MovieListItem.propTypes = {
   id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
-  plot: PropTypes.string.isRequired,
+  plot: PropTypes.string,
   duration: PropTypes.number.isRequired,
   releaseYear: PropTypes.string.isRequired,
   onPress: PropTypes.func.isRequired,

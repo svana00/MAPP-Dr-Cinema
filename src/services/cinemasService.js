@@ -63,6 +63,7 @@ export const getAllMoviesForCinema = (cinemaId, finalToken) => ({
       for (let i = 0; i < movies.length; i += 1) {
         for (let j = 0; j < movies[i].showtimes.length; j += 1) {
           if (movies[i].showtimes[j].cinema.id === cinemaId || movies[i].showtimes[j].cinema.toString() === cinemaId.toString() ) {
+            var showtimes = Array(movies[i].showtimes[j])
             const genresStr = GenresToString(movies[i].genres);
             cinemaMovies.push({
               id: movies[i].id,
@@ -72,7 +73,7 @@ export const getAllMoviesForCinema = (cinemaId, finalToken) => ({
               genres: genresStr,
               duration: movies[i].durationMinutes,
               plot: movies[i].plot,
-              showtimes: movies[i].showtimes[j],
+              showtimes: showtimes,
             });
           }
         }
