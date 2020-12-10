@@ -10,7 +10,7 @@ import ShowtimeListItem from '../ShowtimeListItem';
 const ShowtimeList = ({
   movieDetails, onPress,
 }) => (
-  console.log(movieDetails),
+  console.log("date", new Date()),
   <View style={styles.listContainer}>
     <FlatList
     ListHeaderComponent = {
