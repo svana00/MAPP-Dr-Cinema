@@ -12,7 +12,7 @@ export default StyleSheet.create({
     paddingLeft: 20,
     paddingRight: 5,
     paddingTop: 20,
-    paddingBottom: 20,
+    paddingBottom: 15,
     backgroundColor: '#fff',
     flex: 1,
     flexDirection: 'row',
