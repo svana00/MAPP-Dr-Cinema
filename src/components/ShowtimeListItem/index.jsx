@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  View, Text, TouchableOpacity,
+  Text, TouchableOpacity,
 } from 'react-native';
 import PropTypes from 'prop-types';
 import styles from './styles';
@@ -10,9 +10,10 @@ const ShowtimeListItem = ({
 }) => (
   <TouchableOpacity
     onPress={() => onPress(url)}
+    style={styles.button}
   >
-    <Text>
-      Kaupa miða kl
+    <Text style={styles.buy}>
+      Kl.
       {' '}
       {time}
     </Text>

@@ -7,4 +7,9 @@ export default StyleSheet.create({
     overflow: 'hidden',
     borderWidth: 1,
   },
+  container: {
+    flex: 1,
+    backgroundColor: '#e5e5e5',
+    paddingBottom: 50,
+  },
 });

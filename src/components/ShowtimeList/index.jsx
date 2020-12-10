@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  View, FlatList, Text,
+  View, FlatList, Text, Image,
 } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -10,24 +10,55 @@ import ShowtimeListItem from '../ShowtimeListItem';
 const ShowtimeList = ({
   movieDetails, onPress,
 }) => (
-  <View style={styles.listContainer}>
-    <FlatList
-      numColons={1}
-      data={movieDetails[0].showtimes.schedule}
-      renderItem={({
-        item: { purchase_url, time },
-      }) => (
-        <View>
-          <ShowtimeListItem
-            url={purchase_url}
-            time={time}
-            onPress={onPress}
-          />
-        </View>
-      )}
-      keyExtractor={(item) => `${item.time}`}
-    />
-  </View>
+    <View style={styles.listContainer}>
+      <FlatList
+        ListHeaderComponent={(
+          <>
+            <View style={{ alignItems: 'center' }}>
+              <Image source={{ uri: movieDetails[0].image }} style={styles.thumbnailImage} resizeMode="cover" />
+            </View>
+            <View>
+              <Text style={styles.description}>
+                {'\n'}
+                {movieDetails[0].plot}
+              </Text>
+              <Text style={styles.heading}>Lengd</Text>
+              <Text>
+                {movieDetails[0].duration}
+                {' '}
+                mínútur
+                {'\n'}
+              </Text>
+              <Text style={styles.heading}>Útgáfuár</Text>
+              <Text>
+                {movieDetails[0].releaseYear}
+                {'\n'}
+              </Text>
+              <Text style={styles.heading}>Tegund</Text>
+              <Text>
+                {movieDetails[0].genres}
+                {' '}
+              </Text>
+              <Text style={styles.heading}>Kaupa miða</Text>
+            </View>
+          </>
+    )}
+        numColumns={3}
+        data={movieDetails[0].showtimes.schedule}
+        renderItem={({
+          item: { purchase_url, time },
+        }) => (
+          <View>
+            <ShowtimeListItem
+              url={purchase_url}
+              time={time}
+              onPress={onPress}
+            />
+          </View>
+        )}
+        keyExtractor={(item) => `${item.time}`}
+      />
+    </View>
 );
 
 ShowtimeList.propTypes = {
