@@ -30,7 +30,7 @@ class CinemaDetails extends React.Component {
 
   render() {
     const {
-      newMovies, cinemaMovies, cinemaDetails, navigation: { navigate },
+      cinemaMovies, cinemaDetails, navigation: { navigate },
     } = this.props;
     const { isLoading } = this.state;
     return (
@@ -133,6 +133,15 @@ CinemaDetails.propTypes = {
     getParam: PropTypes.func.isRequired,
   }).isRequired,
   getMoviesForCinema: PropTypes.func.isRequired,
+  cinemaDetails: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    description: PropTypes.string,
+    address: PropTypes.string,
+    phone: PropTypes.string,
+    website: PropTypes.string.isRequired,
+    city: PropTypes.string.isRequired,
+  })).isRequired,
 };
 
 const mapStateToProps = (state, ownProps) => ({
