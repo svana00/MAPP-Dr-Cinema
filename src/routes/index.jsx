@@ -30,8 +30,8 @@ const BottomNavigator = createBottomTabNavigator(
       screen: MainNavigator,
 
       navigationOptions: {
-        tabBarLabel: 'Home',
-        title: 'Home',
+        tabBarLabel: 'Forsíða',
+        title: 'Forsíða',
         tabBarOptions: {
           showIcon: true,
           activeTintColor: 'black',
@@ -51,8 +51,8 @@ const BottomNavigator = createBottomTabNavigator(
       screen: CinemasStackNavigator,
 
       navigationOptions: {
-        tabBarLabel: 'Cinemas',
-        title: 'Cinemas',
+        tabBarLabel: 'Kvikmyndahús',
+        title: 'Kvikmyndahús',
         tabBarIcon: () => (
           <Icon
             color="black"
@@ -67,8 +67,8 @@ const BottomNavigator = createBottomTabNavigator(
       screen: UpcomingMoviesStackNavigator,
 
       navigationOptions: {
-        tabBarLabel: 'Cinemas',
-        title: 'Cinemas',
+        tabBarLabel: 'Væntanlegt í bíó',
+        title: 'Væntanlegt í bíó',
         tabBarIcon: () => (
           <Icon
             color="black"
