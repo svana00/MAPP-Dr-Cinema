@@ -27,7 +27,7 @@ class UpcomingMovies extends React.Component {
     return (
       <View>
         <Header
-          title="Væntanlegt"
+          title="Væntanlegt í bíó"
         />
         {
           isLoading

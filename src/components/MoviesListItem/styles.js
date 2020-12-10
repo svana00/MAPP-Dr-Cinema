@@ -8,11 +8,11 @@ export default StyleSheet.create({
     borderWidth: 2,
   },
   listItem: {
-    marginBottom: 8,
+    marginBottom: 4,
     paddingLeft: 20,
     paddingRight: 5,
     paddingTop: 20,
-    paddingBottom: 15,
+    paddingBottom: 5,
     backgroundColor: '#fff',
     flex: 1,
     flexDirection: 'row',
