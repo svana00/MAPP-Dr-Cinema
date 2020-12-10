@@ -17,7 +17,7 @@ export default StyleSheet.create({
     paddingBottom: 20,
     backgroundColor: '#fff',
     flex: 1,
-    width: 183,
+    width: 179,
     height: 300,
   },
   textBox: {
