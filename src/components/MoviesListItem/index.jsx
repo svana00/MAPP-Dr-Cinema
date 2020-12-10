@@ -41,4 +41,8 @@ MovieListItem.propTypes = {
   }).isRequired,
 };
 
+MovieListItem.defaultProps = {
+  plot: null,
+};
+
 export default MovieListItem;
