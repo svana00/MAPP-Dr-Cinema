@@ -36,7 +36,6 @@ const MoviesList = ({ cinemaMovies, onPress }) => (
 );
 
 MoviesList.propTypes = {
-  cinemaId: PropTypes.number.isRequired,
   onPress: PropTypes.func.isRequired,
 };
 
