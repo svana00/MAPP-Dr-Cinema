@@ -3,10 +3,7 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    padding: 10,
-    backgroundColor: 'black',
-    alignItems: 'center',
-    justifyContent: 'space-evenly',
+    flexDirection: 'column',
   },
   smallContainer: {
     marginTop: 10,
@@ -23,8 +20,9 @@ export default StyleSheet.create({
     paddingLeft: 40,
   },
   logo: {
-    width: 350,
-    height: 500,
+    flex: 1,
+    resizeMode: 'cover',
+    justifyContent: 'center',
   },
   button: {
     flex: 1,

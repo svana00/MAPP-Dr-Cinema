@@ -1,6 +1,7 @@
 import React from 'react';
+import { WebView } from 'react-native-webview';
 import {
-  View,
+  View, Text, ImageBackground,
 } from 'react-native';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -11,9 +12,26 @@ const UpcomingMoviesTrailers = ({
   movieDetails,
 }) => (
   <View style={styles.container}>
-    <Header
-      title={movieDetails[0].name}
-    />
+    <ImageBackground source={{ uri: movieDetails[0].image }} style={styles.BackgroundImage}>
+      <View style={styles.Background}>
+        <View style={styles.Header}>
+          <Text style={styles.title}>{movieDetails[0].name}</Text>
+        </View>
+        {
+          movieDetails[0].trailers[0]
+            ? (
+              <WebView
+                style={styles.trailer}
+                source={{ uri: movieDetails[0].trailers[0] }}
+              />
+            ) : (
+              <View>
+                <Text>Því miður, finnst enginn trailer fyrir þessa mynd</Text>
+              </View>
+            )
+        }
+      </View>
+    </ImageBackground>
   </View>
 );
 
