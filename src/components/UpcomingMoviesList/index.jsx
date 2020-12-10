@@ -1,13 +1,12 @@
 import React from 'react';
 import {
-  View, FlatList, Text
+  View, FlatList,
 } from 'react-native';
 import PropTypes from 'prop-types';
 import styles from './styles';
 import UpcomingMovieItem from '../UpcomingMovieItem';
 
 const UpcomingMoviesList = ({ movies, onPress }) => (
-  console.log("mamma", movies),
   <View style={styles.listContainer}>
     <FlatList
       numColumns={1}

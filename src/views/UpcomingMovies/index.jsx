@@ -11,20 +11,20 @@ class UpcomingMovies extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoading: true
-    }
+      isLoading: true,
+    };
   }
 
   async componentDidMount() {
     const { getUpcomingMovies } = this.props;
     await getUpcomingMovies();
-    this.setState({isLoading: false})
+    this.setState({ isLoading: false });
   }
 
   render() {
     const { navigation: { navigate }, upcomingMovies } = this.props;
-    const {isLoading} = this.state;
-    console.log("PABBI",upcomingMovies);
+    const { isLoading } = this.state;
+    console.log('PABBI', upcomingMovies);
     return (
       <View>
         <Header
@@ -32,17 +32,16 @@ class UpcomingMovies extends React.Component {
         />
         {
           isLoading
-          ?
-          <Spinner />
-          : (
-            <>
-            <UpcomingMoviesList
-              onPress={() => { console.log('you pressed it!'); }}
-              movies={upcomingMovies}
-              navigate={navigate}
-            />
-            </>
-          )
+            ? <Spinner />
+            : (
+              <>
+                <UpcomingMoviesList
+                  onPress={() => { console.log('you pressed it!'); }}
+                  movies={upcomingMovies}
+                  navigate={navigate}
+                />
+              </>
+            )
         }
       </View>
     );

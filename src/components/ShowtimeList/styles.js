@@ -9,7 +9,7 @@ export default StyleSheet.create({
   },
 
   listContainer: {
-    padding: 15,
+    padding: 25,
   },
   heading: {
     fontSize: 18,

@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  View, Text, Linking, Image, ScrollView
+  View, Linking,
 } from 'react-native';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -11,7 +11,7 @@ import Header from '../../components/Header';
 const MovieDetails = ({
   movieDetails,
 }) => (
-  <View style={{ flex: 1, backgroundColor: '#e5e5e5', paddingBottom: 50}}>
+  <View style={styles.container}>
     <Header
       title={movieDetails[0].name}
     />

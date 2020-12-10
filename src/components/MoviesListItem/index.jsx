@@ -32,6 +32,13 @@ MovieListItem.propTypes = {
   duration: PropTypes.number.isRequired,
   releaseYear: PropTypes.string.isRequired,
   onPress: PropTypes.func.isRequired,
+  genres: PropTypes.string.isRequired,
+  showtimes: PropTypes.shape({
+    schedule: PropTypes.arrayOf(PropTypes.shape({
+      purchase_url: PropTypes.string.isRequired,
+      time: PropTypes.string.isRequired,
+    })).isRequired,
+  }).isRequired,
 };
 
 export default MovieListItem;
