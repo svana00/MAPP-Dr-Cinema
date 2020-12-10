@@ -13,6 +13,6 @@ export const getMovies = () => async (dispatch) => {
     const movies = await getAllMovies(finalToken).getMovies();
     dispatch(getMoviesSuccess(movies));
   } catch (err) {
-    console.log('We had an ERROR in AllMoviesAction --> getMovies', err);
+    console.log('An error happened in getMovies action.', err);
   }
 };

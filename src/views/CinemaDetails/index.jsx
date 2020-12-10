@@ -32,7 +32,6 @@ class CinemaDetails extends React.Component {
     const {
       cinemaMovies, cinemaDetails, navigation: { navigate },
     } = this.props;
-    console.log('mamma', cinemaMovies);
     const { isLoading } = this.state;
     return (
       <View>
