@@ -3,6 +3,7 @@ import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { Icon } from 'react-native-elements';
+import Fontisto from 'react-native-vector-icons/Fontisto';
 import Main from '../views/Main';
 import Cinemas from '../views/Cinemas';
 import CinemaDetails from '../views/CinemaDetails';
@@ -22,13 +23,13 @@ const CinemasStackNavigator = createStackNavigator({
   MovieDetails,
 });
 
+const AllMoviesStackNavigator = createStackNavigator({
+  AllMovies,
+});
+
 const UpcomingMoviesStackNavigator = createStackNavigator({
   UpcomingMovies,
   UpcomingMoviesTrailers,
-});
-
-const AllMoviesStackNavigator = createStackNavigator({
-  AllMovies,
 });
 
 const BottomNavigator = createBottomTabNavigator(
@@ -70,6 +71,26 @@ const BottomNavigator = createBottomTabNavigator(
         ),
       },
     },
+    AllMovies: {
+      screen: AllMoviesStackNavigator,
+
+      navigationOptions: {
+        tabBarLabel: 'Bíómyndir',
+        title: 'Bíómyndir',
+        tabBarOptions: {
+          showIcon: true,
+          activeTintColor: 'black',
+          inactiveTintColor: 'lightgrey',
+        },
+        tabBarIcon: () => (
+          <Fontisto
+            name="film"
+            size={25}
+            color="black"
+          />
+        ),
+      },
+    },
     UpcomingMovies: {
       screen: UpcomingMoviesStackNavigator,
 
@@ -81,27 +102,6 @@ const BottomNavigator = createBottomTabNavigator(
             color="black"
             type="font-awesome"
             name="ticket"
-            size={25}
-          />
-        ),
-      },
-    },
-    AllMovies: {
-      screen: AllMoviesStackNavigator,
-
-      navigationOptions: {
-        tabBarLabel: 'Allar kvikmyndir',
-        title: 'Allar kvikmyndir',
-        tabBarOptions: {
-          showIcon: true,
-          activeTintColor: 'black',
-          inactiveTintColor: 'lightgrey',
-        },
-        tabBarIcon: () => (
-          <Icon
-            color="black"
-            type="font-awesome"
-            name="home"
             size={25}
           />
         ),
