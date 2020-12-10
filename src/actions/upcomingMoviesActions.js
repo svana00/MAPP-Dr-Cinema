@@ -3,7 +3,7 @@ import getAllUpcomingMovies from '../services/moviesService';
 
 export const getUpcomingMoviesSuccess = (movies) => ({
   type: constants.GET_UPCOMING_MOVIES,
-  payload: movies,
+  payload: movies.sort((mov1, mov2) => mov2.releaseDate.localeCompare(mov1.releaseDate)),
 });
 
 export const getUpcomingMovies = (token) => async (dispatch) => {
