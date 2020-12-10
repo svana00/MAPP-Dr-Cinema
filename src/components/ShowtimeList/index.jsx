@@ -75,7 +75,7 @@ ShowtimeList.propTypes = {
 };
 
 ShowtimeList.defaultProps = {
-  plot: "",
+  plot: '',
 };
 
 const mapStateToProps = ({ showtimes }) => ({ showtimes });

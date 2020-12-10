@@ -33,7 +33,7 @@ MovieDetails.propTypes = {
   })).isRequired,
 };
 MovieDetails.defaultProps = {
-  plot: "",
+  plot: '',
 };
 
 const mapStateToProps = (state, ownProps) => ({
