@@ -86,7 +86,7 @@ class MoreDetailedDetailView extends React.Component {
               </Text>
               <View>
                 <Text style={styles.heading}>Einkunn</Text>
-                <Text style={styles.info}>
+                <Text style={styles.description}>
                   {movieDetails[0].rating}
                   /10 á IMDB
                 </Text>
@@ -94,13 +94,13 @@ class MoreDetailedDetailView extends React.Component {
 
               <View>
                 <Text style={styles.heading}>Leikarar</Text>
-                <Text style={styles.info}>
+                <Text style={styles.description}>
                   {movieDetails[0].actors}
                 </Text>
               </View>
               <View>
                 <Text style={styles.heading}>Leikstjórar</Text>
-                <Text style={styles.info}>
+                <Text style={styles.description}>
                   {movieDetails[0].directors}
                 </Text>
               </View>

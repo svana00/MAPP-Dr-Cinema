@@ -76,4 +76,12 @@ export default StyleSheet.create({
   ImageContainer: {
     flex: 1,
   },
+  description: {
+    fontSize: 16,
+    marginRight: '10%',
+  },
+  info: {
+    fontSize: 15,
+    marginRight: '10%',
+  },
 });
