@@ -5,17 +5,9 @@ export default StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
   },
-  BackgroundImage: {
+  backgroundImage: {
     flex: 1,
     resizeMode: 'cover',
-    justifyContent: 'center',
-  },
-  Background: {
-    backgroundColor: '#FFFF',
-    marginTop: 200,
-    height: 600,
-    width: 500,
-    alignItems: 'center',
     justifyContent: 'center',
   },
   title: {
@@ -23,9 +15,22 @@ export default StyleSheet.create({
     marginBottom: 20,
   },
   trailer: {
-    justifyContent: 'center',
-    height: 50,
-    width: 400,
-    marginRight: 80,
-  }
+    marginTop: 20,
+    width: 320,
+    height: 230,
+    alignSelf: 'center'
+  },
+  heading: {
+    fontSize: 18,
+    color: 'black',
+    fontWeight: 'bold',
+    marginTop: 20,
+    marginHorizontal: 20,
+  },
+  info: {
+    fontSize: 14,
+    color: 'black',
+    marginTop: 10,
+    marginHorizontal: 20,
+  },
 });

@@ -16,6 +16,8 @@ export default StyleSheet.create({
     backgroundColor: '#fff',
     flex: 1,
     flexDirection: 'row',
+    marginLeft: 15,
+    marginRight: 15,
   },
   textBox: {
     marginLeft: 15,

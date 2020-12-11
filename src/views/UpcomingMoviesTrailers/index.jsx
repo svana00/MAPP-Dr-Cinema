@@ -1,7 +1,7 @@
 import React from 'react';
 import { WebView } from 'react-native-webview';
 import {
-  View, Text, ImageBackground,
+  View, Text, ImageBackground, ScrollView
 } from 'react-native';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -11,28 +11,26 @@ import Header from '../../components/Header';
 const UpcomingMoviesTrailers = ({
   movieDetails,
 }) => (
-  <View style={styles.container}>
-    <ImageBackground source={{ uri: movieDetails[0].image }} style={styles.BackgroundImage}>
-      <View style={styles.Background}>
-        <View style={styles.Header}>
-          <Text style={styles.title}>{movieDetails[0].name}</Text>
-        </View>
-        {
-          movieDetails[0].trailers[0]
-            ? (
-              <WebView
-                style={styles.trailer}
-                source={{ uri: movieDetails[0].trailers[0] }}
-              />
-            ) : (
-              <View>
-                <Text>Því miður, finnst enginn trailer fyrir þessa mynd</Text>
-              </View>
-            )
-        }
-      </View>
-    </ImageBackground>
-  </View>
+  <ScrollView style={styles.container}>
+    <Header
+      title={movieDetails[0].name}
+    />
+    <Text style={styles.heading}>Stikla</Text>
+    <View style={{ flex: 1 }}>
+      {
+        movieDetails[0].trailers[0]
+          ? (
+            <WebView
+              startInLoadingState
+              style={styles.trailer}
+              source={{ uri: movieDetails[0].trailers[0] }}
+            />
+          ) : (
+            <Text style={styles.info}>Því miður er ekki til stikla fyrir þessa bíómynd.</Text>
+          )
+      }
+    </View>
+  </ScrollView>
 );
 
 UpcomingMoviesTrailers.propTypes = {
