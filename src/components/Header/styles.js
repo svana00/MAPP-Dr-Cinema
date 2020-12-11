@@ -13,6 +13,10 @@ export default StyleSheet.create({
     fontSize: 20,
     color: 'white',
   },
+  underHeading: {
+    fontSize: 14,
+    color: 'white',
+  },
   clear: {
     color: 'transparent',
   },

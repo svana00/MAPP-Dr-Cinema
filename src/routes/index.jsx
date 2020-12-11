@@ -10,6 +10,7 @@ import CinemaDetails from '../views/CinemaDetails';
 import MovieDetails from '../views/MovieDetails';
 import UpcomingMovies from '../views/UpcomingMovies';
 import AllMovies from '../views/AllMovies';
+import MoreDetailedDetailView from '../views/MoreDetailedDetailView'
 import UpcomingMoviesTrailers from '../views/UpcomingMoviesTrailers';
 
 const MainNavigator = createStackNavigator({
@@ -25,6 +26,7 @@ const CinemasStackNavigator = createStackNavigator({
 
 const AllMoviesStackNavigator = createStackNavigator({
   AllMovies,
+  MoreDetailedDetailView,
 });
 
 const UpcomingMoviesStackNavigator = createStackNavigator({

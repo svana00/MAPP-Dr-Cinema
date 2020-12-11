@@ -47,8 +47,26 @@ export const GenresToString = (genres) => {
       genresStr += `${genres[i].Name}\n`;
     }
   }
-  return genresStr;
+  return genresStr.slice(0,-1);
 };
+
+const TrailerObjectsToUrl = (trailers) => {
+  const urlArray = [];
+  for (let i = 0; i < trailers.length; i += 1) {
+    for (let j = 0; j < trailers[i].results.length; j += 1) {
+      urlArray.push(`${trailers[i].results[j].url}`);
+    }
+  }
+  return urlArray;
+};
+
+const peopleToString = (people) => {
+  var peopleString = '';
+  for (let i = 0; i < people.length; i += 1) {
+    peopleString += `${people[i].name}\n`;
+  }
+  return peopleString.slice(0,-1);
+}
 
 export const getAllMoviesForCinema = (cinemaId, finalToken) => ({
   getMovies: () => fetch(MOVIESENDPOINT, {
@@ -94,15 +112,29 @@ export const getAllMovies = (finalToken) => ({
       const allMovies = [];
       for (let i = 0; i < movies.length; i += 1) {
         const genresStr = GenresToString(movies[i].genres);
+        const urlArray = await TrailerObjectsToUrl(movies[i].trailers);
+        const directors = await peopleToString(movies[i].directors_abridged);
+        const actors = await peopleToString(movies[i].actors_abridged);
+        var certificate = ''
+        if (!movies[i].certificate) {
+          certificate = movies[i].certificateIS.number
+        }else {
+          certificate = movies[i].certificate.number
+        }
         allMovies.push({
           id: movies[i].id,
           name: movies[i].title,
           image: movies[i].poster,
           releaseYear: movies[i].year,
-          genres: genresStr,
           duration: movies[i].durationMinutes,
           plot: movies[i].plot,
-          showtimes: movies[i].showtimes,
+          rating: movies[i].ratings.imdb,
+          ageLimit: certificate,
+          otherTitles: movies[i].alternativeTitles,
+          actors: actors,
+          directors: directors,
+          trailers: urlArray,
+          genres: genresStr,
         });
       }
       return allMovies;

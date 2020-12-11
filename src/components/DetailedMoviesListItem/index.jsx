@@ -5,11 +5,11 @@ import {
 import PropTypes from 'prop-types';
 import styles from './styles';
 
-const MovieListItem = ({
-  id, name, image, plot, duration, releaseYear, genres, showtimes, onPress,
+const DetailedMoviesListItem = ({
+  id, name, image, plot, duration, releaseYear, genres, rating, ageLimit, otherTitles,actors,directors,trailers,onPress
 }) => (
   <TouchableOpacity
-    onPress={() => onPress(id, name, image, plot, duration, releaseYear, genres, showtimes)}
+    onPress={() => onPress(id, name, image, plot, duration, releaseYear, genres, rating, ageLimit, otherTitles,actors,directors,trailers)}
   >
     <View style={[styles.listItem, { opacity: 1 }]}>
       <View style={{ alignItems: 'center' }}>
@@ -18,34 +18,18 @@ const MovieListItem = ({
       <View style={styles.textBox}>
         <Text style={styles.title}>{name}</Text>
         <Text style={styles.website}>{releaseYear}</Text>
-        <Text style={styles.website}>{genres}</Text>
+        <Text style={styles.website}>{rating}/10 á IMDB</Text>
       </View>
     </View>
   </TouchableOpacity>
 );
 
-MovieListItem.propTypes = {
+DetailedMoviesListItem.propTypes = {
   id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
-  plot: PropTypes.string,
-  duration: PropTypes.number.isRequired,
   releaseYear: PropTypes.string.isRequired,
   onPress: PropTypes.func.isRequired,
-  genres: PropTypes.string.isRequired,
-  showtimes: PropTypes.arrayOf(
-    PropTypes.shape({
-      schedule: PropTypes.arrayOf(PropTypes.shape({
-        purchase_url: PropTypes.string.isRequired,
-        time: PropTypes.string.isRequired,
-      })).isRequired,
-    }).isRequired,
-  ),
 };
 
-MovieListItem.defaultProps = {
-  plot: null,
-  showtimes: Array(),
-};
-
-export default MovieListItem;
+export default DetailedMoviesListItem;
