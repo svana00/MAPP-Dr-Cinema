@@ -75,10 +75,11 @@ class UpcomingMoviesList extends React.Component {
         <FlatList
           ListHeaderComponent={this.renderHeader()}
           ListEmptyComponent={() => (
-            <View style={{ alignItems: 'center', marginTop: 30, justifyContent: 'center', width: 183,
+            <View style={{
+              alignItems: 'center', marginTop: 30, justifyContent: 'center', width: 183,
             }}
             >
-              <Text style={{ fontSize: 18 }}>Engin mynd fannst.</Text>
+              <Text style={{ fontSize: 18, marginBottom: 400 }}>Engin mynd fannst.</Text>
             </View>
           )}
           numColumns={2}
