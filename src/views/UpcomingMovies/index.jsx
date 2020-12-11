@@ -24,6 +24,7 @@ class UpcomingMovies extends React.Component {
   render() {
     const { navigation: { navigate }, upcomingMovies } = this.props;
     const { isLoading } = this.state;
+    console.log(upcomingMovies);
     return (
       <View>
         <Header
@@ -35,8 +36,8 @@ class UpcomingMovies extends React.Component {
             : (
               <>
                 <UpcomingMoviesList
-                  onPress={(id, name, image, releaseDate, trailers) => navigate('UpcomingMoviesTrailers', {
-                    id, name, image, releaseDate, trailers,
+                  onPress={(id, name, image, releaseDate, duration, trailers) => navigate('UpcomingMoviesTrailers', {
+                    id, name, image, releaseDate, duration, trailers,
                   })}
                   movies={upcomingMovies}
                   navigate={navigate}

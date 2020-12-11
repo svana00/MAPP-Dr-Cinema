@@ -6,26 +6,51 @@ export default StyleSheet.create({
     flexDirection: 'column',
   },
   BackgroundImage: {
-    flex: 1,
+    height: '50%',
+    width: '100%',
     resizeMode: 'cover',
-    justifyContent: 'center',
   },
   Background: {
+    marginTop: '80%',
     backgroundColor: '#FFFF',
-    marginTop: 200,
-    height: 600,
-    width: 500,
+    height: '70%',
+    borderRadius: 18,
+    flex: 1,
+  },
+  Header: {
+    flex: 1,
+    flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
   },
   title: {
-    fontSize: 20,
-    marginBottom: 20,
+    flex: 4,
+    fontSize: 32,
+    alignItems: 'center',
+    marginLeft: '10%',
+  },
+  heart: {
+    flex: 1,
+  },
+  content: {
+    flex: 0.5,
+    flexDirection: 'column',
+  },
+  genres: {
+    marginLeft: '10%',
+    flex: 1,
+  },
+  facts: {
+    flex: 1,
+    marginLeft: '10%',
   },
   trailer: {
-    justifyContent: 'center',
-    height: 50,
-    width: 400,
+    flex: 3,
+    height: '50%',
+    width: '100%',
     marginRight: 80,
-  }
+    alignItems: 'center',
+  },
+  ImageContainer: {
+    flex: 1,
+  },
 });
