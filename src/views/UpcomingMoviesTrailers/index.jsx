@@ -7,7 +7,6 @@ import { connect } from 'react-redux';
 import { AntDesign } from '@expo/vector-icons';
 import WebView from 'react-native-webview';
 import styles from './styles';
-import TrailerList from '../../components/TrailerList';
 import Spinner from '../../components/Spinner';
 
 class UpcomingMoviesTrailers extends React.Component {
@@ -85,6 +84,7 @@ UpcomingMoviesTrailers.propTypes = {
     releaseDate: PropTypes.string.isRequired,
   })).isRequired,
 };
+
 const mapStateToProps = (state, props) => ({
   movieDetails:
   state.upcomingMovies.filter((movie) => movie.id === props.navigation.state.params.id),
