@@ -96,6 +96,12 @@ class MoreDetailedDetailView extends React.Component {
                   {movieDetails[0].directors}
                 </Text>
               </View>
+              <View>
+                <Text style={styles.heading}>Hvar get ég séð myndina</Text>
+                <Text style={styles.description}>
+                  {movieDetails[0].theaters}
+                </Text>
+              </View>
               <Text style={styles.heading2}>Stikla</Text>
             </View>
             {

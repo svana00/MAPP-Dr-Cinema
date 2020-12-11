@@ -68,6 +68,20 @@ const peopleToString = (people) => {
   return peopleString.slice(0, -1);
 };
 
+const whichTheaters = (showtimes) => {
+  let theaterString = '';
+  for (let i = 0; i < showtimes.length; i += 1) {
+    if (!showtimes[i].cinema.name){
+      if (showtimes[i].cinema == 6){
+        theaterString += 'Álfabakki\n'
+      }
+    }else {
+      theaterString += `${showtimes[i].cinema.name}\n`
+    }
+  }
+  return theaterString.slice(0,-1)
+}
+
 export const getAllMoviesForCinema = (cinemaId, finalToken) => ({
   getMovies: () => fetch(MOVIESENDPOINT, {
     method: 'GET',
@@ -117,6 +131,7 @@ export const getAllMovies = (finalToken) => ({
         const urlArray = await TrailerObjectsToUrl(movies[i].trailers);
         const directors = await peopleToString(movies[i].directors_abridged);
         const actors = await peopleToString(movies[i].actors_abridged);
+        const theaters = await whichTheaters(movies[i].showtimes)
         let certificate = ''
         if (!movies[i].certificate) {
           certificate = movies[i].certificateIS.number;
@@ -137,6 +152,7 @@ export const getAllMovies = (finalToken) => ({
           directors,
           trailers: urlArray,
           genres: genresStr,
+          theaters: theaters,
         });
       }
       return allMovies;
