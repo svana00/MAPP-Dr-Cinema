@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import styles from './styles';
 import { getMoviesForCinema } from '../../actions/cinemaMoviesActions';
 import Header from '../../components/Header';
-import MoviesList from '../../components/MoviesList';
+import CinemaMoviesList from '../../components/CinemaMoviesList';
 import Spinner from '../../components/Spinner';
 
 class CinemaDetails extends React.Component {
@@ -106,8 +106,8 @@ class CinemaDetails extends React.Component {
                             </Text>
                           </View>
                         )}
-                      <MoviesList
-                        onPress={(id) => navigate('MovieDetails', {
+                      <CinemaMoviesList
+                        onPress={(id) => navigate('CinemaMovieDetails', {
                           id,
                         })}
                         cinemaMovies={cinemaMovies}

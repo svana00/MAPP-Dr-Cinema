@@ -3,9 +3,9 @@ import {
   View, FlatList,
 } from 'react-native';
 import PropTypes from 'prop-types';
-import MoviesListItem from '../MoviesListItem';
+import CinemaMoviesListItem from '../CinemaMoviesListItem';
 
-const MoviesList = ({ cinemaMovies, onPress }) => (
+const CinemaMoviesList = ({ cinemaMovies, onPress }) => (
   <View>
     <FlatList
       numColumns={1}
@@ -16,7 +16,7 @@ const MoviesList = ({ cinemaMovies, onPress }) => (
         },
       }) => (
         <View>
-          <MoviesListItem
+          <CinemaMoviesListItem
             id={id}
             name={name}
             image={image}
@@ -34,8 +34,8 @@ const MoviesList = ({ cinemaMovies, onPress }) => (
   </View>
 );
 
-MoviesList.propTypes = {
+CinemaMoviesList.propTypes = {
   onPress: PropTypes.func.isRequired,
 };
 
-export default MoviesList;
+export default CinemaMoviesList;

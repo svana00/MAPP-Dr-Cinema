@@ -12,24 +12,19 @@ import nine from '../../resources/nine.png';
 import six from '../../resources/six.png';
 import twelve from '../../resources/twelve.png';
 
-class MoreDetailedDetailView extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isLoading: true,
-    };
-  }
-
-  componentWillUnmount() {
-    this.setState({ isLoading: true });
+class AllMoviesDetails extends React.Component {
+  toGenreStr() {
+    const {
+      movieDetails,
+    } = this.props;
+    return movieDetails[0].genres.replace(/\n/g, ' / ');
   }
 
   render() {
     const {
       movieDetails,
     } = this.props;
-    const { isLoading } = this.state;
-    const newGenreStr = movieDetails[0].genres.replace(/\n/g, ' / ');
+    const newGenreStr = this.toGenreStr()
     return (
       <ScrollView>
         <ImageBackground source={{ uri: movieDetails[0].image }} imageStyle={{ resizeMode: 'cover' }} style={{ width: '100%', height: '80%' }}>
@@ -133,7 +128,7 @@ class MoreDetailedDetailView extends React.Component {
   }
 }
 
-MoreDetailedDetailView.propTypes = {
+AllMoviesDetails.propTypes = {
   movieDetails: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
@@ -149,4 +144,4 @@ const mapStateToProps = (state, props) => ({
   state.allMovies.filter((movie) => movie.id === props.navigation.state.params.id),
 });
 
-export default connect(mapStateToProps)(MoreDetailedDetailView);
+export default connect(mapStateToProps)(AllMoviesDetails);

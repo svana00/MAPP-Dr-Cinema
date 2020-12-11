@@ -5,7 +5,7 @@ import {
 import PropTypes from 'prop-types';
 import filter from 'lodash.filter';
 import styles from './styles';
-import UpcomingMovieItem from '../UpcomingMovieItem';
+import UpcomingMoviesListItem from '../UpcomingMoviesListItem';
 import contains from '../../helpers/containsSubstring';
 
 class UpcomingMoviesList extends React.Component {
@@ -91,7 +91,7 @@ class UpcomingMoviesList extends React.Component {
             },
           }) => (
             <View>
-              <UpcomingMovieItem
+              <UpcomingMoviesListItem
                 id={id}
                 name={name}
                 image={image}

@@ -35,7 +35,7 @@ class UpcomingMovies extends React.Component {
             : (
               <>
                 <UpcomingMoviesList
-                  onPress={(id, name, image, releaseDate, duration, trailers) => navigate('UpcomingMoviesTrailers', {
+                  onPress={(id, name, image, releaseDate, duration, trailers) => navigate('UpcomingMoviesTrailer', {
                     id, name, image, releaseDate, duration, trailers,
                   })}
                   movies={upcomingMovies}

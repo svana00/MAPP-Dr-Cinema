@@ -5,12 +5,11 @@ import {
 import PropTypes from 'prop-types';
 import styles from './styles';
 
-const DetailedMoviesListItem = ({
-  id, name, image, plot, duration, releaseYear, genres, rating,
-  ageLimit, otherTitles, actors, directors, trailers, onPress,
+const UpcomingMoviesListItem = ({
+  id, name, image, releaseDate, onPress,
 }) => (
   <TouchableOpacity
-    onPress={() => onPress(id)}
+    onPress={() => onPress(id, name, image, releaseDate)}
   >
     <View style={[styles.listItem, { opacity: 1 }]}>
       <View style={{ alignItems: 'center' }}>
@@ -18,22 +17,18 @@ const DetailedMoviesListItem = ({
       </View>
       <View style={styles.textBox}>
         <Text style={styles.title}>{name}</Text>
-        <Text style={styles.website}>{releaseYear}</Text>
-        <Text style={styles.website}>
-          {rating}
-          /10 á IMDB
-        </Text>
+        <Text style={styles.website}>{releaseDate}</Text>
       </View>
     </View>
   </TouchableOpacity>
 );
 
-DetailedMoviesListItem.propTypes = {
+UpcomingMoviesListItem.propTypes = {
   id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
-  releaseYear: PropTypes.string.isRequired,
+  releaseDate: PropTypes.string.isRequired,
   onPress: PropTypes.func.isRequired,
 };
 
-export default DetailedMoviesListItem;
+export default UpcomingMoviesListItem;

@@ -8,7 +8,7 @@ import { AntDesign } from '@expo/vector-icons';
 import WebView from 'react-native-webview';
 import styles from './styles';
 
-class UpcomingMoviesTrailers extends React.Component {
+class UpcomingMoviesTrailer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -80,7 +80,7 @@ class UpcomingMoviesTrailers extends React.Component {
   }
 }
 
-UpcomingMoviesTrailers.propTypes = {
+UpcomingMoviesTrailer.propTypes = {
   movieDetails: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
@@ -98,4 +98,4 @@ const mapStateToProps = (state, props) => ({
   state.upcomingMovies.filter((movie) => movie.id === props.navigation.state.params.id),
 });
 
-export default connect(mapStateToProps)(UpcomingMoviesTrailers);
+export default connect(mapStateToProps)(UpcomingMoviesTrailer);

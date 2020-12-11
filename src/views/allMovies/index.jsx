@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getMovies } from '../../actions/allMoviesActions';
-import DetailedMoviesList from '../../components/DetailedMoviesList';
+import AllMoviesList from '../../components/AllMoviesList';
 import Header from '../../components/Header';
 import Spinner from '../../components/Spinner';
 import styles from './styles';
@@ -35,8 +35,8 @@ class AllMovies extends React.Component {
             ? <Spinner />
             : (
               <>
-                <DetailedMoviesList
-                  onPress={(id) => navigate('MoreDetailedDetailView', {
+                <AllMoviesList
+                  onPress={(id) => navigate('AllMoviesDetails', {
                     id,
                   })}
                   movies={allMovies}
@@ -59,6 +59,7 @@ AllMovies.propTypes = {
     navigate: PropTypes.func.isRequired,
     addListener: PropTypes.func.isRequired,
   }).isRequired,
+  getMovies: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, { getMovies })(AllMovies);

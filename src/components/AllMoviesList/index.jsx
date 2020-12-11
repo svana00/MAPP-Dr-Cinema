@@ -5,10 +5,10 @@ import {
 import PropTypes from 'prop-types';
 import filter from 'lodash.filter';
 import styles from './styles';
-import DetailedMoviesListItem from '../DetailedMoviesListItem';
+import AllMoviesListItem from '../AllMoviesListItem';
 import contains from '../../helpers/containsSubstring';
 
-class DetailedMoviesList extends React.Component {
+class AllMoviesList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -106,7 +106,7 @@ class DetailedMoviesList extends React.Component {
             },
           }) => (
             <View>
-              <DetailedMoviesListItem
+              <AllMoviesListItem
                 id={id}
                 name={name}
                 image={image}
@@ -131,8 +131,8 @@ class DetailedMoviesList extends React.Component {
   }
 }
 
-DetailedMoviesList.propTypes = {
+AllMoviesList.propTypes = {
   onPress: PropTypes.func.isRequired,
 };
 
-export default DetailedMoviesList;
+export default AllMoviesList;

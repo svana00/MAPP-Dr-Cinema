@@ -7,11 +7,11 @@ import Fontisto from 'react-native-vector-icons/Fontisto';
 import Main from '../views/Main';
 import Cinemas from '../views/Cinemas';
 import CinemaDetails from '../views/CinemaDetails';
-import MovieDetails from '../views/MovieDetails';
+import CinemaMovieDetails from '../views/CinemaMovieDetails';
 import UpcomingMovies from '../views/UpcomingMovies';
 import AllMovies from '../views/AllMovies';
-import MoreDetailedDetailView from '../views/MoreDetailedDetailView';
-import UpcomingMoviesTrailers from '../views/UpcomingMoviesTrailers';
+import AllMoviesDetails from '../views/AllMoviesDetails';
+import UpcomingMoviesTrailer from '../views/UpcomingMoviesTrailer';
 
 const MainNavigator = createStackNavigator({
   Main,
@@ -21,17 +21,17 @@ const CinemasStackNavigator = createStackNavigator({
   Cinemas,
   UpcomingMovies,
   CinemaDetails,
-  MovieDetails,
+  CinemaMovieDetails,
 });
 
 const AllMoviesStackNavigator = createStackNavigator({
   AllMovies,
-  MoreDetailedDetailView,
+  AllMoviesDetails,
 });
 
 const UpcomingMoviesStackNavigator = createStackNavigator({
   UpcomingMovies,
-  UpcomingMoviesTrailers,
+  UpcomingMoviesTrailer,
 });
 
 const BottomNavigator = createBottomTabNavigator(
