@@ -96,6 +96,7 @@ class MoreDetailedDetailView extends React.Component {
                   {movieDetails[0].directors}
                 </Text>
               </View>
+              <Text style={styles.heading2}>Stikla</Text>
             </View>
             {
                   movieDetails[0].trailers[0]
@@ -111,11 +112,11 @@ class MoreDetailedDetailView extends React.Component {
                       </View>
                     ) : (
                       <View style={[styles.trailer, { justifyContent: 'center' }]}>
-                        <Text style={{
-                          paddingTop: 20, paddingHorizontal: 20, fontSize: 16, fontWeight: 'bold',
-                        }}
+                        <Text style={
+                          styles.info2
+                        }
                         >
-                          Því miður, það finnst enginn trailer fyrir þessa mynd
+                          Því miður fannst engin stikla fyrir þessa mynd.
                         </Text>
                       </View>
                     )

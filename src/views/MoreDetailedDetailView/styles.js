@@ -11,8 +11,6 @@ export default StyleSheet.create({
     alignItems: 'center',
     flex: 1,
   },
-  limit: {
-  },
   container: {
     flex: 1,
     flexDirection: 'column',
@@ -48,11 +46,11 @@ export default StyleSheet.create({
     marginLeft: '8%',
   },
   heading: {
-    fontSize: 18,
+    fontSize: 20,
     color: 'black',
-    fontWeight: 'bold',
     marginBottom: '2%',
     marginTop: '5%',
+    fontWeight: '500',
   },
   content: {
     flex: 0.5,
@@ -84,5 +82,15 @@ export default StyleSheet.create({
   info: {
     fontSize: 15,
     marginRight: '10%',
+  },
+  heading2: {
+    fontSize: 20,
+    marginTop: '5%',
+    fontWeight: '500',
+  },
+  info2: {
+    flex: 1,
+    fontSize: 15,
+    margin: 6,
   },
 });
