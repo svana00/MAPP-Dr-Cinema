@@ -40,12 +40,12 @@ export default StyleSheet.create({
     flex: 2,
     fontSize: 32,
     alignItems: 'center',
-    marginLeft: '10%',
+    marginLeft: '8%',
     marginTop: '5%',
     marginBottom: '5%',
   },
   secondaryFacts: {
-    marginLeft: '10%',
+    marginLeft: '8%',
   },
   heading: {
     fontSize: 18,
@@ -57,7 +57,7 @@ export default StyleSheet.create({
   content: {
     flex: 0.5,
     flexDirection: 'column',
-    marginLeft: '10%',
+    marginLeft: '8%',
   },
   genres: {
     flex: 1,
