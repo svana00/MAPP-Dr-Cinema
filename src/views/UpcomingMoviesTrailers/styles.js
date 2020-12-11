@@ -58,7 +58,7 @@ export default StyleSheet.create({
     alignItems: 'flex-start',
     marginBottom: 30,
     marginLeft: '8%',
-    flexWrap: 'wrap'
+    flexWrap: 'wrap',
   },
   noTrailer: {
     flex: 3,
@@ -66,7 +66,8 @@ export default StyleSheet.create({
     width: '100%',
     marginRight: 80,
     alignItems: 'flex-start',
-    marginBottom: 150,
+    marginTop: 8,
+    marginBottom: 152,
     flexWrap: 'wrap',
   },
   imageContainer: {
