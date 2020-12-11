@@ -136,6 +136,8 @@ AllMoviesDetails.propTypes = {
     plot: PropTypes.string,
     duration: PropTypes.number.isRequired,
     releaseYear: PropTypes.string.isRequired,
+    rating: PropTypes.string.isRequired,
+    genres: PropTypes.string.isRequired,
   })).isRequired,
 };
 

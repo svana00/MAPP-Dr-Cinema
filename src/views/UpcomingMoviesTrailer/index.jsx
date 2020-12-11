@@ -9,23 +9,18 @@ import WebView from 'react-native-webview';
 import styles from './styles';
 
 class UpcomingMoviesTrailer extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isLoading: true,
-    };
-  }
-
-  componentWillUnmount() {
-    this.setState({ isLoading: true });
+  genresToStr() {
+    const {
+      movieDetails,
+    } = this.props;
+    return movieDetails[0].genres.replace(/\n/g, ' / ');
   }
 
   render() {
     const {
       movieDetails,
     } = this.props;
-    const { isLoading } = this.state;
-    const newGenreStr = movieDetails[0].genres.replace(/\n/g, ' / ');
+    const newGenreStr = this.genresToStr();
     return (
       <ScrollView style={styles.container}>
         <ImageBackground source={{ uri: movieDetails[0].image }} style={{ width: '100%', height: '100%' }}>
