@@ -8,9 +8,7 @@ import styles from './styles';
 
 const Main = () => (
   <View style={styles.container}>
-    <ImageBackground source={logo} style={styles.logo}>
-      <Text>Hello</Text>
-    </ImageBackground>
+    <ImageBackground source={logo} style={styles.logo} />
   </View>
 );
 
