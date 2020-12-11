@@ -9,8 +9,8 @@ import Cinemas from '../views/Cinemas';
 import CinemaDetails from '../views/CinemaDetails';
 import MovieDetails from '../views/MovieDetails';
 import UpcomingMovies from '../views/UpcomingMovies';
-import AllMovies from '../views/AllMovies';
-import MoreDetailedDetailView from '../views/MoreDetailedDetailView'
+import AllMovies from '../views/allMovies';
+import MoreDetailedDetailView from '../views/MoreDetailedDetailView';
 import UpcomingMoviesTrailers from '../views/UpcomingMoviesTrailers';
 
 const MainNavigator = createStackNavigator({

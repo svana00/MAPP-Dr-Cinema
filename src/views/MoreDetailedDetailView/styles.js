@@ -7,32 +7,63 @@ export default StyleSheet.create({
     overflow: 'hidden',
     borderWidth: 1,
   },
+  rating: {
+    alignItems: 'center',
+    flex: 1,
+  },
+  limit: {
+  },
   container: {
-    padding: 25,
+    flex: 1,
+    flexDirection: 'column',
+  },
+  BackgroundImage: {
+    height: '50%',
+    width: '100%',
+    resizeMode: 'cover',
+  },
+  Background: {
+    marginTop: '80%',
+    backgroundColor: '#FFFF',
+    height: '70%',
+    flex: 1,
+    borderTopLeftRadius: 18,
+    borderTopRightRadius: 18,
+  },
+  Header: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  title: {
+    flex: 2,
+    fontSize: 32,
+    alignItems: 'center',
+    marginLeft: '10%',
+    marginTop: '5%',
+    marginBottom: '5%',
+  },
+  secondaryFacts: {
+    marginLeft: '10%',
   },
   heading: {
     fontSize: 18,
     color: 'black',
     fontWeight: 'bold',
-    marginHorizontal: 15,
+    marginBottom: '2%',
+    marginTop: '5%',
   },
-  description: {
-    fontSize: 16,
-    color: 'black',
-    marginBottom: 23,
-    textAlign: 'justify',
-    marginHorizontal: 15,
+  content: {
+    flex: 0.5,
+    flexDirection: 'column',
+    marginLeft: '10%',
   },
-  info: {
-    marginHorizontal: 15,
-    fontSize: 16,
-    paddingBottom: 3,
+  genres: {
+    flex: 1,
+    marginBottom: '5%',
   },
-  limit: {
-    position: 'absolute',
-    marginBottom: 5,
-    marginTop: 65,
-    marginHorizontal: 15,
+  facts: {
+    flex: 1,
   },
   trailer: {
     flex: 3,
@@ -41,5 +72,8 @@ export default StyleSheet.create({
     marginRight: 80,
     alignItems: 'center',
     marginBottom: 20,
+  },
+  ImageContainer: {
+    flex: 1,
   },
 });
