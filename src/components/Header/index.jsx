@@ -20,7 +20,11 @@ const Header = ({
 
 Header.propTypes = {
   title: PropTypes.string.isRequired,
-  otherTitle: PropTypes.string.isRequired,
+  otherTitle: PropTypes.string,
+};
+
+Header.defaultProps = {
+  otherTitle: null,
 };
 
 export default Header;

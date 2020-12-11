@@ -24,7 +24,6 @@ class MoreDetailedDetailView extends React.Component {
     this.setState({ isLoading: true });
   }
 
-
   render() {
     const {
       movieDetails,
