@@ -6,8 +6,7 @@ import PropTypes from 'prop-types';
 import styles from './styles';
 
 const AllMoviesListItem = ({
-  id, name, image, plot, duration, releaseYear, genres, rating,
-  ageLimit, otherTitles, actors, directors, trailers, onPress,
+  id, name, image, releaseYear, rating, onPress,
 }) => (
   <TouchableOpacity
     onPress={() => onPress(id)}
@@ -32,14 +31,10 @@ AllMoviesListItem.propTypes = {
   id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
-  plot: PropTypes.string,
-  duration: PropTypes.number.isRequired,
   releaseYear: PropTypes.string.isRequired,
+  rating: PropTypes.string.isRequired,
   onPress: PropTypes.func.isRequired,
 };
 
-AllMoviesListItem.defaultProps = {
-  plot: null,
-};
 
 export default AllMoviesListItem;
