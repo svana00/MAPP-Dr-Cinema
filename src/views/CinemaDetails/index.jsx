@@ -108,8 +108,8 @@ class CinemaDetails extends React.Component {
                           </View>
                         )}
                       <MoviesList
-                        onPress={(id, name, image, plot, duration, releaseYear, genres, showtimes) => navigate('MovieDetails', {
-                          id, name, image, plot, duration, releaseYear, genres, showtimes,
+                        onPress={(id) => navigate('MovieDetails', {
+                          id
                         })}
                         cinemaMovies={cinemaMovies}
                         navigate={navigate}

@@ -9,7 +9,7 @@ const DetailedMoviesListItem = ({
   id, name, image, plot, duration, releaseYear, genres, rating, ageLimit, otherTitles,actors,directors,trailers,onPress
 }) => (
   <TouchableOpacity
-    onPress={() => onPress(id, name, image, plot, duration, releaseYear, genres, rating, ageLimit, otherTitles,actors,directors,trailers)}
+    onPress={() => onPress(id)}
   >
     <View style={[styles.listItem, { opacity: 1 }]}>
       <View style={{ alignItems: 'center' }}>

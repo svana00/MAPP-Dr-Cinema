@@ -36,8 +36,8 @@ class AllMovies extends React.Component {
             : (
               <>
                 <DetailedMoviesList
-                onPress={(id, name, image, plot, duration, releaseYear, genres, rating, ageLimit, otherTitles,actors,directors,trailers,) => navigate('MoreDetailedDetailView', {
-                  id, name, image, plot, duration, releaseYear, genres, rating, ageLimit, otherTitles,actors,directors,trailers,
+                onPress={(id) => navigate('MoreDetailedDetailView', {
+                  id
                 })}
                   movies={allMovies}
                   navigate={navigate}
