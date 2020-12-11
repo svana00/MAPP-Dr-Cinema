@@ -28,7 +28,7 @@ class AllMovies extends React.Component {
     return (
       <View style={styles.listContainer}>
         <Header
-          title="Allar myndir"
+          title="Bíómyndir í sýningu"
         />
         {
           isLoading
@@ -36,9 +36,9 @@ class AllMovies extends React.Component {
             : (
               <>
                 <DetailedMoviesList
-                onPress={(id) => navigate('MoreDetailedDetailView', {
-                  id
-                })}
+                  onPress={(id) => navigate('MoreDetailedDetailView', {
+                    id,
+                  })}
                   movies={allMovies}
                   navigate={navigate}
                 />

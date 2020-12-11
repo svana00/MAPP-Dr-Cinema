@@ -147,12 +147,12 @@ MoreDetailedDetailView.propTypes = {
 };
 
 MoreDetailedDetailView.defaultProps = {
-  plot: "",
+  plot: '',
 };
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state, props) => ({
   movieDetails:
-  state.allMovies.filter((movie) => movie.id === ownProps.navigation.state.params.id),
+  state.allMovies.filter((movie) => movie.id === props.navigation.state.params.id),
 });
 
 export default connect(mapStateToProps)(MoreDetailedDetailView);

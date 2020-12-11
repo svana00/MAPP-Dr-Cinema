@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import styles from './styles';
 
 const DetailedMoviesListItem = ({
-  id, name, image, plot, duration, releaseYear, genres, rating, ageLimit, otherTitles,actors,directors,trailers,onPress
+  id, name, image, plot, duration, releaseYear, genres, rating, ageLimit, otherTitles, actors, directors, trailers, onPress,
 }) => (
   <TouchableOpacity
     onPress={() => onPress(id)}
@@ -18,7 +18,10 @@ const DetailedMoviesListItem = ({
       <View style={styles.textBox}>
         <Text style={styles.title}>{name}</Text>
         <Text style={styles.website}>{releaseYear}</Text>
-        <Text style={styles.website}>{rating}/10 á IMDB</Text>
+        <Text style={styles.website}>
+          {rating}
+          /10 á IMDB
+        </Text>
       </View>
     </View>
   </TouchableOpacity>

@@ -1,13 +1,12 @@
 import React from 'react';
 import {
-  View, Text, ImageBackground, ScrollView
+  View, Text, ImageBackground, ScrollView,
 } from 'react-native';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { AntDesign } from '@expo/vector-icons';
 import WebView from 'react-native-webview';
 import styles from './styles';
-import TrailerList from '../../components/TrailerList';
 import Spinner from '../../components/Spinner';
 
 class UpcomingMoviesTrailers extends React.Component {
@@ -85,9 +84,10 @@ UpcomingMoviesTrailers.propTypes = {
     releaseDate: PropTypes.string.isRequired,
   })).isRequired,
 };
-const mapStateToProps = (state, ownProps) => ({
+
+const mapStateToProps = (state, props) => ({
   movieDetails:
-  state.upcomingMovies.filter((movie) => movie.id === ownProps.navigation.state.params.id),
+  state.upcomingMovies.filter((movie) => movie.id === props.navigation.state.params.id),
 });
 
 export default connect(mapStateToProps)(UpcomingMoviesTrailers);

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import styles from './styles';
 
 const Header = ({
-  title, otherTitle
+  title, otherTitle,
 }) => (
   <View styleName="horizontal" style={styles.toolbar}>
     <View style={styles.toolbarAction}>

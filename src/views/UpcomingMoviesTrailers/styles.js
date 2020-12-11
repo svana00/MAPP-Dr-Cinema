@@ -24,9 +24,11 @@ export default StyleSheet.create({
   },
   title: {
     flex: 4,
-    fontSize: 32,
+    fontSize: 30,
     alignItems: 'center',
     marginLeft: '10%',
+    marginTop: 15,
+    marginBottom: 5,
   },
   heart: {
     flex: 1,
