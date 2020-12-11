@@ -13,6 +13,6 @@ export const getMoviesForCinema = (cinemaId) => async (dispatch) => {
     const movies = await getAllMoviesForCinema(cinemaId, finalToken).getMovies();
     dispatch(getMoviesForCinemaSuccess(movies));
   } catch (err) {
-    console.log('We had an ERROR in movieAction --> getCinemaDetails', err);
+    console.log('An error happened in getMoviesForCinema action.', err);
   }
 };

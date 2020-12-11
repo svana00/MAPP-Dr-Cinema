@@ -23,6 +23,14 @@ const TrailerObjectsToUrl = (trailers) => {
   return urlArray;
 };
 
+const GetDuration = (info) => {
+  let dur = '';
+  for (let i = 0; i < info.length; i += 1) {
+    dur = info[i].Runtime;
+  }
+  return dur;
+};
+
 async function getAllUpcomingMovies() {
   let finalToken = await token();
   finalToken = finalToken.token;
@@ -40,12 +48,14 @@ async function getAllUpcomingMovies() {
       for (let x = 0; x < upcomingMovies.length; x += 1) {
         const genreStr = await GenresToString(upcomingMovies[x].genres);
         const urlArray = await TrailerObjectsToUrl(upcomingMovies[x].trailers);
+        const durationinMinutes = await GetDuration(upcomingMovies[x].omdb);
         movies.push({
           id: upcomingMovies[x].id,
           name: upcomingMovies[x].title,
           image: upcomingMovies[x].poster,
           releaseDate: upcomingMovies[x]['release-dateIS'],
           trailers: urlArray,
+          duration: durationinMinutes,
           genres: genreStr,
           plot: upcomingMovies[x].plot,
         });

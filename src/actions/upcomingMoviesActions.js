@@ -11,6 +11,6 @@ export const getUpcomingMovies = (token) => async (dispatch) => {
     const movies = await getAllUpcomingMovies(token);
     dispatch(getUpcomingMoviesSuccess(movies));
   } catch (error) {
-    console.log('We had an ERROR in upcomingMoviesAction --> getUpcomingMovies', error);
+    console.log('An error happened in getUpcomingMovies action.', error);
   }
 };
