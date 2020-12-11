@@ -1,35 +1,102 @@
 import React from 'react';
 import {
-  View, FlatList,
+  View, FlatList, TextInput,
 } from 'react-native';
 import PropTypes from 'prop-types';
+import filter from 'lodash.filter';
 import styles from './styles';
 import UpcomingMovieItem from '../UpcomingMovieItem';
+import contains from '../../helpers/containsSubstring';
 
-const UpcomingMoviesList = ({ movies, onPress }) => (
-  <View style={styles.listContainer}>
-    <FlatList
-      numColumns={2}
-      data={movies}
-      renderItem={({
-        item: {
-          id, name, image, releaseDate,
-        },
-      }) => (
-        <View>
-          <UpcomingMovieItem
-            id={id}
-            name={name}
-            image={image}
-            releaseDate={releaseDate}
-            onPress={onPress}
-          />
-        </View>
-      )}
-      keyExtractor={(cinema) => cinema.id.toString()}
-    />
-  </View>
-);
+class UpcomingMoviesList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      query: '',
+      modifiedData: props.movies,
+    };
+  }
+
+  handleSearch(text) {
+    const {
+      movies,
+    } = this.props;
+    const formattedQuery = text.toLowerCase();
+    const filteredData = filter(movies, (movie) => contains(
+      movie.name.toLowerCase(), formattedQuery,
+    ));
+    this.updateModifiedData(filteredData);
+    this.setQuery(text);
+  }
+
+  setQuery(queryText) {
+    this.setState({ query: queryText });
+  }
+
+  updateModifiedData(filteredData) {
+    this.setState({ modifiedData: filteredData });
+  }
+
+  renderHeader() {
+    const {
+      query,
+    } = this.state;
+    return (
+      <View
+        style={{
+          backgroundColor: '#fff',
+          padding: 10,
+          marginVertical: 10,
+          borderRadius: 20,
+        }}
+      >
+        <TextInput
+          autoCapitalize="none"
+          autoCorrect={false}
+          clearButtonMode="always"
+          value={query}
+          onChangeText={(queryText) => this.handleSearch(queryText)}
+          placeholder="Search"
+          style={{ backgroundColor: '#fff', paddingHorizontal: 20 }}
+        />
+      </View>
+    );
+  }
+
+  render() {
+    const {
+      modifiedData,
+    } = this.state;
+    const {
+      onPress,
+    } = this.props;
+    return (
+      <View style={styles.listContainer}>
+        <FlatList
+          ListHeaderComponent={this.renderHeader()}
+          numColumns={2}
+          data={modifiedData}
+          renderItem={({
+            item: {
+              id, name, image, releaseDate,
+            },
+          }) => (
+            <View>
+              <UpcomingMovieItem
+                id={id}
+                name={name}
+                image={image}
+                releaseDate={releaseDate}
+                onPress={onPress}
+              />
+            </View>
+          )}
+          keyExtractor={(movie) => movie.id.toString()}
+        />
+      </View>
+    );
+  }
+}
 
 UpcomingMoviesList.propTypes = {
   onPress: PropTypes.func.isRequired,
