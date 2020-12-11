@@ -5,28 +5,30 @@ export default StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
   },
-  BackgroundImage: {
-    height: '50%',
-    width: '100%',
-    resizeMode: 'cover',
-  },
-  Background: {
+  background: {
     marginTop: '80%',
     backgroundColor: '#FFFF',
     height: '70%',
     borderRadius: 18,
     flex: 1,
   },
-  Header: {
+  header: {
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
+  },
+  heading2: {
+    fontSize: 22,
+    marginLeft: '9%',
+    marginTop: 24,
+    marginBottom: 1,
+    fontWeight: '500',
   },
   title: {
     flex: 4,
     fontSize: 30,
     alignItems: 'center',
-    marginLeft: '10%',
+    marginLeft: '9%',
     marginTop: 15,
     marginBottom: 5,
   },
@@ -38,22 +40,35 @@ export default StyleSheet.create({
     flexDirection: 'column',
   },
   genres: {
-    marginLeft: '10%',
     flex: 1,
+    fontSize: 15,
   },
   facts: {
     flex: 1,
-    marginLeft: '10%',
+    fontSize: 15,
+    marginLeft: '9%',
+    margin: 3,
   },
   trailer: {
     flex: 3,
     height: '50%',
     width: '100%',
     marginRight: 80,
-    alignItems: 'center',
-    marginBottom: 20,
+    alignItems: 'flex-start',
+    marginBottom: 30,
+    marginLeft: '9%',
+    flexWrap: 'wrap'
   },
-  ImageContainer: {
+  noTrailer: {
+    flex: 3,
+    height: '50%',
+    width: '100%',
+    marginRight: 80,
+    alignItems: 'flex-start',
+    marginBottom: 25,
+    flexWrap: 'wrap',
+  },
+  imageContainer: {
     flex: 1,
   },
 });
