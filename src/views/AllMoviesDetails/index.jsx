@@ -91,7 +91,7 @@ class AllMoviesDetails extends React.Component {
                 </Text>
               </View>
               <View>
-                <Text style={styles.heading}>Hvar get ég séð myndina</Text>
+                <Text style={styles.heading}>Hvar get ég séð myndina?</Text>
                 <Text style={styles.description}>
                   {movieDetails[0].theaters}
                 </Text>

@@ -36,5 +36,4 @@ AllMoviesListItem.propTypes = {
   onPress: PropTypes.func.isRequired,
 };
 
-
 export default AllMoviesListItem;
