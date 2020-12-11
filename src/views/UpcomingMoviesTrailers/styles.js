@@ -19,7 +19,7 @@ export default StyleSheet.create({
   },
   heading2: {
     fontSize: 22,
-    marginLeft: '9%',
+    marginLeft: '8%',
     marginTop: 24,
     marginBottom: 1,
     fontWeight: '500',
@@ -28,7 +28,7 @@ export default StyleSheet.create({
     flex: 4,
     fontSize: 30,
     alignItems: 'center',
-    marginLeft: '9%',
+    marginLeft: '8%',
     marginTop: 15,
     marginBottom: 5,
   },
@@ -42,11 +42,12 @@ export default StyleSheet.create({
   genres: {
     flex: 1,
     fontSize: 15,
+    marginRight: 10,
   },
   facts: {
     flex: 1,
     fontSize: 15,
-    marginLeft: '9%',
+    marginLeft: '8%',
     margin: 3,
   },
   trailer: {
@@ -56,7 +57,7 @@ export default StyleSheet.create({
     marginRight: 80,
     alignItems: 'flex-start',
     marginBottom: 30,
-    marginLeft: '9%',
+    marginLeft: '8%',
     flexWrap: 'wrap'
   },
   noTrailer: {
@@ -65,7 +66,7 @@ export default StyleSheet.create({
     width: '100%',
     marginRight: 80,
     alignItems: 'flex-start',
-    marginBottom: 25,
+    marginBottom: 150,
     flexWrap: 'wrap',
   },
   imageContainer: {
