@@ -20,13 +20,14 @@ export default StyleSheet.create({
   BackgroundImage: {
     height: '50%',
     width: '100%',
-    resizeMode: 'cover',
+    resizeMode: 'repeat',
+    flex: 1,
   },
   Background: {
-    marginTop: '80%',
     backgroundColor: '#FFFF',
+    marginTop: '80%',
     height: '70%',
-    flex: 1,
+    flex: 2,
     borderTopLeftRadius: 18,
     borderTopRightRadius: 18,
   },
@@ -75,5 +76,13 @@ export default StyleSheet.create({
   },
   ImageContainer: {
     flex: 1,
+  },
+  description: {
+    fontSize: 16,
+    marginRight: '10%',
+  },
+  info: {
+    fontSize: 15,
+    marginRight: '10%',
   },
 });

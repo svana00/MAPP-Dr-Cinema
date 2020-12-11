@@ -33,7 +33,7 @@ class MoreDetailedDetailView extends React.Component {
     const newGenreStr = movieDetails[0].genres.replace(/\n/g, ' / ');
     return (
       <ScrollView>
-        <ImageBackground source={{ uri: movieDetails[0].image }} style={{ width: '100%', height: '100%' }}>
+        <ImageBackground source={{ uri: movieDetails[0].image }} resizeMode="repeat-y" style={{ width: '101%', height: '80%' }}>
           <View style={styles.Background}>
             <View style={styles.Header}>
               <Text style={styles.title}>{movieDetails[0].name}</Text>
@@ -86,7 +86,7 @@ class MoreDetailedDetailView extends React.Component {
               </Text>
               <View>
                 <Text style={styles.heading}>Einkunn</Text>
-                <Text style={styles.info}>
+                <Text style={styles.description}>
                   {movieDetails[0].rating}
                   /10 á IMDB
                 </Text>
@@ -94,13 +94,13 @@ class MoreDetailedDetailView extends React.Component {
 
               <View>
                 <Text style={styles.heading}>Leikarar</Text>
-                <Text style={styles.info}>
+                <Text style={styles.description}>
                   {movieDetails[0].actors}
                 </Text>
               </View>
               <View>
                 <Text style={styles.heading}>Leikstjórar</Text>
-                <Text style={styles.info}>
+                <Text style={styles.description}>
                   {movieDetails[0].directors}
                 </Text>
               </View>
