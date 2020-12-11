@@ -9,7 +9,7 @@ export default StyleSheet.create({
     marginTop: '80%',
     backgroundColor: '#FFFF',
     height: '70%',
-    borderRadius: 18,
+    borderRadius: 10,
     flex: 1,
   },
   header: {
