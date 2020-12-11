@@ -25,6 +25,7 @@ class AllMovies extends React.Component {
   render() {
     const { navigation: { navigate }, allMovies } = this.props;
     const { isLoading } = this.state;
+    console.log("PABBI", allMovies)
     return (
       <View style={styles.listContainer}>
         <Header

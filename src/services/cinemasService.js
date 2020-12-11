@@ -115,6 +115,7 @@ export const getAllMovies = (finalToken) => ({
         const urlArray = await TrailerObjectsToUrl(movies[i].trailers);
         const directors = await peopleToString(movies[i].directors_abridged);
         const actors = await peopleToString(movies[i].actors_abridged);
+        var showtimes = Array(movies[i].showtimes)
         var certificate = ''
         if (!movies[i].certificate) {
           certificate = movies[i].certificateIS.number
@@ -135,6 +136,7 @@ export const getAllMovies = (finalToken) => ({
           directors: directors,
           trailers: urlArray,
           genres: genresStr,
+          showtimes: showtimes,
         });
       }
       return allMovies;
