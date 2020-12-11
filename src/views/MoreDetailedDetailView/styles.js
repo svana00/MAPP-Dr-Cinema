@@ -33,5 +33,13 @@ export default StyleSheet.create({
     marginBottom: 5,
     marginTop: 65,
     marginHorizontal: 15,
-  }
+  },
+  trailer: {
+    flex: 3,
+    height: '50%',
+    width: '100%',
+    marginRight: 80,
+    alignItems: 'center',
+    marginBottom: 20,
+  },
 });

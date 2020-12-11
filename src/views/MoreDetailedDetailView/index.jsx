@@ -1,7 +1,8 @@
 import React from 'react';
 import {
-  View, Linking, Image, Text, ScrollView
+  View, Linking, Image, Text, ScrollView,
 } from 'react-native';
+import WebView from 'react-native-webview';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import styles from './styles';
@@ -94,8 +95,25 @@ const MoreDetailedDetailView = ({
           {movieDetails[0].directors}
         </Text>
       </View>
+      {
+          movieDetails[0].trailers[0]
+            ? (
+              <View style={styles.trailer}>
+                <WebView
+                  style={{ marginTop: 20, width: 320, height: 230 }}
+                  javaScriptEnabled
+                  domStorageEnabled
+                  androidHardwareAccelerationDisabled
+                  source={{ uri: movieDetails[0].trailers[0] }}
+                />
+              </View>
+            ) : (
+              <View style={[styles.trailer, { justifyContent: 'center' }]}>
+                <Text style={{paddingTop: 20, paddingHorizontal: 20, fontSize: 16, fontWeight: 'bold', }}>Því miður, það finnst enginn trailer fyrir þessa mynd</Text>
+              </View>
+            )
+        }
     </View>
-
   </ScrollView>
 );
 

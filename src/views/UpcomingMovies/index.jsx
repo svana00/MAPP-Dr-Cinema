@@ -24,7 +24,6 @@ class UpcomingMovies extends React.Component {
   render() {
     const { navigation: { navigate }, upcomingMovies } = this.props;
     const { isLoading } = this.state;
-    console.log(upcomingMovies);
     return (
       <View>
         <Header
