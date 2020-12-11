@@ -17,85 +17,79 @@ import twelve from '../../resources/twelve.png';
 const MoreDetailedDetailView = ({
   movieDetails,
 }) => (
-  console.log("HERE",movieDetails),
-  <ScrollView>
-    <Header
-      title={movieDetails[0].name}
-      otherTitle={movieDetails[0].otherTitles}
-    />
-    <View style={{ alignItems: 'center' }}>
-      <Image source={{ uri: movieDetails[0].image }} style={styles.thumbnailImage} resizeMode="cover" />
-    </View>
-    {
-      (movieDetails[0].ageLimit === "L")
-        ?  <Image source={l} style={styles.limit}/>
-        : (movieDetails[0].ageLimit === "16")
-        ?
-          <Image source={sixteen} style={styles.limit}/>
-        :
-          (movieDetails[0].ageLimit === "9")
-        ?
-          <Image source={nine} style={styles.limit}/>
-        :
-          (movieDetails[0].ageLimit === "6")
-        ?
-          <Image source={six} style={styles.limit}/>
-        :
-          (movieDetails[0].ageLimit === "12")
-        ?
-          <Image source={twelve} style={styles.limit}/>
-        :
-          (<Text>movieDetails[0].ageLimit</Text>)
+  console.log('HERE', movieDetails),
+    <ScrollView>
+      <Header
+        title={movieDetails[0].name}
+        otherTitle={movieDetails[0].otherTitles}
+      />
+      <View style={{ alignItems: 'center' }}>
+        <Image source={{ uri: movieDetails[0].image }} style={styles.thumbnailImage} resizeMode="cover" />
+      </View>
+      {
+      (movieDetails[0].ageLimit === 'L')
+        ? <Image source={l} style={styles.limit} />
+        : (movieDetails[0].ageLimit === '16')
+          ? <Image source={sixteen} style={styles.limit} />
+          : (movieDetails[0].ageLimit === '9')
+            ? <Image source={nine} style={styles.limit} />
+            : (movieDetails[0].ageLimit === '6')
+              ? <Image source={six} style={styles.limit} />
+              : (movieDetails[0].ageLimit === '12')
+                ? <Image source={twelve} style={styles.limit} />
+                : (<Text>movieDetails[0].ageLimit</Text>)
     }
 
-    <View>
-      <Text style={styles.description}>
-        {'\n'}
-        {movieDetails[0].plot}
-      </Text>
-      <Text style={styles.heading}>Lengd</Text>
-      <Text style={styles.info}>
-        {movieDetails[0].duration}
-        {' '}
-        mínútur
-      </Text>
-      <Text style={styles.heading}>Útgáfuár</Text>
-      <Text style={styles.info}>
-        {movieDetails[0].releaseYear}
-      </Text>
-      {
+      <View>
+        <Text style={styles.description}>
+          {'\n'}
+          {movieDetails[0].plot}
+        </Text>
+        <Text style={styles.heading}>Lengd</Text>
+        <Text style={styles.info}>
+          {movieDetails[0].duration}
+          {' '}
+          mínútur
+        </Text>
+        <Text style={styles.heading}>Útgáfuár</Text>
+        <Text style={styles.info}>
+          {movieDetails[0].releaseYear}
+        </Text>
+        {
         (movieDetails[0].genres)
-          ?
-          <>
-            <View>
-              <Text style={styles.heading}>Tegund</Text>
-              <Text style={styles.info}>
-                {movieDetails[0].genres}
-              </Text>
-            </View>
-          </>
-          : <Text>{''}</Text>
+          ? (
+            <>
+              <View>
+                <Text style={styles.heading}>Tegund</Text>
+                <Text style={styles.info}>
+                  {movieDetails[0].genres}
+                </Text>
+              </View>
+            </>
+          )
+          : <Text />
       }
-      <View>
-        <Text style={styles.heading}>Einkunn</Text>
-        <Text style={styles.info}>
-          {movieDetails[0].rating}/10 á IMDB
-        </Text>
-      </View>
+        <View>
+          <Text style={styles.heading}>Einkunn</Text>
+          <Text style={styles.info}>
+            {movieDetails[0].rating}
+            /10 á IMDB
+          </Text>
+        </View>
 
-      <View>
-        <Text style={styles.heading}>Leikarar</Text>
-        <Text style={styles.info}>
-          {movieDetails[0].actors}
-        </Text>
-      </View>
-      <View>
-        <Text style={styles.heading}>Leikstjórar</Text>
-        <Text style={styles.info}>
-          {movieDetails[0].directors}
-        </Text>
-      </View>
-      {
+        <View>
+          <Text style={styles.heading}>Leikarar</Text>
+          <Text style={styles.info}>
+            {movieDetails[0].actors}
+          </Text>
+        </View>
+        <View>
+          <Text style={styles.heading}>Leikstjórar</Text>
+          <Text style={styles.info}>
+            {movieDetails[0].directors}
+          </Text>
+        </View>
+        {
           movieDetails[0].trailers[0]
             ? (
               <View style={styles.trailer}>
@@ -109,12 +103,17 @@ const MoreDetailedDetailView = ({
               </View>
             ) : (
               <View style={[styles.trailer, { justifyContent: 'center' }]}>
-                <Text style={{paddingTop: 20, paddingHorizontal: 20, fontSize: 16, fontWeight: 'bold', }}>Því miður, það finnst enginn trailer fyrir þessa mynd</Text>
+                <Text style={{
+                  paddingTop: 20, paddingHorizontal: 20, fontSize: 16, fontWeight: 'bold',
+                }}
+                >
+                  Því miður, það finnst enginn trailer fyrir þessa mynd
+                </Text>
               </View>
             )
         }
-    </View>
-  </ScrollView>
+      </View>
+    </ScrollView>
 );
 
 MoreDetailedDetailView.propTypes = {
@@ -129,12 +128,12 @@ MoreDetailedDetailView.propTypes = {
 };
 
 MoreDetailedDetailView.defaultProps = {
-  plot: ""
+  plot: '',
 };
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state, props) => ({
   movieDetails:
-  state.allMovies.filter((movie) => movie.id === ownProps.navigation.state.params.id),
+  state.allMovies.filter((movie) => movie.id === props.navigation.state.params.id),
 });
 
 export default connect(mapStateToProps)(MoreDetailedDetailView);

@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  View, FlatList, Text
+  View, FlatList, Text,
 } from 'react-native';
 import PropTypes from 'prop-types';
 import styles from './styles';
@@ -13,7 +13,7 @@ const DetailedMoviesList = ({ movies, onPress }) => (
       data={movies}
       renderItem={({
         item: {
-          id, name, image, plot, duration, releaseYear, genres, rating, ageLimit, otherTitles,actors,directors,trailers,
+          id, name, image, plot, duration, releaseYear, genres, rating, ageLimit, otherTitles, actors, directors, trailers,
         },
       }) => (
         <View>

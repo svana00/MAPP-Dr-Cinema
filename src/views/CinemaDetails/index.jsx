@@ -109,7 +109,7 @@ class CinemaDetails extends React.Component {
                         )}
                       <MoviesList
                         onPress={(id) => navigate('MovieDetails', {
-                          id
+                          id,
                         })}
                         cinemaMovies={cinemaMovies}
                         navigate={navigate}
@@ -144,9 +144,9 @@ CinemaDetails.propTypes = {
   })).isRequired,
 };
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state, props) => ({
   cinemaDetails: state.cinemas.filter(
-    (cinema) => cinema.id === ownProps.navigation.state.params.id,
+    (cinema) => cinema.id === props.navigation.state.params.id,
   ),
   cinemaMovies: state.cinemaMovies,
 });

@@ -32,13 +32,10 @@ MovieDetails.propTypes = {
     releaseYear: PropTypes.string.isRequired,
   })).isRequired,
 };
-MovieDetails.defaultProps = {
-  plot: '',
-};
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state, props) => ({
   movieDetails:
-  state.cinemaMovies.filter((movie) => movie.id === ownProps.navigation.state.params.id),
+  state.cinemaMovies.filter((movie) => movie.id === props.navigation.state.params.id),
 });
 
 export default connect(mapStateToProps)(MovieDetails);
