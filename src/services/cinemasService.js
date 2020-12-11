@@ -71,16 +71,16 @@ const peopleToString = (people) => {
 const whichTheaters = (showtimes) => {
   let theaterString = '';
   for (let i = 0; i < showtimes.length; i += 1) {
-    if (!showtimes[i].cinema.name){
-      if (showtimes[i].cinema == 6){
-        theaterString += 'Álfabakki\n'
+    if (!showtimes[i].cinema.name) {
+      if (showtimes[i].cinema == 6) {
+        theaterString += 'Álfabakki\n';
       }
-    }else {
-      theaterString += `${showtimes[i].cinema.name}\n`
+    } else {
+      theaterString += `${showtimes[i].cinema.name}\n`;
     }
   }
-  return theaterString.slice(0,-1)
-}
+  return theaterString.slice(0, -1);
+};
 
 export const getAllMoviesForCinema = (cinemaId, finalToken) => ({
   getMovies: () => fetch(MOVIESENDPOINT, {

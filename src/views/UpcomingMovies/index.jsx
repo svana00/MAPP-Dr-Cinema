@@ -58,6 +58,7 @@ UpcomingMovies.propTypes = {
     navigate: PropTypes.func.isRequired,
     addListener: PropTypes.func.isRequired,
   }).isRequired,
+  getUpcomingMovies: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, { getUpcomingMovies })(UpcomingMovies);
