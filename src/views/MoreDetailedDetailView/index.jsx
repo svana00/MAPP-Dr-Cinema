@@ -22,7 +22,7 @@ class MoreDetailedDetailView extends React.Component {
   }
 
   componentWillUnmount() {
-    this.setState({isLoading: true});
+    this.setState({ isLoading: true });
   }
 
   render() {
@@ -39,25 +39,17 @@ class MoreDetailedDetailView extends React.Component {
               <Text style={styles.title}>{movieDetails[0].name}</Text>
               <View style={styles.rating}>
                 {
-                    (movieDetails[0].ageLimit === "L")
-                      ?  (<Image source={l} style={styles.limit}/>)
-                      : (movieDetails[0].ageLimit === "16")
-                      ?
-                        (<Image source={sixteen} style={styles.limit}/>)
-                      :
-                        (movieDetails[0].ageLimit === "9")
-                      ?
-                        (<Image source={nine} style={styles.limit}/>)
-                      :
-                        (movieDetails[0].ageLimit === "6")
-                      ?
-                        (<Image source={six} style={styles.limit}/>)
-                      :
-                        (movieDetails[0].ageLimit === "12")
-                      ?
-                        (<Image source={twelve} style={styles.limit}/>)
-                      :
-                        (<Text>{movieDetails[0].ageLimit}</Text>)
+                    (movieDetails[0].ageLimit === 'L')
+                      ? (<Image source={l} style={styles.limit} />)
+                      : (movieDetails[0].ageLimit === '16')
+                        ? (<Image source={sixteen} style={styles.limit} />)
+                        : (movieDetails[0].ageLimit === '9')
+                          ? (<Image source={nine} style={styles.limit} />)
+                          : (movieDetails[0].ageLimit === '6')
+                            ? (<Image source={six} style={styles.limit} />)
+                            : (movieDetails[0].ageLimit === '12')
+                              ? (<Image source={twelve} style={styles.limit} />)
+                              : (<Text>{movieDetails[0].ageLimit}</Text>)
                     }
               </View>
             </View>
@@ -104,8 +96,8 @@ class MoreDetailedDetailView extends React.Component {
                   {movieDetails[0].directors}
                 </Text>
               </View>
-              </View>
-              {
+            </View>
+            {
                   movieDetails[0].trailers[0]
                     ? (
                       <View style={styles.trailer}>
@@ -120,7 +112,7 @@ class MoreDetailedDetailView extends React.Component {
                     ) : (
                       <View style={[styles.trailer, { justifyContent: 'center' }]}>
                         <Text style={{
-                          paddingTop: 20, paddingHorizontal: 20, fontSize: 16, fontWeight: 'bold'
+                          paddingTop: 20, paddingHorizontal: 20, fontSize: 16, fontWeight: 'bold',
                         }}
                         >
                           Því miður, það finnst enginn trailer fyrir þessa mynd
@@ -128,7 +120,7 @@ class MoreDetailedDetailView extends React.Component {
                       </View>
                     )
                 }
-            </View>
+          </View>
         </ImageBackground>
       </ScrollView>
     );
