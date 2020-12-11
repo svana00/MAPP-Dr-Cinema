@@ -2,7 +2,10 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   listContainer: {
-    padding: 25,
+    paddingLeft: 25,
+    paddingRight: 25,
+    paddingTop: 25,
+    paddingBottom: 20,
   },
   heading: {
     fontSize: 20,

@@ -48,7 +48,6 @@ class CinemaDetails extends React.Component {
                 title={name}
               />
               <View style={styles.listContainer}>
-                <Text style={styles.heading}>{name}</Text>
                 {description ? (
                   <Text style={styles.description}>
                     {description}
