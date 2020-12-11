@@ -23,19 +23,19 @@ const ShowtimeList = ({
               {movieDetails[0].plot}
             </Text>
             <Text style={styles.heading}>Lengd</Text>
-            <Text>
+            <Text style={styles.info}>
               {movieDetails[0].duration}
               {' '}
               mínútur
               {'\n'}
             </Text>
             <Text style={styles.heading}>Útgáfuár</Text>
-            <Text>
+            <Text style={styles.info}>
               {movieDetails[0].releaseYear}
               {'\n'}
             </Text>
             <Text style={styles.heading}>Tegund</Text>
-            <Text>
+            <Text style={styles.description}>
               {movieDetails[0].genres}
               {' '}
             </Text>
@@ -44,7 +44,7 @@ const ShowtimeList = ({
         </>
     )}
       numColumns={3}
-      data={movieDetails[0].showtimes.schedule}
+      data={movieDetails[0].showtimes[0].schedule}
       renderItem={({
         item: { purchase_url, time },
       }) => (
@@ -67,11 +67,15 @@ ShowtimeList.propTypes = {
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
-    plot: PropTypes.string.isRequired,
+    plot: PropTypes.string,
     duration: PropTypes.number.isRequired,
     releaseYear: PropTypes.string.isRequired,
     genres: PropTypes.string.isRequired,
   })).isRequired,
+};
+
+ShowtimeList.defaultProps = {
+  plot: '',
 };
 
 const mapStateToProps = ({ showtimes }) => ({ showtimes });

@@ -28,17 +28,23 @@ MovieListItem.propTypes = {
   id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
-  plot: PropTypes.string.isRequired,
+  plot: PropTypes.string,
   duration: PropTypes.number.isRequired,
   releaseYear: PropTypes.string.isRequired,
   onPress: PropTypes.func.isRequired,
   genres: PropTypes.string.isRequired,
-  showtimes: PropTypes.shape({
-    schedule: PropTypes.arrayOf(PropTypes.shape({
-      purchase_url: PropTypes.string.isRequired,
-      time: PropTypes.string.isRequired,
-    })).isRequired,
-  }).isRequired,
+  showtimes: PropTypes.arrayOf(
+    PropTypes.shape({
+      schedule: PropTypes.arrayOf(PropTypes.shape({
+        purchase_url: PropTypes.string.isRequired,
+        time: PropTypes.string.isRequired,
+      })).isRequired,
+    }).isRequired,
+  ).isRequired,
+};
+
+MovieListItem.defaultProps = {
+  plot: null,
 };
 
 export default MovieListItem;

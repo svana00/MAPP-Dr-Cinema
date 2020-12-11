@@ -43,7 +43,9 @@ export async function getAllCinemas() {
 export const GenresToString = (genres) => {
   let genresStr = '';
   for (let i = 0; i < genres.length; i += 1) {
-    genresStr += `${genres[i].Name}\n`;
+    if (genres[i].Name){
+      genresStr += `${genres[i].Name}\n`;
+    }
   }
   return genresStr;
 };
@@ -60,7 +62,8 @@ export const getAllMoviesForCinema = (cinemaId, finalToken) => ({
       const cinemaMovies = [];
       for (let i = 0; i < movies.length; i += 1) {
         for (let j = 0; j < movies[i].showtimes.length; j += 1) {
-          if (movies[i].showtimes[j].cinema.id === cinemaId) {
+          if (movies[i].showtimes[j].cinema.id === cinemaId || movies[i].showtimes[j].cinema.toString() === cinemaId.toString() ) {
+            var showtimes = Array(movies[i].showtimes[j])
             const genresStr = GenresToString(movies[i].genres);
             cinemaMovies.push({
               id: movies[i].id,
@@ -70,11 +73,38 @@ export const getAllMoviesForCinema = (cinemaId, finalToken) => ({
               genres: genresStr,
               duration: movies[i].durationMinutes,
               plot: movies[i].plot,
-              showtimes: movies[i].showtimes[j],
+              showtimes: showtimes,
             });
           }
         }
       }
       return cinemaMovies;
+    }),
+});
+
+export const getAllMovies = (finalToken) => ({
+  getMovies: () => fetch(MOVIESENDPOINT, {
+    method: 'GET',
+    headers: {
+      'x-access-token': finalToken,
+    },
+  })
+    .then((d) => d.json())
+    .then(async (movies) => {
+      const allMovies = [];
+      for (let i = 0; i < movies.length; i += 1) {
+        const genresStr = GenresToString(movies[i].genres);
+        allMovies.push({
+          id: movies[i].id,
+          name: movies[i].title,
+          image: movies[i].poster,
+          releaseYear: movies[i].year,
+          genres: genresStr,
+          duration: movies[i].durationMinutes,
+          plot: movies[i].plot,
+          showtimes: movies[i].showtimes,
+        });
+      }
+      return allMovies;
     }),
 });

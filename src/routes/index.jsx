@@ -3,11 +3,13 @@ import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { Icon } from 'react-native-elements';
+import Fontisto from 'react-native-vector-icons/Fontisto';
 import Main from '../views/Main';
 import Cinemas from '../views/Cinemas';
 import CinemaDetails from '../views/CinemaDetails';
 import MovieDetails from '../views/MovieDetails';
 import UpcomingMovies from '../views/UpcomingMovies';
+import AllMovies from '../views/AllMovies';
 import UpcomingMoviesTrailers from '../views/UpcomingMoviesTrailers';
 
 const MainNavigator = createStackNavigator({
@@ -19,6 +21,10 @@ const CinemasStackNavigator = createStackNavigator({
   UpcomingMovies,
   CinemaDetails,
   MovieDetails,
+});
+
+const AllMoviesStackNavigator = createStackNavigator({
+  AllMovies,
 });
 
 const UpcomingMoviesStackNavigator = createStackNavigator({
@@ -61,6 +67,26 @@ const BottomNavigator = createBottomTabNavigator(
             type="font-awesome"
             name="film"
             size={25}
+          />
+        ),
+      },
+    },
+    AllMovies: {
+      screen: AllMoviesStackNavigator,
+
+      navigationOptions: {
+        tabBarLabel: 'Bíómyndir',
+        title: 'Bíómyndir',
+        tabBarOptions: {
+          showIcon: true,
+          activeTintColor: 'black',
+          inactiveTintColor: 'lightgrey',
+        },
+        tabBarIcon: () => (
+          <Fontisto
+            name="film"
+            size={25}
+            color="black"
           />
         ),
       },

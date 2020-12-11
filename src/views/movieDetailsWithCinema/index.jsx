@@ -8,7 +8,7 @@ import styles from './styles';
 import MoviesList from '../../components/MoviesList';
 import Header from '../../components/Header';
 
-const MovieDetails = ({
+const MovieDetailsWithCinema = ({
   movieDetails,
 }) => (
   <View style={styles.container}>
@@ -22,7 +22,7 @@ const MovieDetails = ({
   </View>
 );
 
-MovieDetails.propTypes = {
+MovieDetailsWithCinema.propTypes = {
   movieDetails: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
@@ -38,4 +38,4 @@ const mapStateToProps = (state, ownProps) => ({
   state.cinemaMovies.filter((movie) => movie.id === ownProps.navigation.state.params.id),
 });
 
-export default connect(mapStateToProps)(MovieDetails);
+export default connect(mapStateToProps)(MovieDetailsWithCinema);

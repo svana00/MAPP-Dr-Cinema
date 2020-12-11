@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  View, Text, ImageBackground,
+  View, Text, ImageBackground, ScrollView
 } from 'react-native';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';

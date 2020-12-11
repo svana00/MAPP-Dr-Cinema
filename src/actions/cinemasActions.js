@@ -23,6 +23,6 @@ export const getCinemas = (token) => async (dispatch) => {
     });
     dispatch(getCinemasSuccess(cinemasTrimmed));
   } catch (error) {
-    console.log('An error occurred in getCinemas action.', error);
+    console.log('An error happened in getCinemas action.', error);
   }
 };

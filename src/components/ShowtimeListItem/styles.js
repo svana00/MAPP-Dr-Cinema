@@ -4,6 +4,7 @@ export default StyleSheet.create({
   buy: {
     fontWeight: 'bold',
     color: 'white',
+    fontSize: 13,
   },
   button: {
     paddingTop: 10,
@@ -11,8 +12,8 @@ export default StyleSheet.create({
     paddingLeft: 4,
     paddingRight: 4,
     marginTop: 10,
-    marginBottom: 8,
-    marginRight: 12,
+    marginBottom: 15,
+    marginLeft: 15,
     backgroundColor: 'green',
     borderRadius: 10,
   },

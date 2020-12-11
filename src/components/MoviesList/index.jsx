@@ -3,11 +3,10 @@ import {
   View, FlatList,
 } from 'react-native';
 import PropTypes from 'prop-types';
-import styles from './styles';
 import MoviesListItem from '../MoviesListItem';
 
 const MoviesList = ({ cinemaMovies, onPress }) => (
-  <View style={styles.listContainer}>
+  <View>
     <FlatList
       numColumns={1}
       data={cinemaMovies}
@@ -36,7 +35,6 @@ const MoviesList = ({ cinemaMovies, onPress }) => (
 );
 
 MoviesList.propTypes = {
-  cinemaId: PropTypes.number.isRequired,
   onPress: PropTypes.func.isRequired,
 };
 

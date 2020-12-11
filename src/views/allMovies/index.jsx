@@ -3,11 +3,12 @@ import { View } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getMovies } from '../../actions/allMoviesActions';
-import UpcomingMoviesList from '../../components/UpcomingMoviesList';
+import MoviesList from '../../components/MoviesList';
 import Header from '../../components/Header';
 import Spinner from '../../components/Spinner';
+import styles from './styles';
 
-class allMovies extends React.Component {
+class AllMovies extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -25,7 +26,7 @@ class allMovies extends React.Component {
     const { navigation: { navigate }, allMovies } = this.props;
     const { isLoading } = this.state;
     return (
-      <View>
+      <View style={styles.listContainer}>
         <Header
           title="Allar myndir"
         />
@@ -51,7 +52,7 @@ const mapStateToProps = ({ allMovies }) => ({
   allMovies,
 });
 
-UpcomingMovies.propTypes = {
+AllMovies.propTypes = {
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
     addListener: PropTypes.func.isRequired,

@@ -1,9 +1,9 @@
 import * as constants from '../constants';
 import { getAllMovies, token } from '../services/cinemasService';
 
-export const getMovies = (movies) => ({
+export const getMoviesSuccess = (movies) => ({
   type: constants.GET_ALL_MOVIES,
-  payload: movies,
+  payload: movies.sort((mov1, mov2) => mov1.name.localeCompare(mov2.name)),
 });
 
 export const getMovies = () => async (dispatch) => {
@@ -11,8 +11,8 @@ export const getMovies = () => async (dispatch) => {
     let finalToken = await token();
     finalToken = finalToken.token;
     const movies = await getAllMovies(finalToken).getMovies();
-    dispatch(getMovies(movies));
+    dispatch(getMoviesSuccess(movies));
   } catch (err) {
-    console.log('We had an ERROR in AllMoviesAction --> getMovies', err);
+    console.log('An error happened in getMovies action.', err);
   }
 };

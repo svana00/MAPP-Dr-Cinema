@@ -3,7 +3,7 @@ import { getAllMoviesForCinema, token } from '../services/cinemasService';
 
 export const getMoviesForCinemaSuccess = (movies) => ({
   type: constants.GET_CINEMA_MOVIES,
-  payload: movies,
+  payload: movies.sort((mov1, mov2) => mov1.name.localeCompare(mov2.name)),
 });
 
 export const getMoviesForCinema = (cinemaId) => async (dispatch) => {
@@ -13,6 +13,6 @@ export const getMoviesForCinema = (cinemaId) => async (dispatch) => {
     const movies = await getAllMoviesForCinema(cinemaId, finalToken).getMovies();
     dispatch(getMoviesForCinemaSuccess(movies));
   } catch (err) {
-    console.log('We had an ERROR in movieAction --> getCinemaDetails', err);
+    console.log('An error happened in getMoviesForCinema action.', err);
   }
 };
