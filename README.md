@@ -1,4 +1,4 @@
-# MAPP Group 25
+# Dr. Cinema - Group 25
 
 ## Description
 
@@ -15,3 +15,9 @@ The team consists of 3 people:
 - [Margrét Sól Aðalsteinsdóttir](mailto:margreta19@ru.is)
 - [Róslín Erla Tómasdóttir](mailto:roslin19@ru.is)
 - [Svanhildur Einarsdóttir](mailto:svanhildur19@ru.is)
+
+## Extra functionality
+
+- Possible to watch trailers
+- Can see all movies in a list
+- Search functionality in large lists
