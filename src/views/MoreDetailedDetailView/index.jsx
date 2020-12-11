@@ -1,12 +1,11 @@
 import React from 'react';
 import {
-  View, Linking, Image, Text, ScrollView, ImageBackground,
+  View, Image, Text, ScrollView, ImageBackground,
 } from 'react-native';
 import WebView from 'react-native-webview';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import styles from './styles';
-import MoviesList from '../../components/MoviesList';
 import l from '../../resources/l.png';
 import sixteen from '../../resources/sixteen.png';
 import nine from '../../resources/nine.png';
@@ -137,10 +136,6 @@ MoreDetailedDetailView.propTypes = {
     duration: PropTypes.number.isRequired,
     releaseYear: PropTypes.string.isRequired,
   })).isRequired,
-};
-
-MoreDetailedDetailView.defaultProps = {
-  plot: '',
 };
 
 const mapStateToProps = (state, props) => ({

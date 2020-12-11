@@ -28,6 +28,7 @@ class CinemaList extends React.Component {
           value={query}
           onChangeText={(queryText) => this.handleSearch(queryText)}
           placeholder="Search"
+          placeholderTextColor="dimgray"
           style={{ backgroundColor: '#fff', paddingHorizontal: 20 }}
         />
       </View>

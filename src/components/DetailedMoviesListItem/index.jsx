@@ -6,7 +6,8 @@ import PropTypes from 'prop-types';
 import styles from './styles';
 
 const DetailedMoviesListItem = ({
-  id, name, image, plot, duration, releaseYear, genres, rating, ageLimit, otherTitles, actors, directors, trailers, onPress,
+  id, name, image, plot, duration, releaseYear, genres, rating,
+  ageLimit, otherTitles, actors, directors, trailers, onPress,
 }) => (
   <TouchableOpacity
     onPress={() => onPress(id)}

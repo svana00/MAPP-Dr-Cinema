@@ -43,11 +43,11 @@ export async function getAllCinemas() {
 export const GenresToString = (genres) => {
   let genresStr = '';
   for (let i = 0; i < genres.length; i += 1) {
-    if (genres[i].Name){
+    if (genres[i].Name) {
       genresStr += `${genres[i].Name}\n`;
     }
   }
-  return genresStr.slice(0,-1);
+  return genresStr.slice(0, -1);
 };
 
 const TrailerObjectsToUrl = (trailers) => {
@@ -61,12 +61,12 @@ const TrailerObjectsToUrl = (trailers) => {
 };
 
 const peopleToString = (people) => {
-  var peopleString = '';
+  let peopleString = '';
   for (let i = 0; i < people.length; i += 1) {
     peopleString += `${people[i].name}\n`;
   }
-  return peopleString.slice(0,-1);
-}
+  return peopleString.slice(0, -1);
+};
 
 export const getAllMoviesForCinema = (cinemaId, finalToken) => ({
   getMovies: () => fetch(MOVIESENDPOINT, {
@@ -80,8 +80,10 @@ export const getAllMoviesForCinema = (cinemaId, finalToken) => ({
       const cinemaMovies = [];
       for (let i = 0; i < movies.length; i += 1) {
         for (let j = 0; j < movies[i].showtimes.length; j += 1) {
-          if (movies[i].showtimes[j].cinema.id === cinemaId || movies[i].showtimes[j].cinema.toString() === cinemaId.toString() ) {
-            var showtimes = Array(movies[i].showtimes[j])
+          if (
+            movies[i].showtimes[j].cinema.id === cinemaId
+            || movies[i].showtimes[j].cinema.toString() === cinemaId.toString()) {
+            const showtimes = Array(movies[i].showtimes[j]);
             const genresStr = GenresToString(movies[i].genres);
             cinemaMovies.push({
               id: movies[i].id,
@@ -91,7 +93,7 @@ export const getAllMoviesForCinema = (cinemaId, finalToken) => ({
               genres: genresStr,
               duration: movies[i].durationMinutes,
               plot: movies[i].plot,
-              showtimes: showtimes,
+              showtimes,
             });
           }
         }
@@ -115,11 +117,11 @@ export const getAllMovies = (finalToken) => ({
         const urlArray = await TrailerObjectsToUrl(movies[i].trailers);
         const directors = await peopleToString(movies[i].directors_abridged);
         const actors = await peopleToString(movies[i].actors_abridged);
-        var certificate = ''
+        let certificate = ''
         if (!movies[i].certificate) {
-          certificate = movies[i].certificateIS.number
-        }else {
-          certificate = movies[i].certificate.number
+          certificate = movies[i].certificateIS.number;
+        } else {
+          certificate = movies[i].certificate.number;
         }
         allMovies.push({
           id: movies[i].id,
@@ -131,8 +133,8 @@ export const getAllMovies = (finalToken) => ({
           rating: movies[i].ratings.imdb,
           ageLimit: certificate,
           otherTitles: movies[i].alternativeTitles,
-          actors: actors,
-          directors: directors,
+          actors,
+          directors,
           trailers: urlArray,
           genres: genresStr,
         });

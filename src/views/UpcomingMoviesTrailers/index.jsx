@@ -7,7 +7,6 @@ import { connect } from 'react-redux';
 import { AntDesign } from '@expo/vector-icons';
 import WebView from 'react-native-webview';
 import styles from './styles';
-import Spinner from '../../components/Spinner';
 
 class UpcomingMoviesTrailers extends React.Component {
   constructor(props) {
@@ -23,7 +22,7 @@ class UpcomingMoviesTrailers extends React.Component {
 
   render() {
     const {
-      movieDetails, navigation: { navigate },
+      movieDetails,
     } = this.props;
     const { isLoading } = this.state;
     const newGenreStr = movieDetails[0].genres.replace(/\n/g, ' / ');
@@ -88,6 +87,10 @@ UpcomingMoviesTrailers.propTypes = {
     image: PropTypes.string.isRequired,
     releaseDate: PropTypes.string.isRequired,
   })).isRequired,
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+    addListener: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 const mapStateToProps = (state, props) => ({
