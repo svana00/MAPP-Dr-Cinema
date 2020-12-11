@@ -74,10 +74,6 @@ ShowtimeList.propTypes = {
   })).isRequired,
 };
 
-ShowtimeList.defaultProps = {
-  plot: '',
-};
-
 const mapStateToProps = ({ showtimes }) => ({ showtimes });
 
 export default connect(mapStateToProps)(ShowtimeList);

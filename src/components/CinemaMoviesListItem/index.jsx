@@ -5,7 +5,7 @@ import {
 import PropTypes from 'prop-types';
 import styles from './styles';
 
-const MovieListItem = ({
+const CinemaMoviesListItem = ({
   id, name, image, plot, duration, releaseYear, genres, showtimes, onPress,
 }) => (
   <TouchableOpacity
@@ -24,7 +24,7 @@ const MovieListItem = ({
   </TouchableOpacity>
 );
 
-MovieListItem.propTypes = {
+CinemaMoviesListItem.propTypes = {
   id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
@@ -43,9 +43,9 @@ MovieListItem.propTypes = {
   ),
 };
 
-MovieListItem.defaultProps = {
+CinemaMoviesListItem.defaultProps = {
   plot: null,
   showtimes: Array(),
 };
 
-export default MovieListItem;
+export default CinemaMoviesListItem;

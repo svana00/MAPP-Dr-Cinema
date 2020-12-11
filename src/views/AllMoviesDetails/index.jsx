@@ -24,7 +24,7 @@ class AllMoviesDetails extends React.Component {
     const {
       movieDetails,
     } = this.props;
-    const newGenreStr = this.toGenreStr()
+    const newGenreStr = this.toGenreStr();
     return (
       <ScrollView>
         <ImageBackground source={{ uri: movieDetails[0].image }} imageStyle={{ resizeMode: 'cover' }} style={{ width: '100%', height: '80%' }}>

@@ -41,9 +41,6 @@ class AllMoviesList extends React.Component {
     const {
       query,
     } = this.state;
-    const {
-      onPress,
-    } = this.props;
     return (
       <View
         style={{
@@ -90,19 +87,8 @@ class AllMoviesList extends React.Component {
           data={modifiedData}
           renderItem={({
             item: {
-              id,
-              name,
-              image,
-              plot,
-              duration,
-              releaseYear,
-              genres,
-              rating,
-              ageLimit,
-              otherTitles,
-              actors,
-              directors,
-              trailers,
+              id, name, image, plot, duration, releaseYear, genres, rating,
+              ageLimit, otherTitles, actors, directors, trailers,
             },
           }) => (
             <View>
