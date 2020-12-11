@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  View, FlatList, TextInput, Text
+  View, FlatList, TextInput, Text,
 } from 'react-native';
 import PropTypes from 'prop-types';
 import filter from 'lodash.filter';
