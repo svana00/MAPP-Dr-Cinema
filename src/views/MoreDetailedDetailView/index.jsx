@@ -33,8 +33,8 @@ class MoreDetailedDetailView extends React.Component {
     const newGenreStr = movieDetails[0].genres.replace(/\n/g, ' / ');
     return (
       <ScrollView>
-        <ImageBackground source={{ uri: movieDetails[0].image }} resizeMode="repeat-y" style={{ width: '101%', height: '80%' }}>
-          <View style={styles.Background}>
+        <ImageBackground source={{ uri: movieDetails[0].image }} imageStyle={{ resizeMode: 'cover' }} style={{ width: '100%', height: '80%' }}>
+            <View style={styles.Background}>
             <View style={styles.Header}>
               <Text style={styles.title}>{movieDetails[0].name}</Text>
               <View style={styles.rating}>
