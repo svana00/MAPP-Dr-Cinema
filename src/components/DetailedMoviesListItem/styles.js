@@ -11,14 +11,14 @@ export default StyleSheet.create({
     marginBottom: 4,
     marginRight: 2,
     marginLeft: 2,
-    paddingLeft: 20,
+    paddingLeft: 12,
     paddingRight: 5,
     paddingTop: 20,
     paddingBottom: 20,
     backgroundColor: '#fff',
     flex: 1,
     width: 179,
-    height: 310
+    height: 310,
   },
   textBox: {
     flex: 1,

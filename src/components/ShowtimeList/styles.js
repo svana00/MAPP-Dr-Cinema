@@ -19,7 +19,6 @@ export default StyleSheet.create({
   },
   description: {
     fontSize: 16,
-    color: 'black',
     marginBottom: 23,
     textAlign: 'justify',
     marginHorizontal: 15,

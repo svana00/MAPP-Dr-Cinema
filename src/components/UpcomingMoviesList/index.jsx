@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  View, FlatList, TextInput,
+  View, FlatList, TextInput, Text,
 } from 'react-native';
 import PropTypes from 'prop-types';
 import filter from 'lodash.filter';
@@ -57,6 +57,7 @@ class UpcomingMoviesList extends React.Component {
           value={query}
           onChangeText={(queryText) => this.handleSearch(queryText)}
           placeholder="Search"
+          placeholderTextColor="dimgray"
           style={{ backgroundColor: '#fff', paddingHorizontal: 20 }}
         />
       </View>
@@ -74,6 +75,14 @@ class UpcomingMoviesList extends React.Component {
       <View style={styles.listContainer}>
         <FlatList
           ListHeaderComponent={this.renderHeader()}
+          ListEmptyComponent={() => (
+            <View style={{
+              alignItems: 'center', marginTop: 30, justifyContent: 'center', width: 183,
+            }}
+            >
+              <Text style={{ fontSize: 18, marginBottom: 400 }}>Engin mynd fannst.</Text>
+            </View>
+          )}
           numColumns={2}
           data={modifiedData}
           renderItem={({

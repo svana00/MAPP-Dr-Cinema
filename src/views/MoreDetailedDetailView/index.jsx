@@ -1,12 +1,11 @@
 import React from 'react';
 import {
-  View, Linking, Image, Text, ScrollView, ImageBackground,
+  View, Image, Text, ScrollView, ImageBackground,
 } from 'react-native';
 import WebView from 'react-native-webview';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import styles from './styles';
-import MoviesList from '../../components/MoviesList';
 import l from '../../resources/l.png';
 import sixteen from '../../resources/sixteen.png';
 import nine from '../../resources/nine.png';
@@ -34,7 +33,7 @@ class MoreDetailedDetailView extends React.Component {
     const newGenreStr = movieDetails[0].genres.replace(/\n/g, ' / ');
     return (
       <ScrollView>
-        <ImageBackground source={{ uri: movieDetails[0].image }} style={{ width: '101%', height: '80%' }}>
+        <ImageBackground source={{ uri: movieDetails[0].image }} imageStyle={{ resizeMode: 'cover' }} style={{ width: '100%', height: '80%' }}>
           <View style={styles.Background}>
             <View style={styles.Header}>
               <Text style={styles.title}>{movieDetails[0].name}</Text>
@@ -97,6 +96,7 @@ class MoreDetailedDetailView extends React.Component {
                   {movieDetails[0].directors}
                 </Text>
               </View>
+              <Text style={styles.heading2}>Stikla</Text>
             </View>
             {
                   movieDetails[0].trailers[0]
@@ -112,11 +112,11 @@ class MoreDetailedDetailView extends React.Component {
                       </View>
                     ) : (
                       <View style={[styles.trailer, { justifyContent: 'center' }]}>
-                        <Text style={{
-                          paddingTop: 20, paddingHorizontal: 20, fontSize: 16, fontWeight: 'bold',
-                        }}
+                        <Text style={
+                          styles.info2
+                        }
                         >
-                          Því miður, það finnst enginn trailer fyrir þessa mynd
+                          Því miður fannst engin stikla fyrir þessa mynd.
                         </Text>
                       </View>
                     )
@@ -137,10 +137,6 @@ MoreDetailedDetailView.propTypes = {
     duration: PropTypes.number.isRequired,
     releaseYear: PropTypes.string.isRequired,
   })).isRequired,
-};
-
-MoreDetailedDetailView.defaultProps = {
-  plot: '',
 };
 
 const mapStateToProps = (state, props) => ({
