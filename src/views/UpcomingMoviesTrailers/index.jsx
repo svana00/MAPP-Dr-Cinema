@@ -30,26 +30,27 @@ class UpcomingMoviesTrailers extends React.Component {
     return (
       <ScrollView style={styles.container}>
         <ImageBackground source={{ uri: movieDetails[0].image }} style={{ width: '100%', height: '100%' }}>
-          <View style={styles.Background}>
-            <View style={styles.Header}>
+          <View style={styles.background}>
+            <View style={styles.header}>
               <Text style={styles.title}>{movieDetails[0].name}</Text>
               <AntDesign name="hearto" size={25} style={styles.heart} />
             </View>
             <View style={styles.content}>
               <View style={styles.genres}>
-                <Text>{ newGenreStr }</Text>
+                <Text style={styles.facts}>{ newGenreStr }</Text>
               </View>
-              <View style={styles.facts}>
+              <View>
                 {movieDetails[0].duration !== 'N/A' ? (
-                  <Text>
+                  <Text style={styles.facts}>
                     {movieDetails[0].duration}
                     {'  |  '}
                     {movieDetails[0].releaseDate}
                   </Text>
                 )
                   : (
-                    <Text>{movieDetails[0].releaseDate}</Text>
+                    <Text style={styles.facts}>{movieDetails[0].releaseDate}</Text>
                   )}
+                <Text style={styles.heading2}>Stikla</Text>
               </View>
             </View>
             {
@@ -64,8 +65,12 @@ class UpcomingMoviesTrailers extends React.Component {
                       />
                     </View>
                   ) : (
-                    <View style={[styles.trailer, { justifyContent: 'center' }]}>
-                      <Text>Því miður, það finnst enginn trailer fyrir þessa mynd</Text>
+                    <View style={[styles.noTrailer, { justifyContent: 'center' }]}>
+                      <Text
+                        style={styles.facts}
+                      >
+                        Því miður fannst engin stikla fyrir þessa mynd
+                      </Text>
                     </View>
                   )
               }
