@@ -72,7 +72,7 @@ const whichTheaters = (showtimes) => {
   let theaterString = '';
   for (let i = 0; i < showtimes.length; i += 1) {
     if (!showtimes[i].cinema.name) {
-      if (showtimes[i].cinema == 6) {
+      if (showtimes[i].cinema === 6) {
         theaterString += 'Álfabakki\n';
       }
     } else {
@@ -131,8 +131,8 @@ export const getAllMovies = (finalToken) => ({
         const urlArray = await TrailerObjectsToUrl(movies[i].trailers);
         const directors = await peopleToString(movies[i].directors_abridged);
         const actors = await peopleToString(movies[i].actors_abridged);
-        const theaters = await whichTheaters(movies[i].showtimes)
-        let certificate = ''
+        const theaters = await whichTheaters(movies[i].showtimes);
+        let certificate = '';
         if (!movies[i].certificate) {
           certificate = movies[i].certificateIS.number;
         } else {
@@ -152,7 +152,7 @@ export const getAllMovies = (finalToken) => ({
           directors,
           trailers: urlArray,
           genres: genresStr,
-          theaters: theaters,
+          theaters,
         });
       }
       return allMovies;

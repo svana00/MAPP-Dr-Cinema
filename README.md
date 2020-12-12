@@ -19,5 +19,7 @@ The team consists of 3 people:
 ## Extra functionality
 
 - Possible to watch trailers
+- Rating visible for Detailed view from all movies
+- All sorts of extra information in detailed views of movies
 - Can see all movies in a list
 - Search functionality in large lists

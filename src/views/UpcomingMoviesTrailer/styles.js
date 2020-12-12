@@ -4,12 +4,14 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
+    backgroundColor: '#FFFF',
   },
   background: {
     marginTop: '80%',
     backgroundColor: '#FFFF',
     height: '70%',
-    borderRadius: 10,
+    borderTopLeftRadius: 18,
+    borderTopRightRadius: 18,
     flex: 1,
   },
   header: {

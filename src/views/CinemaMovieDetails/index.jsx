@@ -1,20 +1,15 @@
 import React from 'react';
 import {
-  View, Linking,
+  Linking, View,
 } from 'react-native';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import styles from './styles';
 import ShowtimeList from '../../components/ShowtimeList';
-import Header from '../../components/Header';
 
 const CinemaMovieDetails = ({
   movieDetails,
 }) => (
-  <View style={styles.container}>
-    <Header
-      title={movieDetails[0].name}
-    />
+  <View style={{ backgroundColor: '#FFFF', height: '100%' }}>
     <ShowtimeList
       onPress={(url) => Linking.openURL(url)}
       movieDetails={movieDetails}

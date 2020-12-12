@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  View, FlatList, Text, Image,
+  View, FlatList, Text, ImageBackground,
 } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -13,36 +13,46 @@ const ShowtimeList = ({
   <View style={styles.listContainer}>
     <FlatList
       ListHeaderComponent={(
-        <>
-          <View style={{ alignItems: 'center' }}>
-            <Image source={{ uri: movieDetails[0].image }} style={styles.thumbnailImage} resizeMode="cover" />
-          </View>
-          <View>
-            <Text style={styles.description}>
-              {'\n'}
-              {movieDetails[0].plot}
-            </Text>
-            <Text style={styles.heading}>Lengd</Text>
-            <Text style={styles.info}>
-              {movieDetails[0].duration}
-              {' '}
-              mínútur
-              {'\n'}
-            </Text>
-            <Text style={styles.heading}>Útgáfuár</Text>
-            <Text style={styles.info}>
-              {movieDetails[0].releaseYear}
-              {'\n'}
-            </Text>
-            <Text style={styles.heading}>Tegund</Text>
-            <Text style={styles.description}>
-              {movieDetails[0].genres}
-              {' '}
-            </Text>
-            <Text style={styles.heading}>Kaupa miða</Text>
-          </View>
-        </>
+        <View style={styles.container}>
+          <ImageBackground source={{ uri: movieDetails[0].image }} imageStyle={{ resizeMode: 'cover' }} style={{ width: '100%', height: '80%' }}>
+            <View style={styles.Background}>
+              <View style={styles.Header}>
+                <Text style={styles.title}>{movieDetails[0].name}</Text>
+              </View>
+              <View style={styles.content}>
+                <View style={styles.genres}>
+                  <Text>{ movieDetails[0].genres.replace(/\n/g, ' / ') }</Text>
+                </View>
+                <View style={styles.facts}>
+                  {movieDetails[0].duration !== 'N/A' ? (
+                    <Text>
+                      {movieDetails[0].duration}
+                      {' mín  |  '}
+                      {movieDetails[0].releaseYear}
+                    </Text>
+                  )
+                    : (
+                      <Text>{movieDetails[0].releaseYear}</Text>
+                    )}
+                </View>
+              </View>
+
+              <View style={styles.secondaryFacts}>
+                <Text style={styles.description}>
+                  {'\n'}
+                  {movieDetails[0].plot}
+                </Text>
+                <View>
+                  <Text style={styles.heading}>Kaupa Miða</Text>
+                </View>
+              </View>
+            </View>
+          </ImageBackground>
+        </View>
     )}
+      ListFooterComponent={(
+        <View style={styles.whiteBox} />
+        )}
       numColumns={3}
       data={movieDetails[0].showtimes[0].schedule}
       renderItem={({
@@ -71,6 +81,12 @@ ShowtimeList.propTypes = {
     duration: PropTypes.number.isRequired,
     releaseYear: PropTypes.string.isRequired,
     genres: PropTypes.string.isRequired,
+    showtimes: PropTypes.arrayOf(PropTypes.shape({
+      schedule: PropTypes.arrayOf(PropTypes.shape({
+        purchase_url: PropTypes.string.isRequired,
+        time: PropTypes.string.isRequired,
+      })).isRequired,
+    })).isRequired,
   })).isRequired,
 };
 

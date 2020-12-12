@@ -138,6 +138,11 @@ AllMoviesDetails.propTypes = {
     releaseYear: PropTypes.string.isRequired,
     rating: PropTypes.string.isRequired,
     genres: PropTypes.string.isRequired,
+    ageLimit: PropTypes.string.isRequired,
+    theaters: PropTypes.string.isRequired,
+    actors: PropTypes.string.isRequired,
+    directors: PropTypes.string.isRequired,
+    trailers: PropTypes.arrayOf(PropTypes.string).isRequired,
   })).isRequired,
 };
 

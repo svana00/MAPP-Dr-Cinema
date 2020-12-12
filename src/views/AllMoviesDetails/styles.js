@@ -60,6 +60,7 @@ export default StyleSheet.create({
   genres: {
     flex: 1,
     marginBottom: '5%',
+    marginRight: '10%',
   },
   facts: {
     flex: 1,

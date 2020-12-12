@@ -81,6 +81,9 @@ UpcomingMoviesTrailer.propTypes = {
     name: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
     releaseDate: PropTypes.string.isRequired,
+    duration: PropTypes.string.isRequired,
+    genres: PropTypes.string.isRequired,
+    trailers: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
   })).isRequired,
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
