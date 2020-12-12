@@ -68,6 +68,7 @@ Cinemas.propTypes = {
     website: PropTypes.string.isRequired,
     description: PropTypes.string,
   })).isRequired,
+  getCinemas: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, { getCinemas })(Cinemas);

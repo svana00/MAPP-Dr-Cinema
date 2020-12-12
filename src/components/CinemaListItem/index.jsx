@@ -3,14 +3,13 @@ import {
   View, Text, TouchableOpacity,
 } from 'react-native';
 import PropTypes from 'prop-types';
-import { List } from 'react-native-paper';
 import styles from './styles';
 
 const CinemaListItem = ({
   id, name, address, city, description, phone, website, onPress,
 }) => (
   <TouchableOpacity
-    onPress={() => onPress(id, name, description, address, phone, website)}
+    onPress={() => onPress(id, name, description, address, city, phone, website)}
   >
     {
   }
@@ -18,13 +17,6 @@ const CinemaListItem = ({
       <View style={styles.textBox}>
         <Text style={styles.title}>{name}</Text>
         <Text style={styles.website}>{website}</Text>
-      </View>
-      <View>
-        <TouchableOpacity
-          onPress={() => onPress(id, name, description, address, city, phone, website)}
-        >
-          <List.Icon icon="arrow-right" />
-        </TouchableOpacity>
       </View>
     </View>
   </TouchableOpacity>

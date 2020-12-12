@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import styles from './styles';
 
 const CinemaMoviesListItem = ({
-  id, name, image, plot, duration, releaseYear, genres, showtimes, onPress,
+  id, name, image, releaseYear, genres, onPress,
 }) => (
   <TouchableOpacity
     onPress={() => onPress(id)}
@@ -28,24 +28,9 @@ CinemaMoviesListItem.propTypes = {
   id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
-  plot: PropTypes.string,
-  duration: PropTypes.number.isRequired,
   releaseYear: PropTypes.string.isRequired,
   onPress: PropTypes.func.isRequired,
   genres: PropTypes.string.isRequired,
-  showtimes: PropTypes.arrayOf(
-    PropTypes.shape({
-      schedule: PropTypes.arrayOf(PropTypes.shape({
-        purchase_url: PropTypes.string.isRequired,
-        time: PropTypes.string.isRequired,
-      })).isRequired,
-    }).isRequired,
-  ),
-};
-
-CinemaMoviesListItem.defaultProps = {
-  plot: null,
-  showtimes: Array(),
 };
 
 export default CinemaMoviesListItem;

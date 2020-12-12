@@ -6,7 +6,6 @@ import { getMovies } from '../../actions/allMoviesActions';
 import AllMoviesList from '../../components/AllMoviesList';
 import Header from '../../components/Header';
 import Spinner from '../../components/Spinner';
-import styles from './styles';
 
 class AllMovies extends React.Component {
   constructor(props) {
@@ -26,7 +25,7 @@ class AllMovies extends React.Component {
     const { navigation: { navigate }, allMovies } = this.props;
     const { isLoading } = this.state;
     return (
-      <View style={styles.listContainer}>
+      <View>
         <Header
           title="Bíómyndir í sýningu"
         />

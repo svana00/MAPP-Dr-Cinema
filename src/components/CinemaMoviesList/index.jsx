@@ -12,7 +12,7 @@ const CinemaMoviesList = ({ cinemaMovies, onPress }) => (
       data={cinemaMovies}
       renderItem={({
         item: {
-          id, name, image, plot, duration, releaseYear, genres, showtimes,
+          id, name, image, releaseYear, genres,
         },
       }) => (
         <View>
@@ -20,11 +20,8 @@ const CinemaMoviesList = ({ cinemaMovies, onPress }) => (
             id={id}
             name={name}
             image={image}
-            plot={plot}
-            duration={duration}
             releaseYear={releaseYear}
             genres={genres}
-            showtimes={showtimes}
             onPress={onPress}
           />
         </View>

@@ -1,27 +1,11 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
-  thumbnailImage: {
-    width: 200,
-    height: 290,
-    overflow: 'hidden',
-    borderWidth: 1,
-  },
-  rating: {
-    alignItems: 'center',
-    flex: 1,
-  },
   container: {
     flex: 1,
     flexDirection: 'column',
   },
-  BackgroundImage: {
-    height: '50%',
-    width: '100%',
-    resizeMode: 'repeat',
-    flex: 1,
-  },
-  Background: {
+  background: {
     backgroundColor: '#FFFF',
     marginTop: '80%',
     height: '70%',
@@ -29,7 +13,7 @@ export default StyleSheet.create({
     borderTopLeftRadius: 18,
     borderTopRightRadius: 18,
   },
-  Header: {
+  header: {
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
@@ -38,6 +22,7 @@ export default StyleSheet.create({
     flex: 2,
     fontSize: 32,
     alignItems: 'center',
+    marginRight: 8,
     marginLeft: '8%',
     marginTop: '5%',
     marginBottom: '5%',
@@ -64,34 +49,14 @@ export default StyleSheet.create({
   facts: {
     flex: 1,
   },
-  trailer: {
-    flex: 3,
-    height: '50%',
-    width: '100%',
-    marginRight: 80,
-    alignItems: 'center',
-    marginBottom: 20,
-  },
-  ImageContainer: {
-    flex: 1,
-  },
   description: {
     fontSize: 16,
-    marginRight: '10%',
-  },
-  info: {
-    fontSize: 15,
     marginRight: '10%',
   },
   heading2: {
     fontSize: 20,
     marginTop: '5%',
     fontWeight: '500',
-  },
-  info2: {
-    flex: 1,
-    fontSize: 15,
-    margin: 6,
   },
   whiteBox: {
     backgroundColor: '#FFFF',

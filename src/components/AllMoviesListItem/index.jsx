@@ -32,8 +32,12 @@ AllMoviesListItem.propTypes = {
   name: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   releaseYear: PropTypes.string.isRequired,
-  rating: PropTypes.string.isRequired,
+  rating: PropTypes.string,
   onPress: PropTypes.func.isRequired,
+};
+
+AllMoviesListItem.defaultProps = {
+  rating: null,
 };
 
 export default AllMoviesListItem;

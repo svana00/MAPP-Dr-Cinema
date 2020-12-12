@@ -136,7 +136,7 @@ AllMoviesDetails.propTypes = {
     plot: PropTypes.string,
     duration: PropTypes.number.isRequired,
     releaseYear: PropTypes.string.isRequired,
-    rating: PropTypes.string.isRequired,
+    rating: PropTypes.string,
     genres: PropTypes.string.isRequired,
     ageLimit: PropTypes.string.isRequired,
     theaters: PropTypes.string.isRequired,
